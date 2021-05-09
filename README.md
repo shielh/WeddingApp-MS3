@@ -29,7 +29,6 @@ will be a great learning curve for what I can expect when I start working as a W
             * [Typography](#Typography)
             * [Imagery](#Imagery)
 * [Features](#Features)
-    
     - [Future Features to Implement](#future-features-to-implement)
 * [Technologies Used](#Technologies-Used)
 * [Testing](#testing)
