@@ -47,3 +47,15 @@ will be a great learning curve for what I can expect when I start working as a W
     * [Acknowledgements](#acknowledgements)
 
 --- 
+
+## User Experience
+### The Strategy Plane
+Weddings can be extremely stressful to plan. There is so much to think about in the run up to the big day like the flowers, the table plans, 
+the guests dietary requirements. The list goes on. For my sister, whose wedding is next September, she wanted a place where her guests could 
+register, login, have access to all the information about their wedding and have the ability to add a variety of special requests ranging 
+from dietary requirements to wanting to stay on the property in Italy.
+
+This project was created for my sister Emma for her big day to help alleviate some of the stress. The aim is to provide a simple web 
+application where wedding guests can add, edit and delete their specific requirements.
+
+### User Stories
