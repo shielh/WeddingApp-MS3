@@ -65,3 +65,13 @@ application where wedding guests can add, edit and delete their specific require
 * As a user, I want to be able to update or delete the information I add
 * As a user, I want to be able to find out all the information about the wedding; the dates, the venue, the schedule
 * As a user, I want the website to be responsive across all devices
+
+### The Scope Plane
+#### Features on site
+* index.html page detailing the wedding venue, dates and itinerary
+* accommodation.html page giving information about the rooms and the local area
+* Burger icon menu on mobile devices
+* Register, login and logout functionality
+* guest_info.html where guests while logged in can add information like dietary requirements
+* CRUD functionality
+* MongoDB to store wedding guest information and user login details
