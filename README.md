@@ -59,3 +59,9 @@ This project was created for my sister Emma for her big day to help alleviate so
 application where wedding guests can add, edit and delete their specific requirements.
 
 ### User Stories
+* As a user, I want to be able to easily navigate across the site so I can find the content quickly
+* As a user, I want to view a pretty website with images of the wedding venue
+* As a user, I want to be able to register an account so I can add any required information the bride might need
+* As a user, I want to be able to update or delete the information I add
+* As a user, I want to be able to find out all the information about the wedding; the dates, the venue, the schedule
+* As a user, I want the website to be responsive across all devices
