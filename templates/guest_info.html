@@ -1,22 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guest Info</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>I'm extending the base template!</h2>
+
     {% for guest_info in guest_info %}
         {{ guest_info.number_of_party }}<br>
         {{ guest_info.require_accommodation }}<br>
         {{ guest_info.dietary_restrictions }}<br>
         {{ guest_info.dietary_restrictions_description }}<br>
-        {{ guest_info.accessibility_issue }}<br>
-        {{ guest_info.accessibility_issue_description }}<br>
         {{ guest_info.arrival_date }}<br>
         {{ guest_info.add_note }}<br>
         {{ guest_info.created_by }}<br>
-
     {% endfor %}
-</body>
-</html>
+{% endblock %}
