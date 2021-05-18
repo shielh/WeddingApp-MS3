@@ -15,45 +15,45 @@
     <title>Wedding App</title>
 </head>
 <body>
+    <header>
     <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-scroll fixed-top shadow-0 border-bottom border-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#!"></a><img src="{{ url_for('static', filename='images/siteLogo.png') }}" class="responsive-img" alt="site"></a>
-    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-      data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#!">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!">Accommodation</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!">FAQ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!">Add Preferences</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!">Log Out</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!">Log In</a>
-        </li>
-        <button type="button" class="btn register-btn ms-3">Register</button>
-      </ul>
-    </div>
-  </div>
-</nav>
-<!-- Navbar -->
-
-<div class="d-flex align-items-center justify-content-center text-center" style="height: 1100px;">
-  <p class="h3">Scroll down to see the effect of change the navbar background-color</p>
-</div>
+        <nav class="navbar navbar-expand-lg navbar-scroll fixed-top shadow-1 border-bottom border-dark">
+            <div class="container ">
+                <a class="navbar-brand" href="#!"><img src="{{ url_for('static', filename='images/siteLogo.png') }}" class="site-logo" alt="site logo"></a>
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto ">
+                        <li class="nav-item ">
+                            <a class="nav-link " href="#!">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#!">Accommodation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#!">FAQ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ url_for('get_guest_info') }}">Add Preferences</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#!">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ url_for('register') }}">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#!">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <!-- Navbar -->
+    </header>
 
 
     {% block content %}

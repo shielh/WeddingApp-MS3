@@ -27,16 +27,38 @@
   padding-top: auto;
   padding-bottom: auto;
 }
+
 .navbar-brand {
   font-size: unset;
   height: 3.5rem;
 }
 
-.register-btn {
-    background-color: #8D8A61;
+.nav-link {
     color: #FFFDE7;
 }
 
-.nav-link {
-    color: #FFFDE7;
+.site-logo {
+    height: 80px;
+}
+
+.navbar-collapse {
+    text-align: right;
+}
+
+.form-container {
+    margin-top: 100px;
+    padding-top: 10px;
+    width: fit-content;
+    margin: auto;
+}
+
+.register-h2 {
+    margin-top: 100px;
+    color: #9b9871;
+}
+
+.register-btn {
+    background-color: #9b9871;
+    border-color: #9b9871;
+
 }
