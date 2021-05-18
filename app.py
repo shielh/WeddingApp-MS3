@@ -28,6 +28,26 @@ def get_guest_info():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        # check if username already exists in mongodb
+        existing_user = mongo.db.user.find_one(
+            {"email": request.form.get("email").lower()})
+
+        if existing_user:
+            flash("Sorry this email has already been used")
+            return redirect(url_for("register"))
+
+        register = {
+            "firstName": request.form.get("firstName").lower(),
+            "lastName": request.form.get("lastName").lower(),
+            "email": request.form.get("email").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.user.insert_one(register)
+
+        # start the new users session
+        session["user"] = request.form.get("email").lower()
+        flash("Congrats, Registration Successful!")
     return render_template("register.html")
 
 

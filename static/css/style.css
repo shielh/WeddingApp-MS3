@@ -46,19 +46,22 @@
 }
 
 .form-container {
-    margin-top: 100px;
     padding-top: 10px;
     width: fit-content;
     margin: auto;
 }
 
 .register-h2 {
-    margin-top: 100px;
     color: #9b9871;
 }
 
 .register-btn {
     background-color: #9b9871;
     border-color: #9b9871;
+}
 
+.message-flash {
+    margin-top: 20px;
+    background-color: #9b9871;
+    color: #FFFDE7;
 }
