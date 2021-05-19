@@ -29,7 +29,7 @@ def get_guest_info():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        # check if username already exists in mongodb
+        # check if email already exists in mongodb
         existing_user = mongo.db.user.find_one(
             {"email": request.form.get("email").lower()})
 
@@ -49,6 +49,32 @@ def register():
         session["user"] = request.form.get("email").lower()
         flash("Congrats, Registration Successful!")
     return render_template("register.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # check if email exists in db
+        existing_user = mongo.db.users.find_one(
+            {"email": request.form.get("email").lower()})
+
+        if existing_user:
+            # ensure hashed password matches user input
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                    session["user"] = request.form.get("email").lower()
+                    flash("Welcome, {}".format(request.form.get("email")))
+            else:
+                # invalid password match
+                flash("Incorrect Email and/or Password")
+                return redirect(url_for("login"))
+
+        else:
+            # username doesn't exist
+            flash("Incorrect Email and/or Password")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
 
 
 if __name__ == "__main__":
