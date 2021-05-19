@@ -48,6 +48,7 @@ def register():
         # start the new users session
         session["user"] = request.form.get("email").lower()
         flash("Congrats, Registration Successful!")
+        return redirect(url_for("profile", firstName=session["user"]))
     return render_template("register.html")
 
 
@@ -63,7 +64,10 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("email").lower()
-                    flash("Welcome, {}".format(request.form.get("email")))
+                    flash("Welcome, {}".format(
+                        request.form.get("email")))
+                    return redirect(url_for(
+                        "profile", firstName=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Email and/or Password")
@@ -75,6 +79,15 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/profile/<firstName>", methods=["GET", "POST"])
+def profile(firstName):
+    # grab the session user's first name from db
+    firstName = mongo.db.users.find_one(
+        {"firstName": session["user"]})["firstName"]
+    return render_template("profile.html", firstName=firstName)
+
 
 
 if __name__ == "__main__":
