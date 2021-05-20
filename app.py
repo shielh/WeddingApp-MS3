@@ -24,7 +24,7 @@ mongo = PyMongo(app)
 def get_guest_info():
     guest_info = mongo.db.guest_info.find()
     return render_template("guest_info.html", guest_info=guest_info)
-
+# option to have route to different pages depending on whether user is signed in or not
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -48,7 +48,7 @@ def register():
         # start the new users session
         session["user"] = request.form.get("email").lower()
         flash("Congrats, Registration Successful!")
-        return redirect(url_for("profile", firstName=session["user"]))
+        return redirect(url_for("get_guest_info"))
     return render_template("register.html")
 
 
@@ -56,7 +56,7 @@ def register():
 def login():
     if request.method == "POST":
         # check if email exists in db
-        existing_user = mongo.db.users.find_one(
+        existing_user = mongo.db.user.find_one(
             {"email": request.form.get("email").lower()})
 
         if existing_user:
@@ -67,7 +67,7 @@ def login():
                     flash("Welcome, {}".format(
                         request.form.get("email")))
                     return redirect(url_for(
-                        "profile", firstName=session["user"]))
+                        "get_guest_info"))
             else:
                 # invalid password match
                 flash("Incorrect Email and/or Password")
@@ -81,13 +81,12 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/<firstName>", methods=["GET", "POST"])
-def profile(firstName):
-    # grab the session user's first name from db
-    firstName = mongo.db.users.find_one(
-        {"firstName": session["user"]})["firstName"]
-    return render_template("profile.html", firstName=firstName)
-
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
