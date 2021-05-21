@@ -65,3 +65,14 @@
     background-color: #9b9871;
     color: #FFFDE7;
 }
+
+/* Styling for datepicker */
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
+}
