@@ -67,19 +67,17 @@
 }
 
 /* add preferences page */
-/* Styling for datepicker */
-label {
-    display: block;
-    font: 1rem 'Fira Sans', sans-serif;
-}
-
-input,
-label {
-    margin: .4rem 0;
+.preferences-form-card {
+    border: 1px solid #262626;
 }
 
 .add-preferences-btn {
     background-color: #9b9871;
+}
+
+label {
+    display: inline-block;
+    text-align: left;
 }
 
 .additional-text-box {

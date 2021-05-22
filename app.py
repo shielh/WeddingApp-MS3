@@ -89,8 +89,27 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_preferences")
+@app.route("/add_preferences", methods=["GET", "POST"])
 def add_preferences():
+    if request.method == "POST":
+        require_accommodation = "yes" if request.form.get(
+            "require_accommodation") else "no"
+        dietary_restrictions = "yes" if request.form.get(
+            "dietary_restrictions") else "no"
+        guest_information = {
+            "number_of_party": request.form.get("number_of_party"),
+            "require_accommodation": require_accommodation,
+            "dietary_restrictions": dietary_restrictions,
+            "dietary_restrictions_description": request.form.get(
+                "dietary_restrictions_description"),
+            "arrival_date": request.form.get("arrival_date"),
+            "add_note": request.form.get("add_note"),
+            "created_by": session["user"]
+        }
+        mongo.db.guest_info.insert_one(guest_information)
+        flash("Thanks for Adding Your Preferences")
+        return redirect(url_for("get_guest_info"))
+
     return render_template("add_preferences.html")
 
 

@@ -2,106 +2,107 @@
 {% block content %}
 
 
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12 col-lg-10">
+<h1 class="m-5 text-center preferences-h1">Guest Preferences</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
             <div class="card" style="border-radius: 1rem;">
-              <div class="card-body p-5">
+                <div class="card-body preferences-form-card p-5">
 
-                <h1 class="mb-5 text-center">Guest Preferences</h1>
-
-
-                <form method="POST" action=""> 
-                <!-- select number of party -->
-                    <div class="row mb-4">
-                        <div class="col-1">
-                            <i class="fas fa-users fa-icon"></i>     
-                        </div>
-                        <div class="col-3">
-                            <div class="form-outline">
-                                <label for="number_of_party">Number of Guests</label>
+                    <form method="POST" action="{{ url_for('add_preferences') }}">
+                        <!-- select number of party -->
+                        <div class="row mb-4">
+                            <div class="col-1">
+                                <i class="fas fa-users fa-icon"></i>
                             </div>
-                        </div>
-                        <div class="col">
-                            <select id="number_of_party" name="number_of_party" class="validate" required>
+                            <div class="col-3">
+                                <div class="form-outline">
+                                    <label for="number_of_party">Number of Guests</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <select id="number_of_party" name="number_of_party" class="validate" required>
                                     <option value="1" disabled selected></option>
                                 </select>
-                        </div>                    
-                    </div>
+                            </div>
+                        </div>
 
-                    <!-- require accomodation field-->
-                    <div class="row mb-4">
-                        <div class="col-1">
-                            <i class="fas fa-bed fa-icon"></i>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-outline">
-                                <label for="require_accommodation">Require Accomodation?</label>
+                        <!-- require accomodation field-->
+                        <div class="row mb-4">
+                            <div class="col-1">
+                                <i class="fas fa-bed fa-icon"></i>
                             </div>
+                            <div class="col-6">
+                                <div class="form-outline">
+                                    <div class="form-check form-switch">
+                                        <label for="require_accommodation">Require Accomodation?
+                                            <input class="form-check-input" type="checkbox" id="require_accommodation"
+                                            name="require_accommodation" required />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>   
                         </div>
-                        <div class="col-auto">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="require_accommodation" 
-                                    name="require_accommodation" required />
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Dietary requirements field-->
-                    <div class="row mb-4">
-                        <div class="col-1">
-                            <i class="fas fa-utensils fa-icon"></i>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-outline">
-                                <label for="require_accommodation">Dietary Restrictions?</label>
+                        <!-- Dietary requirements field-->
+                        <div class="row mb-4">
+                            <div class="col-1">
+                                <i class="fas fa-utensils fa-icon"></i>
                             </div>
+                            <div class="col-6">
+                                <div class="form-outline">
+                                    <div class="form-check form-switch">
+                                        <label for="dietary_restrictions">Dietary Restrictions?
+                                            <input class="form-check-input" type="checkbox" id="dietary_restrictions"
+                                            name="dietary_restrictions" required />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>   
                         </div>
-                        <div class="col-auto">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="dietary_restrictions"
-                                    name="dietary_restrictions" required />
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Text input -->
+                        <!-- Text input -->
                         <div class="form-outline additional-text-box mb-4">
                             <textarea class="form-control" id="dietary_restrictions_description"
                                 name="dietary_restrictions_description" rows="2" maxlength="100"></textarea>
-                            <label class="form-label" for="dietary_restrictions_description">Details on dietary restrictions</label>
+                            <label class="form-label" for="dietary_restrictions_description">Details on dietary
+                                restrictions</label>
                         </div>
 
-                    <!-- Date arrival picker -->
+                        <!-- Date arrival picker -->
                         <div class="row mb-4">
                             <div class="col-1">
                                 <i class="far fa-calendar-check fa-icon"></i>
                             </div>
                             <div class="col-10">
-                                <span>Arrival Date </span>
-                                <input id="arrival_date" name="arrival_date" type="date" class="datepicker validate" 
+                                <label for="arrival_date">Arrival Date 
+                                    <input id="arrival_date" name="arrival_date" type="date" class="datepicker validate"
                                     value="2022-09-08" min="2022-09-05" max="2022-09-11" required>
+                                </label>
                             </div>
                         </div>
 
-                    <!-- Text input -->
+                        <!-- Text input -->
                         <div class="form-outline additional-text-box mb-4">
-                            <textarea class="form-control" id="add_note"
-                                name="add_note" rows="2" maxlength="100"></textarea>
+                            <textarea class="form-control" id="add_note" name="add_note" rows="2"
+                                maxlength="100"></textarea>
                             <label class="form-label" for="add_note">Additional Comments</label>
                         </div>
-                
-                    </div>
-                        
-                    
-                    <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block mb-4">Add Preferences</button>
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block ">
+                            Add Preferences
+                        </button>
+
+                </div>
+
+
+
                 </form>
 
-              </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
+</div>
 
 {% endblock %}
