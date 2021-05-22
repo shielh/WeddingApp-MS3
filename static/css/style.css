@@ -66,6 +66,7 @@
     color: #FFFDE7;
 }
 
+/* add preferences page */
 /* Styling for datepicker */
 label {
     display: block;
@@ -79,4 +80,13 @@ label {
 
 .add-preferences-btn {
     background-color: #9b9871;
+}
+
+.additional-text-box {
+    border: 1px solid #262626;
+    margin-top: 8px;
+}
+
+.fa-icon {
+    width: 5em;
 }
