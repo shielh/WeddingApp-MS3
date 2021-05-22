@@ -72,6 +72,6 @@ application where wedding guests can add, edit and delete their specific require
 * accommodation.html page giving information about the rooms and the local area
 * Burger icon menu on mobile devices
 * Register, login and logout functionality
-* guest_info.html where guests while logged in can add information like dietary requirements
-* CRUD functionality
+* guest_info.html where guests while logged in can add preferences
+* CRUD functionality for these preferences
 * MongoDB to store wedding guest information and user login details

@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_guest_info")
 def get_guest_info():
-    guest_info = mongo.db.guest_info.find()
+    guest_info = list(mongo.db.guest_info.find())
     return render_template("guest_info.html", guest_info=guest_info)
 # option to have route to different pages depending on whether user is signed in or not
 
@@ -87,6 +87,11 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/add_preferences")
+def add_preferences():
+    return render_template("add_preferences.html")
 
 
 if __name__ == "__main__":

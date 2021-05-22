@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="intro">
+    <div class="align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <div class="card" style="border-radius: 1rem;">
+              <div class="card-body p-5">
+
+                <h1 class="mb-5 text-center">Guest Preferences</h1>
+
+                <form method="POST" action="">
+                    
+                  <!-- select input for number of guests -->
+                    <div class="row">
+                        <div class="input-field col-12">
+                            <label for="number_of_guests">Number of Guests</label>
+                            <select id="number_of_guests" name="number_of_guests" class="validate" required>
+                                <option value="1" disabled selected>Select Number of Guests</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Radio button for selecting whether they need accommodation -->
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label" for="yesToAccommodation">Yes</label>
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    id="yesToAccommodation" name="yesToAccommodation" value="yes_to_accommodation"/>
+                            </div>
+                        
+
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label" for="noToAccommodation">No</label>
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    id="noToAccommodation" name="noToAccommodation" value="yes_to_accommodation"/>                
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Radio button for selecting whether they have dietary requirements -->
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label" for="yesToDietaryRequirement">Yes</label>
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    id="yesToDietaryRequirement" name="yesToDietaryRequirement" value="yes_to_accommodation"/>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label" for="noToDietaryRequirement">No</label>
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    id="noToDietaryRequirement" name="noToDietaryRequirement" value="yes_to_accommodation"/>                
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input for dietary description-->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="dietaryDescription" name="dietaryDescription" class="form-control" required/>
+                        <label class="form-label" for="dietaryDescription">Description of dietary requirements</label>
+                    </div>
+                    
+                    <!-- Date arrival picker -->
+                    <div class="row">
+                        <div class="input-field col " method="POST" action="">
+                            <label for="arrival_date">Arrival Date</label>
+                            <input id="arrival_date" name="arrival_date" type="date" class="datepicker validate" 
+                                value="2022-09-08" min="2022-09-05" max="2022-09-11" required>
+                        </div>
+                    </div>
+
+                    <!-- Text input for added comments-->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="additionalNotes" name="additionalNotes" class="form-control" required/>
+                        <label class="form-label" for="additionalNotes">Any Additional Comments</label>
+                    </div>
+                    
+
+                    
+                    <!-- Checkbox -->
+                    <!-- <div class="form-check d-flex justify-content-center mb-4">
+                        <input
+                        class="form-check-input me-2"
+                        type="checkbox"
+                        value=""
+                        id="form6Example8"
+                        checked
+                        />
+                        <label class="form-check-label" for="form6Example8"> Create an account? </label>
+                    </div> -->
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-rounded add-preferences-btn">Add Preferences</button>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</section>
+{% endblock %}
