@@ -92,10 +92,10 @@ def logout():
 @app.route("/add_preferences", methods=["GET", "POST"])
 def add_preferences():
     if request.method == "POST":
-        require_accommodation = "yes" if request.form.get(
-            "require_accommodation") else "no"
-        dietary_restrictions = "yes" if request.form.get(
-            "dietary_restrictions") else "no"
+        require_accommodation = "Yes" if request.form.get(
+            "require_accommodation") else "No"
+        dietary_restrictions = "Yes" if request.form.get(
+            "dietary_restrictions") else "No"
         guest_information = {
             "number_of_party": request.form.get("number_of_party"),
             "require_accommodation": require_accommodation,
@@ -111,6 +111,13 @@ def add_preferences():
         return redirect(url_for("get_guest_info"))
 
     return render_template("add_preferences.html")
+
+
+@app.route("/edit_preferences/<guest_info_id>", methods=["GET", "POST"])
+def edit_preferences(guest_info_id):
+    guest_info = mongo.db.tasks.find_one({"_id": ObjectId(guest_info_id)})
+
+    return render_template("edit_preferences.html", guest_info=guest_info)
 
 
 if __name__ == "__main__":

@@ -80,6 +80,9 @@ label {
     text-align: left;
 }
 
+.form-switch {
+    padding-left: 0;
+}
 .additional-text-box {
     border: 1px solid #262626;
     margin-top: 8px;
@@ -87,4 +90,10 @@ label {
 
 .fa-icon {
     width: 5em;
+}
+
+/* Manage Preferences page */ 
+.preferences-list {
+    width: fit-content;
+    margin: 0 auto;
 }
