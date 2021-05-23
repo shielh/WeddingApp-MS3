@@ -20,10 +20,21 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/home")
+def home():
+    return render_template("index.html")
+
+
 @app.route("/get_guest_info")
 def get_guest_info():
-    guest_info = list(mongo.db.guest_info.find())
-    return render_template("guest_info.html", guest_info=guest_info)
+    guest_info = mongo.db.guest_info.find_one(
+        {"created_by": session["user"]})
+    if guest_info is not None:
+        return render_template("guest_info.html", guest_info=guest_info)
+    else:
+        return render_template("add_preferences.html")
+
+    
 # option to have route to different pages depending on whether user is signed in or not
 
 @app.route("/register", methods=["GET", "POST"])
@@ -38,8 +49,8 @@ def register():
             return redirect(url_for("register"))
 
         register = {
-            "firstName": request.form.get("firstName").lower(),
-            "lastName": request.form.get("lastName").lower(),
+            "firstName": request.form.get("firstName"),
+            "lastName": request.form.get("lastName"),
             "email": request.form.get("email").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
@@ -61,11 +72,11 @@ def login():
 
         if existing_user:
             # ensure hashed password matches user input
+       
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("email").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("firstName")))
+                    flash("Welcome, {}".format(existing_user["firstName"]))
                     return redirect(url_for(
                         "get_guest_info"))
             else:
@@ -115,8 +126,26 @@ def add_preferences():
 
 @app.route("/edit_preferences/<guest_info_id>", methods=["GET", "POST"])
 def edit_preferences(guest_info_id):
-    guest_info = mongo.db.tasks.find_one({"_id": ObjectId(guest_info_id)})
+    if request.method == "POST":
+        require_accommodation = "Yes" if request.form.get(
+            "require_accommodation") else "No"
+        dietary_restrictions = "Yes" if request.form.get(
+            "dietary_restrictions") else "No"
+        guest_information = {
+            "number_of_party": request.form.get("number_of_party"),
+            "require_accommodation": require_accommodation,
+            "dietary_restrictions": dietary_restrictions,
+            "dietary_restrictions_description": request.form.get(
+                "dietary_restrictions_description"),
+            "arrival_date": request.form.get("arrival_date"),
+            "add_note": request.form.get("add_note"),
+            "created_by": session["user"]
+        }
+        mongo.db.guest_info.update(
+            {"_id": ObjectId(guest_info_id)}, guest_information)
+        flash("Thanks for Updating Your Preferences")
 
+    guest_info = mongo.db.guest_info.find_one({"_id": ObjectId(guest_info_id)})
     return render_template("edit_preferences.html", guest_info=guest_info)
 
 
