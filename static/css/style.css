@@ -92,7 +92,7 @@ label {
     width: 5em;
 }
 
-/* Manage Preferences page */ 
+/* Preferences page */ 
 .preferences-list {
     width: fit-content;
     margin: 0 auto;
@@ -102,3 +102,7 @@ label {
     margin-bottom: 20px;
 }
 
+.confirm-delete-btn {
+    background-color: #9b9871;
+    color: #FFFDE7;
+}

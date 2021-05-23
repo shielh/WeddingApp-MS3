@@ -78,7 +78,7 @@ def login():
                     session["user"] = request.form.get("email").lower()
                     flash("Welcome, {}".format(existing_user["firstName"]))
                     return redirect(url_for(
-                        "get_guest_info"))
+                        "home"))
             else:
                 # invalid password match
                 flash("Incorrect Email and/or Password")
@@ -147,6 +147,13 @@ def edit_preferences(guest_info_id):
 
     guest_info = mongo.db.guest_info.find_one({"_id": ObjectId(guest_info_id)})
     return render_template("edit_preferences.html", guest_info=guest_info)
+
+
+@app.route("/delete_preferences/<guest_info_id>")
+def delete_preferences(guest_info_id):
+    mongo.db.guest_info.remove({"_id": ObjectId(guest_info_id)})
+    flash("Preference Deleted")
+    return render_template("add_preferences.html") 
 
 
 if __name__ == "__main__":

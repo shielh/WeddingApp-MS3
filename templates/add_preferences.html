@@ -3,101 +3,105 @@
 
 
 <h2 class="m-4 text-center preferences-h1">Guest Preferences</h2>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-12 col-lg-10">
-            <div class="card" style="border-radius: 1rem;">
-                <div class="card-body preferences-form-card p-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="card-body preferences-form-card p-5">
 
-                    <form method="POST" action="{{ url_for('add_preferences') }}">
-                        <!-- select number of party -->
-                        <div class="row mb-4">
-                            <div class="col-12">                           
-                                <div class="form-outline">
-                                    <i class="fas fa-users fa-icon"></i>
-                                    <label for="number_of_party">Number of Guests</label>                           
+                        <form method="POST" action="{{ url_for('add_preferences') }}">
+                            <!-- select number of party -->
+                            <div class="row mb-4">
+                                <div class="col-12">                           
+                                    <div class="form-outline">
+                                        <i class="fas fa-users fa-icon"></i>
+                                        <label for="number_of_party">Number of Guests</label>                           
                                         <select id="number_of_party" name="number_of_party" class="validate" required>
-                                        <option value="1" disabled selected></option>
-                                </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- require accomodation field-->
-                        <div class="row mb-4">
-                            <div class="col">
-                                <div class="form-outline">
-                                   
-                                    <div class="form-check form-switch">
-                                        <i class="fas fa-bed fa-icon"></i>
-                                        <label for="require_accommodation">Require Accomodation?
-                                            <input class="form-check-input" type="checkbox" id="require_accommodation"
-                                                name="require_accommodation"/>
-                                        </label>
+                                            <option value="1"selected>1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5" >5</option>
+                                        </select>
                                     </div>
                                 </div>
-                            </div>   
-                        </div>
+                            </div>
 
-                        <!-- Dietary requirements field-->
-                        <div class="row mb-4">
-                            <div class="col">
-                                
-                                <div class="form-outline">
+                            <!-- require accomodation field-->
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-outline">
                                     
-                                    <div class="form-check form-switch">
-                                        <i class="fas fa-utensils fa-icon"></i>
-                                        <label for="dietary_restrictions">Dietary Restrictions?
-                                            <input class="form-check-input" type="checkbox" id="dietary_restrictions"
-                                            name="dietary_restrictions"/>
-                                        </label>
+                                        <div class="form-check form-switch">
+                                            <i class="fas fa-bed fa-icon"></i>
+                                            <label for="require_accommodation">Require Accomodation?
+                                                <input class="form-check-input" type="checkbox" id="require_accommodation"
+                                                    name="require_accommodation"/>
+                                            </label>
+                                        </div>
                                     </div>
+                                </div>   
+                            </div>
+
+                            <!-- Dietary requirements field-->
+                            <div class="row mb-4">
+                                <div class="col">
+                                    
+                                    <div class="form-outline">
+                                        
+                                        <div class="form-check form-switch">
+                                            <i class="fas fa-utensils fa-icon"></i>
+                                            <label for="dietary_restrictions">Dietary Restrictions?
+                                                <input class="form-check-input" type="checkbox" id="dietary_restrictions"
+                                                name="dietary_restrictions"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>   
+                            </div>
+
+                            <!-- Text input -->
+                            <div class="form-outline additional-text-box mb-4">
+                                <textarea class="form-control" id="dietary_restrictions_description"
+                                    name="dietary_restrictions_description" rows="2" maxlength="100"></textarea>
+                                <label class="form-label" for="dietary_restrictions_description">Details on dietary
+                                    restrictions</label>
+                            </div>
+
+                            <!-- Date arrival picker -->
+                            <div class="row mb-4">
+                                <div class="col-1">
+                                    <i class="far fa-calendar-check fa-icon"></i>
                                 </div>
-                            </div>   
-                        </div>
-
-                        <!-- Text input -->
-                        <div class="form-outline additional-text-box mb-4">
-                            <textarea class="form-control" id="dietary_restrictions_description"
-                                name="dietary_restrictions_description" rows="2" maxlength="100"></textarea>
-                            <label class="form-label" for="dietary_restrictions_description">Details on dietary
-                                restrictions</label>
-                        </div>
-
-                        <!-- Date arrival picker -->
-                        <div class="row mb-4">
-                            <div class="col-1">
-                                <i class="far fa-calendar-check fa-icon"></i>
+                                <div class="col-10">
+                                    <label for="arrival_date">Arrival Date 
+                                        <input id="arrival_date" name="arrival_date" type="date" class="datepicker validate"
+                                        value="2022-09-08" min="2022-09-05" max="2022-09-11" required>
+                                    </label>
+                                </div>
                             </div>
-                            <div class="col-10">
-                                <label for="arrival_date">Arrival Date 
-                                    <input id="arrival_date" name="arrival_date" type="date" class="datepicker validate"
-                                    value="2022-09-08" min="2022-09-05" max="2022-09-11" required>
-                                </label>
-                            </div>
-                        </div>
 
-                        <!-- Text input -->
-                        <div class="form-outline additional-text-box mb-4">
-                            <textarea class="form-control" id="add_note" name="add_note" rows="2"
-                                maxlength="100"></textarea>
-                            <label class="form-label" for="add_note">Additional Comments</label>
-                        </div>
-                        <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block ">
-                            Add Preferences
-                        </button>
+                            <!-- Text input -->
+                            <div class="form-outline additional-text-box mb-4">
+                                <textarea class="form-control" id="add_note" name="add_note" rows="2"
+                                    maxlength="100"></textarea>
+                                <label class="form-label" for="add_note">Additional Comments</label>
+                            </div>
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary btn-block ">
+                                Add Preferences
+                            </button>
+
+                    </div>
+
+
+
+                    </form>
 
                 </div>
-
-
-
-                </form>
-
             </div>
         </div>
     </div>
-</div>
-</div>
+
 
 {% endblock %}
