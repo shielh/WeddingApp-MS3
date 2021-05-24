@@ -1,29 +1,6 @@
-/* Color of the links BEFORE scroll */
-.navbar-scroll .nav-link,
-.navbar-scroll .navbar-toggler-icon,
-.navbar-scroll .navbar-brand {
-  color: #262626;
-}
-
-/* Color of the navbar BEFORE scroll */
-.navbar-scroll {
-  background-color: #FFFDE7;
-}
-
-/* Color of the links AFTER scroll */
-.navbar-scrolled .nav-link,
-.navbar-scrolled .navbar-toggler-icon,
-.navbar-scroll .navbar-brand {
-  color: #262626;
-}
-
-/* Color of the navbar AFTER scroll */
-.navbar-scrolled {
-  background-color: #fff;
-}
-
-/* An optional height of the navbar AFTER scroll */
-.navbar.navbar-scroll.navbar-scrolled {
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* Navbar styling */
+.navbar {
   padding-top: auto;
   padding-bottom: auto;
 }
@@ -44,6 +21,22 @@
 .navbar-collapse {
     text-align: right;
 }
+
+/* Hero image*/
+.bg-image {
+    background-image: url('../images/hero-image.jpg');
+    height: 80vh;
+    background-size: cover ;
+}
+
+.mask {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.home-page-logo {
+    height: 500px;
+}
+
 
 .form-container {
     padding-top: 10px;
@@ -105,4 +98,9 @@ label {
 .confirm-delete-btn {
     background-color: #9b9871;
     color: #FFFDE7;
+}
+
+/* Footer */ 
+.footer-color {
+    background-color: #9b9871;
 }
