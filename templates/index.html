@@ -5,13 +5,19 @@
 <div class="bg-image">
   <div class="mask">
     <div class="d-flex justify-content-center align-items-center h-100">
-      <h5 class="text-white mb-0"> Please <a href="{{ url_for('login') }}">Sign in</a> or <br>
-        <a href="{{ url_for('register') }}">Register Here</a></h5>
+        {% if session["user"] %}
+        <h5 class="text-white mb-0"> Please Add Your Preferences <a class="hero-anchor-tags" href="{{ url_for('login') }}">Here</a> 
+        {% else %}
+        <h5 class="text-white mb-0"> Please <a class="hero-anchor-tags" href="{{ url_for('login') }}">Sign in</a> or <br>
+            <a class="hero-anchor-tags" href="{{ url_for('register') }}">Register Here</a></h5>
+        {% endif %}
     </div>
   </div>
 </div>
 <!-- Background image -->
 
+<!-- Only allow registered users to view wedding information-->
+{% if session["user"] %}
 <div class="container-fluid ">
     <div class="row">
         <div class=" col-12 text-center">
@@ -28,5 +34,6 @@
     </div>
 
 </div>
+{% endif %}
 
 {% endblock %}

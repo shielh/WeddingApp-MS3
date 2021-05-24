@@ -45,6 +45,15 @@
     width: 100%;
 }
 
+.hero-anchor-tags {
+    color: #b28729;
+}
+.hero-anchor-tags:hover{
+    text-decoration: none;
+    color: #FFFDE7;
+    text-shadow: 1px 1px;
+}
+
 .home-page-logo {
     height: 500px;
 }
@@ -53,9 +62,7 @@
     color: #9b9871;    
 }
 
-.schedule-section {
-    ;
-}
+
 .form-container {
     padding-top: 10px;
     width: fit-content;
@@ -72,7 +79,7 @@
 }
 
 .message-flash {
-    margin-top: 20px;
+    margin: 0;
     background-color: #9b9871;
     color: #FFFDE7;
 }
