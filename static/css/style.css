@@ -111,6 +111,10 @@ label {
 }
 
 /* Preferences page */ 
+.view-preference-card{
+    border: 1px solid #262626;
+    margin-bottom: 50px;
+}
 .preferences-list {
     width: fit-content;
     margin: 0 auto;
@@ -123,6 +127,12 @@ label {
 .confirm-delete-btn {
     background-color: #9b9871;
     color: #FFFDE7;
+}
+
+.list-group-item {
+    width: 100%;
+    border: none;
+    padding: 0;
 }
 
 /* Footer */ 

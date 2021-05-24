@@ -35,7 +35,7 @@ def get_guest_info():
     guest_info = mongo.db.guest_info.find_one(
         {"created_by": session["user"]})
     if guest_info is not None:
-        return render_template("guest_info.html", guest_info=guest_info)
+        return render_template("preferences.html", guest_info=guest_info)
     else:
         return render_template("add_preferences.html")
 
