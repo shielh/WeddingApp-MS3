@@ -5,18 +5,28 @@
 <div class="bg-image">
   <div class="mask">
     <div class="d-flex justify-content-center align-items-center h-100">
-      <h1 class="text-white mb-0"> Please Sign in or Register Here</h1>
+      <h5 class="text-white mb-0"> Please <a href="{{ url_for('login') }}">Sign in</a> or <br>
+        <a href="{{ url_for('register') }}">Register Here</a></h5>
     </div>
   </div>
 </div>
 <!-- Background image -->
 
-<div class="container">
+<div class="container-fluid ">
     <div class="row">
-        <div class=" col-12 offset-3">
+        <div class=" col-12 text-center">
             <img class="home-page-logo" src="../static/images/HomePageLogo.png">
         </div>
     </div>
+</div>
+
+<div class="section schedule-section">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h4 class="schedule-h4">Wedding Schedule</h4>
+        </div>
+    </div>
+
 </div>
 
 {% endblock %}

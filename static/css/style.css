@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
 /* Navbar styling */
 .navbar {
   padding-top: auto;
   padding-bottom: auto;
+  background-color: #FFFDE7;
 }
 
 .navbar-brand {
@@ -11,9 +14,13 @@
 }
 
 .nav-link {
-    color: #FFFDE7;
+    color: #b28729;
 }
 
+.nav-link:hover {
+    color: #b28729;
+    text-shadow: 1px 1px;
+}
 .site-logo {
     height: 80px;
 }
@@ -22,22 +29,33 @@
     text-align: right;
 }
 
+.main-container {
+    margin: 0;
+    padding: 0;
+}
 /* Hero image*/
 .bg-image {
     background-image: url('../images/hero-image.jpg');
     height: 80vh;
-    background-size: cover ;
+    background-size: 100% 100% ;
 }
 
 .mask {
     background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
 }
 
 .home-page-logo {
     height: 500px;
 }
 
+.schedule-h4 {
+    color: #9b9871;    
+}
 
+.schedule-section {
+    ;
+}
 .form-container {
     padding-top: 10px;
     width: fit-content;
@@ -101,6 +119,8 @@ label {
 }
 
 /* Footer */ 
-.footer-color {
+.footer-style {
     background-color: #9b9871;
+    display: inline-block;
+    position: static;
 }
