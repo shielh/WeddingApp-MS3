@@ -25,6 +25,11 @@ def home():
     return render_template("index.html")
 
 
+@app.route("/accommodation")
+def accommodation():
+    return render_template("accommodation.html")
+
+
 @app.route("/get_guest_info")
 def get_guest_info():
     guest_info = mongo.db.guest_info.find_one(
