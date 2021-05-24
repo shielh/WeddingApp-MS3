@@ -68,10 +68,50 @@ application where wedding guests can add, edit and delete their specific require
 
 ### The Scope Plane
 #### Features on site
-* index.html page detailing the wedding venue, dates and itinerary
+* index.html page detailing the wedding venue, dates and itinerary to people who have registered an account
+* index.html page detailing a hero image with anchor tags to the register or log in pages
 * accommodation.html page giving information about the rooms and the local area
 * Burger icon menu on mobile devices
 * Register, login and logout functionality
-* guest_info.html where guests while logged in can add preferences
+* preferences.html where guests (when logged in) can add preferences
 * CRUD functionality for these preferences
+* Modal dialog box for delete functionality to add defensive programming 
 * MongoDB to store wedding guest information and user login details
+
+### The Structure Plane
+User Story:
+ As a user, I want to be able to easily navigate across the site so I can find the content quickly
+
+Acceptance Criteria:
+* Navigation bar to be displayed across all pages on the site
+* Navigation links all render the correct pages
+* Mobile users will see a burger icon for the dropdown menu
+
+Implementation:
+A navigation bar will be displayed on the top of each page of the site.
+The navigation links will each bring the user to the appropriate pages.
+In mobile view, a collapsible burger icon will detail the menu items to the user.
+
+This is a list of the navigation items that will be visible when not logged in:
+* Home - index.html
+* Log In - login.html
+* Register - register.html
+
+This is a list of the navigation items that will be visible while logged in:
+* Home - index.html
+* Accommodation - accommodation.html
+* Preferences - preferences.html
+* FAQ - faq.html
+* Log Out -(Redirects to Log In page)
+
+User Story:
+ As a user, I want to view a pretty website with images of the wedding venue
+
+Acceptance Criteria:
+* Images to be displayed across the site
+
+Implementation:
+
+
+### The Skeleton Plane
+The wireframes for this project can be found [here](WeddingApp-MS3/Mockups)
