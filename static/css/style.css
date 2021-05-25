@@ -61,6 +61,13 @@
     color: #9b9871;    
 }
 
+.divide-content {
+    border-right: 1px solid #9b9871;
+}
+
+.schedule-row{
+    vertical-align: middle;
+}
 
 .form-container {
     padding-top: 10px;
@@ -139,6 +146,18 @@ label {
 .preference-edit-btn,
 .preference-delete-btn {
     margin-top: 25px;
+    
+}
+/* Style delete button and on hover */ 
+.preference-delete-btn {
+    background-color: #dd9d49;
+}
+.preference-delete-btn:hover {
+    background-color: #e2b06e;
+}
+/* Style edit button and on hover */ 
+.preference-edit-btn{
+    background-color: #b28729;
 }
 
 /* Footer */ 
