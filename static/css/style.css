@@ -53,9 +53,6 @@
     text-shadow: 1px 1px;
 }
 
-.home-page-logo {
-    height: 500px;
-}
 
 .schedule-h4 {
     color: #9b9871;    
@@ -63,6 +60,7 @@
 
 .divide-content {
     border-right: 1px solid #9b9871;
+    margin-bottom: 3em;
 }
 
 .schedule-row{
@@ -165,4 +163,5 @@ label {
     background-color: #9b9871;
     display: inline-block;
     position: static;
+    
 }

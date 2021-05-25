@@ -6,7 +6,7 @@
   <div class="mask">
     <div class="d-flex justify-content-center align-items-center h-100">
         {% if session["user"] %}
-        <h5 class="text-white mb-0"> Please Add Your Preferences <a class="hero-anchor-tags" href="{{ url_for('get_guest_info') }}">Here</a> 
+        <h5 class="text-white mb-0 text-center">Please Review/Add Your Preferences <a class="hero-anchor-tags" href="{{ url_for('get_guest_info') }}">Here</a> 
         {% else %}
         <h5 class="text-white mb-0"> Please <a class="hero-anchor-tags" href="{{ url_for('login') }}">Sign in</a> or <br>
             <a class="hero-anchor-tags" href="{{ url_for('register') }}">Register Here</a></h5>
@@ -20,21 +20,22 @@
 {% if session["user"] %}
 <div class="container-fluid ">
     <div class="row">
-        <div class=" col-12 text-center">
-            <img class="home-page-logo" src="../static/images/HomePageLogo.png">
+        <div class=" col-12 text-center center-block d-block">
+            <img class="home-page-logo img-responsive  " src="../static/images/HomePageLogo.png">
         </div>
     </div>
 </div>
 
 <div class="section schedule-section">
     <div class="row">
-        <div class="col-12 text-center">
-            <h2 class="schedule-h4">Wedding Schedule</h2>
+        <div class="col-12 text-center ">
+            <h2 class="schedule-h4 mb-4">Wedding Schedule</h2>
         </div>
     </div>
-    <div class="row schedule-row">
-        <div class="col-6 text-center divide-content">
+    <div class="row schedule-row ">
+        <div class="col-lg-6 col-xs-12 text-center divide-content">
             <h4 class="mt-10">
+                Day 1<br>
                 Welcome Antipasti <br>
             </h4>
             <h6>
@@ -42,7 +43,7 @@
                 6:00 PM
             </h6>
         </div>
-        <div class="col-6 text-center">
+        <div class="col-lg-6 col-xs-12 text-center">
             <i class="fas fa-glass-cheers fa-5x mb-4"></i>
             <h6>
                 Agriturismo Dogana <br>
@@ -57,8 +58,9 @@
     </div>
 
     <div class="row schedule-row">
-        <div class="col-6 text-center divide-content">
+        <div class="col-lg-6 col-xs-12 text-center divide-content">
             <h4 class="mt-10">
+                Day 2<br>
                 Wedding Day <br>
             </h4>
             <h6>
@@ -66,12 +68,33 @@
                 All Day
             </h6>
         </div>
-        <div class="col-6 text-center">
+        <div class="col-lg-6 col-xs-12 text-center">
             <i class="fas fa-church fa-5x m-4 "></i>
             <h6>
                 Brunch at 11 AM <br>
                 Ceremony at 4 PM <br>
                 Dinner from 6 PM
+
+            </h6>
+        </div>
+    </div>
+
+    <div class="row schedule-row">
+        <div class="col-lg-6 col-xs-12 text-center divide-content">
+            <h4 class="mt-10">
+                Day 3 <br>
+            </h4>
+            <h6>
+                10th September 2022 <br>
+                All Day
+            </h6>
+        </div>
+        <div class="col-lg-6 col-xs-12 text-center">
+            <i class="fas fa-cocktail fa-5x m-4 "></i>
+            <h6>
+                Brunch at 11 AM <br>
+                BBQ at 5 PM <br>
+                Drinks until late
 
             </h6>
         </div>
