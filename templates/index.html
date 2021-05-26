@@ -3,16 +3,14 @@
 
 <!-- Background image -->
 <div class="bg-image">
-  <div class="mask">
     <div class="d-flex justify-content-center align-items-center h-100">
         {% if session["user"] %}
-        <h5 class="text-white mb-0 text-center">Please Review/Add Your Preferences <a class="hero-anchor-tags" href="{{ url_for('get_guest_info') }}">Here</a> 
+        
         {% else %}
         <h5 class="text-white mb-0"> Please <a class="hero-anchor-tags" href="{{ url_for('login') }}">Sign in</a> or <br>
             <a class="hero-anchor-tags" href="{{ url_for('register') }}">Register Here</a></h5>
         {% endif %}
     </div>
-  </div>
 </div>
 <!-- Background image -->
 
