@@ -20,9 +20,26 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/home")
 def home():
     return render_template("index.html")
+
+
+@app.route("/add_update", methods=["GET", "POST"])
+def add_update():
+    if request.method == "POST":
+        updates = {
+            "date": request.form.get("date"),
+            "title": request.form.get("title"),
+            "description": request.form.get("description")
+        }
+        mongo.db.update.insert_one(updates)
+        flash("You Have Added an Update")
+        return redirect(url_for("add_update"))
+    return render_template("index.html")
+
+@app.route("/update")
+def update():
+    return render_template("update.html")
 
 
 @app.route("/accommodation")

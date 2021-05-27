@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h2 class="m-4 text-center preferences-h1">Add Update</h2>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="card-body preferences-form-card p-5">
+
+                        <form method="POST" action="{{ url_for('add_update') }}">
+                            <!-- Date arrival picker -->
+                            <div class="row mb-4">
+                                <div class="col-1">
+                                    <i class="far fa-calendar-check fa-icon"></i>
+                                </div>
+                                <div class="col-10">
+                                    <label for="date">Date of Creation
+                                        <input id="date" name="date" type="date" class="datepicker validate"
+                                         required>
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- Title input -->
+                            <div class="form-outline title-text-box mb-4">
+                                <textarea class="form-control" id="title"
+                                    name="title" rows="1" maxlength="50"></textarea>
+                                <label class="form-label" for="title">Update Title</label>
+                            </div>                           
+                            <!-- Text input -->
+                            <div class="form-outline additional-text-box mb-4">
+                                <textarea class="form-control" id="description" name="description" rows="4"
+                                    maxlength="250"></textarea>
+                                <label class="form-label" for="description">Update Description</label>
+                            </div>
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary btn-block ">
+                                Add Update
+                            </button>
+
+                    </div>
+
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
