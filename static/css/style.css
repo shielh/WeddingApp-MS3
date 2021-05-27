@@ -71,10 +71,12 @@
 .divide-content {
     border-right: 1px solid #9b9871;
     margin-bottom: 3em;
+    text-align: center;
+    bottom: 5px;
 }
 
-.schedule-row{
-    vertical-align: middle;
+.schedule-icon{
+    color: #646b0b;
 }
 
 .form-container {
