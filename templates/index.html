@@ -16,90 +16,108 @@
 
 <!-- Only allow registered users to view wedding information-->
 {% if session["user"] %}
+
+<div class="row justify-content-center">
+    <div class="col text-center m-4">
+        <img src="../static/images/olive.png" class="olive-img">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col text-center">
+        <h1> Emma & Dave</h1><br>
+        <h3>Agriturismo Dogana,</h3><br>
+        <h3>Tuoro Del Trasimeno,</h3><br>
+        <h3>Italy</h3>
+
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col text-center m-4">
+        <img src="../static/images/olive.png" class="olive-img">
+
+    </div>
+</div>
 <div class="row">
     <div class="col-12 text-center ">
-        <h2 class="schedule-h4 mb-4">Wedding Schedule</h2>
+        <h2 class="schedule-h4 m-4">Wedding Schedule</h2>
     </div>
 </div>
-<div class="row justify-content-center">
-    <div class="col-4 text-center">
-        <img src="../static/images/oliveBranch.png" class="olive-branch-img">
 
-    </div>
-</div>
-<div class="card schedule-card">
 
-    <div class="section schedule-section">
-        <div class="row schedule-row ">
-            <div class="col-lg-6 col-xs-12 text-center divide-content">
-                <h4 class="mt-10">
-                    Day 1<br>
-                    Welcome Antipasti <br>
-                </h4>
-                <h6>
-                    8th September 2022 <br>
-                    6:00 PM
-                </h6>
-            </div>
-            <div class="col-lg-6 col-xs-12 text-center">
-                <i class="fas fa-glass-cheers fa-5x mb-4"></i>
-                <h6>
-                    Agriturismo Dogana <br>
-                    Tuoro Sul Trasimeno <br>
-                    Italy<br>
-                    <br>
-                    Antipasti and Wine for <br>
-                    Guest on Arrival
 
-                </h6>
-            </div>
+<div class="section schedule-section">
+    <div class="row schedule-row ">
+        <div class="col-lg-6 col-xs-12 text-center divide-content">
+            <h4 class="mt-10">
+                Day 1<br>
+                Welcome Antipasti <br>
+            </h4>
+            <h6>
+                8th September 2022 <br>
+                6:00 PM
+            </h6>
         </div>
+        <div class="col-lg-6 col-xs-12 text-center">
+            <i class="fas fa-glass-cheers fa-3x mb-4"></i>
+            <h6>
+                Agriturismo Dogana <br>
+                Tuoro Sul Trasimeno <br>
+                Italy<br>
+                <br>
+                Antipasti and Wine for <br>
+                Guest on Arrival
 
-        <div class="row schedule-row">
-            <div class="col-lg-6 col-xs-12 text-center divide-content">
-                <h4 class="mt-10">
-                    Day 2<br>
-                    Wedding Day <br>
-                </h4>
-                <h6>
-                    9th September 2022 <br>
-                    All Day
-                </h6>
-            </div>
-            <div class="col-lg-6 col-xs-12 text-center">
-                <i class="fas fa-church fa-5x m-4 "></i>
-                <h6>
-                    Brunch at 11 AM <br>
-                    Ceremony at 4 PM <br>
-                    Dinner from 6 PM
-
-                </h6>
-            </div>
-        </div>
-
-        <div class="row schedule-row">
-            <div class="col-lg-6 col-xs-12 text-center divide-content">
-                <h4 class="mt-10">
-                    Day 3 <br>
-                </h4>
-                <h6>
-                    10th September 2022 <br>
-                    All Day
-                </h6>
-            </div>
-            <div class="col-lg-6 col-xs-12 text-center">
-                <i class="fas fa-cocktail fa-5x m-4 "></i>
-                <h6>
-                    Brunch at 11 AM <br>
-                    BBQ at 5 PM <br>
-                    Drinks until late
-
-                </h6>
-            </div>
+            </h6>
         </div>
     </div>
 
+    <div class="row schedule-row">
+        <div class="col-lg-6 col-xs-12 text-center divide-content">
+            <h4 class="mt-10">
+                Day 2<br>
+                Wedding Day <br>
+            </h4>
+            <h6>
+                9th September 2022 <br>
+                All Day
+            </h6>
+        </div>
+        <div class="col-lg-6 col-xs-12 text-center">
+            <i class="fas fa-church fa-3x m-4 "></i>
+            <h6>
+                Brunch at 11 AM <br>
+                Ceremony at 4 PM <br>
+                Dinner from 6 PM
+
+            </h6>
+        </div>
+    </div>
+
+    <div class="row schedule-row">
+        <div class="col-lg-6 col-xs-12 text-center divide-content">
+            <h4 class="mt-10">
+                Day 3 <br>
+            </h4>
+            <h6>
+                10th September 2022 <br>
+                All Day
+            </h6>
+        </div>
+        <div class="col-lg-6 col-xs-12 text-center">
+            <i class="fas fa-cocktail fa-3x m-4 "></i>
+            <h6>
+                Brunch at 11 AM <br>
+                BBQ at 5 PM <br>
+                Drinks until late
+
+            </h6>
+        </div>
+    </div>
 </div>
+
+
 {% endif %}
 
 {% endblock %}

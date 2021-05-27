@@ -38,6 +38,7 @@
     height: 60vh;
     width: 60vw;
     margin: 0 auto;
+    margin-top: 20px;
     background-size: contain ;
 }
 
@@ -55,12 +56,15 @@
     text-shadow: 1px 1px;
 }
 
+.olive-img {
+    width: 33%;
+}
 .schedule-h4 {
-    color: #9b9871;    
+    color: #646b0b;    
 }
 
-.schedule-card{
-    width: fit-content;
+.schedule-section{
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -171,7 +175,8 @@ label {
 
 .olive-branch-img {
     margin: 0 auto;
-    width: 40vw;
+    width: 10vw;
+    margin-bottom: 20px;
 }
 
 /* Footer */ 
