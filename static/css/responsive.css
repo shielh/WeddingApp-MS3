@@ -3,4 +3,18 @@
         height: 80vh;
         width: 80vw;
     }
+    .updates-body{
+        width: 100%;
+        padding-top: 0;
+    }
+    .divide-content{
+        border: none;
+    }
+    .olive-branch-img{
+        margin-top: 2em;
+        width: 20vw;
+    }
+    .olive-img{
+        width: 50vw;
+    }
 }

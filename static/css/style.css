@@ -57,7 +57,16 @@
 }
 
 .olive-img {
-    width: 33%;
+    width: 30vw;
+}
+
+.update-card{
+    border: none;
+}
+.updates-body{
+    width: 50%;
+    margin: 0 auto;
+    padding: 5px;
 }
 .schedule-h4 {
     color: #646b0b;    

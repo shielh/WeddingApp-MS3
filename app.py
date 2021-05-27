@@ -20,22 +20,31 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/home")
 def home():
-    return render_template("index.html")
+    update = mongo.db.update.find_one(
+        {"created_by": session["user"]})
+    if update is not None:
+        return render_template("index.html", update=update)
+    else:
+        return render_template("update.html")
 
 
 @app.route("/add_update", methods=["GET", "POST"])
 def add_update():
     if request.method == "POST":
-        updates = {
+        update = {
             "date": request.form.get("date"),
             "title": request.form.get("title"),
-            "description": request.form.get("description")
+            "description": request.form.get("description"),
+            "created_by": session["user"]
         }
-        mongo.db.update.insert_one(updates)
+        mongo.db.update.insert_one(update)
         flash("You Have Added an Update")
-        return redirect(url_for("add_update"))
+        return redirect(url_for("home"))
+
     return render_template("index.html")
+
 
 @app.route("/update")
 def update():
@@ -56,8 +65,6 @@ def get_guest_info():
     else:
         return render_template("add_preferences.html")
 
-    
-# option to have route to different pages depending on whether user is signed in or not
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -94,7 +101,7 @@ def login():
 
         if existing_user:
             # ensure hashed password matches user input
-       
+      
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("email").lower()
@@ -166,6 +173,7 @@ def edit_preferences(guest_info_id):
         mongo.db.guest_info.update(
             {"_id": ObjectId(guest_info_id)}, guest_information)
         flash("Thanks for Updating Your Preferences")
+        return redirect(url_for("get_guest_info"))
 
     guest_info = mongo.db.guest_info.find_one({"_id": ObjectId(guest_info_id)})
     return render_template("edit_preferences.html", guest_info=guest_info)
