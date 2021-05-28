@@ -50,9 +50,11 @@
     <div class="col-12 col-lg-10 col-sm-12">
 
         <div class="card-body updates-body">
-            <p> Date: {{ update.date }} </p>
-            <h4> {{ update.title }} </h4>
-            <h6> {{ update.description }} </h6>
+            {% for update in updates %}
+                <p> Date: {{ update.date }} </p>
+                <h4> {{ update.title }} </h4>
+                <h6> {{ update.description }} </h6>
+            {% endfor %}
             <div class="row">
                 <div class="col-6">
                     <a href="#" class="btn 

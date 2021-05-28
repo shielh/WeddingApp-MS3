@@ -21,13 +21,12 @@ mongo = PyMongo(app)
 
 @app.route("/")
 @app.route("/home")
-def home():
-    update = mongo.db.update.find_one(
-        {"created_by": session["user"]})
-    if update is not None:
-        return render_template("index.html", update=update)
+def home():    
+    if session and session["user"]:
+        updates = mongo.db.update.find()
+        return render_template("index.html", updates=updates)        
     else:
-        return render_template("update.html")
+        return render_template("index.html")
 
 
 @app.route("/add_update", methods=["GET", "POST"])
