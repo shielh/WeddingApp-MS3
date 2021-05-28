@@ -24,7 +24,7 @@ mongo = PyMongo(app)
 def home():    
     if session and session["user"]:
         updates = mongo.db.update.find()
-        return render_template("index.html", updates=updates)        
+        return render_template("index.html", updates=updates)   
     else:
         return render_template("index.html")
 
@@ -32,17 +32,35 @@ def home():
 @app.route("/add_update", methods=["GET", "POST"])
 def add_update():
     if request.method == "POST":
-        update = {
+        updates = {
             "date": request.form.get("date"),
             "title": request.form.get("title"),
             "description": request.form.get("description"),
             "created_by": session["user"]
         }
-        mongo.db.update.insert_one(update)
+        mongo.db.updates.insert_one(updates)
         flash("You Have Added an Update")
         return redirect(url_for("home"))
 
     return render_template("index.html")
+
+
+@app.route("/edit_updates/<update_id>", methods=["GET", "POST"])
+def edit_updates(update_id):
+    if request.method == "POST":
+        updates = {
+            "date": request.form.get("date"),
+            "title": request.form.get("title"),
+            "description": request.form.get("description"),
+            "created_by": session["user"]
+        }
+        mongo.db.updates.update(
+            {"_id": ObjectId(update_id)}, updates)
+        flash("Thanks for Updating Your Preferences")
+        return redirect(url_for("get_guest_info"))
+
+    updates = mongo.db.update.find_one({"_id": ObjectId(update_id)})
+    return render_template("edit_updates.html", updates=updates)
 
 
 @app.route("/update")
