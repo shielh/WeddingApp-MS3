@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h2 class="m-4 text-center preferences-h1">Edit Updates</h2>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="card-body preferences-form-card p-5">
+                    
+
+                    <form method="POST" action="{{ url_for('edit_updates', update_id=update._id ) }}">
+                         <!-- Date arrival picker -->
+                        <div class="row mb-4">
+                            <div class="col-1">
+                                <i class="far fa-calendar-check fa-icon"></i>
+                            </div>
+                            <div class="col-10">
+                                <label for="date"> Date 
+                                    <input id="date" name="date" type="date" class="datepicker validate"
+                                    value="{{ update.date }}" required>Edit Date
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Text input -->
+                        <div class="form-outline additional-text-box mb-4">
+                            <textarea class="form-control active" id="title"
+                                name="title" rows="2" maxlength="100">                    
+                                {{- guest_info.dietary_restrictions_description -}}
+                            </textarea>
+                            <label class="form-label" for="title">Edit Title
+                            </label>
+                        </div>
+
+                        <!-- Text input -->
+                        <div class="form-outline additional-text-box mb-4">
+                            <textarea class="form-control active" id="title"
+                                name="title" rows="2" maxlength="100">                    
+                                {{- guest_info.dietary_restrictions_description -}}
+                            </textarea>
+                            <label class="form-label" for="title">Edit Title
+                            </label>
+                        </div>
+                        
+                        <!--Cancel button-->
+                        <div class="row">
+                            <div class="col-3 offset-3">
+                                <a href="{{ url_for('home') }}" class="btn btn-block">
+                                    Cancel
+                                </a>
+                            </div>
+
+
+                        <!-- Submit button -->
+                            <div class="col-3">
+                                <button type="submit" class="btn btn-primary btn-block ">
+                                Edit
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
