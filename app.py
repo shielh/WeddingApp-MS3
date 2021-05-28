@@ -21,12 +21,17 @@ mongo = PyMongo(app)
 
 @app.route("/")
 @app.route("/home")
-def home():    
+def home():
     if session and session["user"]:
-        updates = mongo.db.update.find()
-        return render_template("index.html", updates=updates)   
+        updates = mongo.db.updates.find()
+        return render_template("index.html", updates=updates)
     else:
         return render_template("index.html")
+
+
+@app.route("/update")
+def update():
+    return render_template("update.html")
 
 
 @app.route("/add_update", methods=["GET", "POST"])
@@ -45,27 +50,29 @@ def add_update():
     return render_template("index.html")
 
 
-@app.route("/edit_updates/<update_id>", methods=["GET", "POST"])
-def edit_updates(update_id):
+@app.route("/edit_updates/<updates_id>", methods=["GET", "POST"])
+def edit_updates(updates_id):
     if request.method == "POST":
-        updates = {
+        update = {
             "date": request.form.get("date"),
             "title": request.form.get("title"),
             "description": request.form.get("description"),
             "created_by": session["user"]
         }
         mongo.db.updates.update(
-            {"_id": ObjectId(update_id)}, updates)
+            {"_id": ObjectId(updates_id)}, update)
         flash("Thanks for Updating Your Preferences")
-        return redirect(url_for("get_guest_info"))
+        return redirect(url_for("update"))
 
-    updates = mongo.db.update.find_one({"_id": ObjectId(update_id)})
+    updates = mongo.db.updates.find_one({"_id": ObjectId(updates_id)})
     return render_template("edit_updates.html", updates=updates)
 
 
-@app.route("/update")
-def update():
-    return render_template("update.html")
+@app.route("/delete_updates/<updates_id>")
+def delete_updates(updates_id):
+    mongo.db.updates.remove({"_id": ObjectId(updates_id)})
+    flash("Update Deleted")
+    return render_template("updates.html") 
 
 
 @app.route("/accommodation")
