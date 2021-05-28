@@ -32,7 +32,8 @@
     margin: 0;
     padding: 0;
 }
-/* Hero image*/
+
+/* Hero image with content in center*/
 .bg-image {
     background-image: url('../images/hero-image.jpg');
     height: 60vh;
@@ -40,15 +41,13 @@
     margin: 0 auto;
     margin-top: 20px;
     background-size: contain ;
-}
-
-.mask {
-    background-color: rgba(0, 0, 0, 0.6);
-    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-anchor-tags {
-    color: #b28729;
+    color: #FFFDE7;
 }
 .hero-anchor-tags:hover{
     text-decoration: none;
@@ -187,7 +186,7 @@ label {
 .olive-branch-img {
     margin: 0 auto;
     width: 10vw;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 /* Footer */ 
