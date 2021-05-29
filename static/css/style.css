@@ -76,6 +76,7 @@
     margin: 0 auto;
 }
 
+/* Creates border down center of schedule content */
 .divide-content {
     border-right: 1px solid #9b9871;
     margin-bottom: 3em;
@@ -189,6 +190,11 @@ label {
     margin: 20px 0;
 }
 
+
+/* Accommodation page */
+.olive-img-accom {
+    width: 10vw;
+}
 /* Footer */ 
 .footer-style {
     background-color: #9b9871;
