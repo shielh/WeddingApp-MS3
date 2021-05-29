@@ -148,31 +148,33 @@ def login():
 @app.route("/logout")
 def logout():
     # remove user from session cookie
-    flash("You have been logged out")
-    session.pop("user")
-    return redirect(url_for("login"))
+    if session["user"]:
+        flash("You have been logged out")
+        session.pop("user")
+        return redirect(url_for("login"))
 
 
 @app.route("/add_preferences", methods=["GET", "POST"])
 def add_preferences():
     if request.method == "POST":
-        require_accommodation = "Yes" if request.form.get(
-            "require_accommodation") else "No"
-        dietary_restrictions = "Yes" if request.form.get(
-            "dietary_restrictions") else "No"
-        guest_information = {
-            "number_of_party": request.form.get("number_of_party"),
-            "require_accommodation": require_accommodation,
-            "dietary_restrictions": dietary_restrictions,
-            "dietary_restrictions_description": request.form.get(
-                "dietary_restrictions_description"),
-            "arrival_date": request.form.get("arrival_date"),
-            "add_note": request.form.get("add_note"),
-            "created_by": session["user"]
-        }
-        mongo.db.guest_info.insert_one(guest_information)
-        flash("Thanks for Adding Your Preferences")
-        return redirect(url_for("get_guest_info"))
+        if session["user"]:
+            require_accommodation = "Yes" if request.form.get(
+                "require_accommodation") else "No"
+            dietary_restrictions = "Yes" if request.form.get(
+                "dietary_restrictions") else "No"
+            guest_information = {
+                "number_of_party": request.form.get("number_of_party"),
+                "require_accommodation": require_accommodation,
+                "dietary_restrictions": dietary_restrictions,
+                "dietary_restrictions_description": request.form.get(
+                    "dietary_restrictions_description"),
+                "arrival_date": request.form.get("arrival_date"),
+                "add_note": request.form.get("add_note"),
+                "created_by": session["user"]
+            }
+            mongo.db.guest_info.insert_one(guest_information)
+            flash("Thanks for Adding Your Preferences")
+            return redirect(url_for("get_guest_info"))
 
     return render_template("add_preferences.html")
 
@@ -180,24 +182,25 @@ def add_preferences():
 @app.route("/edit_preferences/<guest_info_id>", methods=["GET", "POST"])
 def edit_preferences(guest_info_id):
     if request.method == "POST":
-        require_accommodation = "Yes" if request.form.get(
-            "require_accommodation") else "No"
-        dietary_restrictions = "Yes" if request.form.get(
-            "dietary_restrictions") else "No"
-        guest_information = {
-            "number_of_party": request.form.get("number_of_party"),
-            "require_accommodation": require_accommodation,
-            "dietary_restrictions": dietary_restrictions,
-            "dietary_restrictions_description": request.form.get(
-                "dietary_restrictions_description"),
-            "arrival_date": request.form.get("arrival_date"),
-            "add_note": request.form.get("add_note"),
-            "created_by": session["user"]
-        }
-        mongo.db.guest_info.update(
-            {"_id": ObjectId(guest_info_id)}, guest_information)
-        flash("Thanks for Updating Your Preferences")
-        return redirect(url_for("get_guest_info"))
+        if session["user"]:
+            require_accommodation = "Yes" if request.form.get(
+                "require_accommodation") else "No"
+            dietary_restrictions = "Yes" if request.form.get(
+                "dietary_restrictions") else "No"
+            guest_information = {
+                "number_of_party": request.form.get("number_of_party"),
+                "require_accommodation": require_accommodation,
+                "dietary_restrictions": dietary_restrictions,
+                "dietary_restrictions_description": request.form.get(
+                    "dietary_restrictions_description"),
+                "arrival_date": request.form.get("arrival_date"),
+                "add_note": request.form.get("add_note"),
+                "created_by": session["user"]
+            }
+            mongo.db.guest_info.update(
+                {"_id": ObjectId(guest_info_id)}, guest_information)
+            flash("Thanks for Updating Your Preferences")
+            return redirect(url_for("get_guest_info"))
 
     guest_info = mongo.db.guest_info.find_one({"_id": ObjectId(guest_info_id)})
     return render_template("edit_preferences.html", guest_info=guest_info)
@@ -205,9 +208,10 @@ def edit_preferences(guest_info_id):
 
 @app.route("/delete_preferences/<guest_info_id>")
 def delete_preferences(guest_info_id):
-    mongo.db.guest_info.remove({"_id": ObjectId(guest_info_id)})
-    flash("Preference Deleted")
-    return render_template("add_preferences.html") 
+    if session["user"]:
+        mongo.db.guest_info.remove({"_id": ObjectId(guest_info_id)})
+        flash("Preference Deleted")
+        return render_template("add_preferences.html") 
 
 
 if __name__ == "__main__":
