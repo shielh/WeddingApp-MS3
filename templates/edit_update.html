@@ -2,14 +2,14 @@
 {% block content %}
 
 
-<h2 class="m-4 text-center preferences-h1">Edit Updates</h2>
+<h2 class="m-4 text-center preferences-h1">Edit Update</h2>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10">
                 <div class="card-body preferences-form-card p-5">
                     
 
-                    <form method="POST" action="{{ url_for('edit_updates', updates_id=updates._id ) }}">
+                    <form method="POST" action="{{ url_for('edit_update', update_id=update._id ) }}">
                          <!-- Date arrival picker -->
                         <div class="row mb-4">
                             <div class="col-1">

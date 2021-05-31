@@ -29,6 +29,11 @@ def home():
         return render_template("index.html")
 
 
+@app.route("/accommodation")
+def accommodation():
+    return render_template("accommodation.html")
+
+
 @app.route("/update")
 def update():
     return render_template("update.html")
@@ -37,47 +42,45 @@ def update():
 @app.route("/add_update", methods=["GET", "POST"])
 def add_update():
     if request.method == "POST":
-        updates = {
-            "date": request.form.get("date"),
-            "title": request.form.get("title"),
-            "description": request.form.get("description"),
-            "created_by": session["user"]
-        }
-        mongo.db.updates.insert_one(updates)
-        flash("You Have Added an Update")
-        return redirect(url_for("home"))
+        if session["is_admin"]:
+            updates = {
+                "date": request.form.get("date"),
+                "title": request.form.get("title"),
+                "description": request.form.get("description"),
+                "created_by": session["user"]
+            }
+            mongo.db.updates.insert_one(updates)
+            flash("You Have Added an Update")
+            return redirect(url_for("home"))
 
     return render_template("index.html")
 
 
-@app.route("/edit_updates/<updates_id>", methods=["GET", "POST"])
-def edit_updates(updates_id):
+@app.route("/edit_update/<update_id>", methods=["GET", "POST"])
+def edit_update(update_id):
     if request.method == "POST":
-        update = {
-            "date": request.form.get("date"),
-            "title": request.form.get("title"),
-            "description": request.form.get("description"),
-            "created_by": session["user"]
-        }
-        mongo.db.updates.update(
-            {"_id": ObjectId(updates_id)}, update)
-        flash("Thanks for Updating Your Preferences")
-        return redirect(url_for("update"))
+        if session["is_admin"]:
+            update = {
+                "date": request.form.get("date"),
+                "title": request.form.get("title"),
+                "description": request.form.get("description"),
+                "created_by": session["user"]
+            }
+            mongo.db.updates.update(
+                {"_id": ObjectId(update_id)}, update)
+            flash("Thanks for Updating Your Preferences")
+            return redirect(url_for("update"))
 
-    updates = mongo.db.updates.find_one({"_id": ObjectId(updates_id)})
-    return render_template("edit_updates.html", updates=updates)
-
-
-@app.route("/delete_updates/<updates_id>")
-def delete_updates(updates_id):
-    mongo.db.updates.remove({"_id": ObjectId(updates_id)})
-    flash("Update Deleted")
-    return render_template("updates.html") 
+    update = mongo.db.updates.find_one({"_id": ObjectId(update_id)})
+    return render_template("edit_update.html", update=update)
 
 
-@app.route("/accommodation")
-def accommodation():
-    return render_template("accommodation.html")
+@app.route("/delete_update/<update_id>")
+def delete_update(update_id):
+    if session["is_admin"]:
+        mongo.db.updates.remove({"_id": ObjectId(update_id)})
+        flash("Update Deleted")
+        return render_template("updates.html")
 
 
 @app.route("/get_guest_info")
@@ -105,7 +108,8 @@ def register():
             "firstName": request.form.get("firstName"),
             "lastName": request.form.get("lastName"),
             "email": request.form.get("email").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "is_admin": False
         }
         mongo.db.user.insert_one(register)
 
@@ -122,6 +126,7 @@ def login():
         # check if email exists in db
         existing_user = mongo.db.user.find_one(
             {"email": request.form.get("email").lower()})
+     
 
         if existing_user:
             # ensure hashed password matches user input
@@ -129,6 +134,7 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("email").lower()
+                    session["is_admin"] = existing_user["is_admin"]
                     flash("Welcome, {}".format(existing_user["firstName"]))
                     return redirect(url_for(
                         "home"))
@@ -151,6 +157,7 @@ def logout():
     if session["user"]:
         flash("You have been logged out")
         session.pop("user")
+        session.pop("is_admin")
         return redirect(url_for("login"))
 
 

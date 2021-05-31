@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.2/sandstone/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.2/sandstone/bootstrap.min.css"
+        type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+        type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css" type="text/css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <link rel="stylesheet" href="static/css/responsive.css" type="text/css">
     {% block styles %}
@@ -14,24 +17,26 @@
 
     <title>Wedding App</title>
 </head>
+
 <body>
     <header>
-    <!-- Navbar -->
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-fixed-top shadow-1 border-bottom border-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#!"><img src="{{ url_for('static', filename='images/siteLogo.png') }}" class="site-logo" alt="site logo"></a>
+                <a class="navbar-brand" href="#!"><img src="{{ url_for('static', filename='images/siteLogo.png') }}"
+                        class="site-logo" alt="site logo"></a>
                 <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-                data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
+                    data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto ">
                         <li class="nav-item ">
                             <a class="nav-link " href="{{ url_for('home') }}">Home</a>
                         </li>
-                    {% if session.user %}
-                        
+                        {% if session.user %}
+
                         <li class="nav-item">
                             <a class="nav-link " href="{{ url_for('accommodation') }}">Accommodation</a>
                         </li>
@@ -41,45 +46,48 @@
                         <li class="nav-item">
                             <a class="nav-link " href="{{ url_for('get_guest_info') }}">Preferences</a>
                         </li>
+                        {% if session.is_admin %}
                         <li class="nav-item">
                             <a class="nav-link " href="{{ url_for('update') }}">Add Update</a>
                         </li>
+                        {% endif %}
                         <li class="nav-item">
                             <a class="nav-link " href="{{ url_for('logout') }}">Log Out</a>
                         </li>
-                    {% else %}
+                        {% else %}
                         <li class="nav-item"></li>
-                            <a class="nav-link " href="{{ url_for('login') }}">Log In</a>
+                        <a class="nav-link " href="{{ url_for('login') }}">Log In</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " href="{{ url_for('register') }}">Register</a>
                         </li>
-                    {% endif %}
+                        {% endif %}
+
 
                     </ul>
                 </div>
             </div>
         </nav>
-    <!-- Navbar -->
+        <!-- Navbar -->
     </header>
 
     <section>
         <!--flash messages-->
         {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="message-flash text-center">{{ message }}</h4>
-                    </div>
-                {% endfor %}
-            {% endif %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <h4 class="message-flash text-center">{{ message }}</h4>
+        </div>
+        {% endfor %}
+        {% endif %}
         {% endwith %}
     </section>
 
     <main>
 
-    {% block content %}
-    {% endblock %}
+        {% block content %}
+        {% endblock %}
     </main>
     <div class="row justify-content-center">
         <div class="col-4 text-center">
@@ -111,4 +119,5 @@
     {% endblock %}
 
 </body>
+
 </html>
