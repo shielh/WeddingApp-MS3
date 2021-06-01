@@ -56,7 +56,7 @@
 }
 
 .olive-img {
-    width: 30vw;
+    width: 20vw;
 }
 
 .update-card{
@@ -82,6 +82,13 @@
     margin-bottom: 3em;
     text-align: center;
     bottom: 5px;
+}
+
+.wedding-schedule-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .schedule-icon{
