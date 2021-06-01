@@ -23,7 +23,7 @@ mongo = PyMongo(app)
 @app.route("/home")
 def home():
     if session and session["user"]:
-        updates = mongo.db.updates.find()
+        updates = mongo.db.update.find()
         return render_template("index.html", updates=updates)
     else:
         return render_template("index.html")
@@ -49,7 +49,7 @@ def add_update():
                 "description": request.form.get("description"),
                 "created_by": session["user"]
             }
-            mongo.db.updates.insert_one(updates)
+            mongo.db.update.insert_one(updates)
             flash("You Have Added an Update")
             return redirect(url_for("home"))
 
@@ -66,21 +66,21 @@ def edit_update(update_id):
                 "description": request.form.get("description"),
                 "created_by": session["user"]
             }
-            mongo.db.updates.update(
+            mongo.db.update.update(
                 {"_id": ObjectId(update_id)}, update)
             flash("Thanks for Updating Your Preferences")
             return redirect(url_for("update"))
 
-    update = mongo.db.updates.find_one({"_id": ObjectId(update_id)})
+    update = mongo.db.update.find_one({"_id": ObjectId(update_id)})
     return render_template("edit_update.html", update=update)
 
 
 @app.route("/delete_update/<update_id>")
 def delete_update(update_id):
     if session["is_admin"]:
-        mongo.db.updates.remove({"_id": ObjectId(update_id)})
+        mongo.db.update.remove({"_id": ObjectId(update_id)})
         flash("Update Deleted")
-        return render_template("updates.html")
+        return render_template("update.html")
 
 
 @app.route("/get_guest_info")
@@ -88,7 +88,7 @@ def get_guest_info():
     guest_info = mongo.db.guest_info.find_one(
         {"created_by": session["user"]})
     if guest_info is not None:
-        return render_template("preferences.html", guest_info=guest_info)
+        return render_template("preference.html", guest_info=guest_info)
     else:
         return render_template("add_preferences.html")
 
@@ -161,8 +161,8 @@ def logout():
         return redirect(url_for("login"))
 
 
-@app.route("/add_preferences", methods=["GET", "POST"])
-def add_preferences():
+@app.route("/add_preference", methods=["GET", "POST"])
+def add_preference():
     if request.method == "POST":
         if session["user"]:
             require_accommodation = "Yes" if request.form.get(
@@ -180,14 +180,14 @@ def add_preferences():
                 "created_by": session["user"]
             }
             mongo.db.guest_info.insert_one(guest_information)
-            flash("Thanks for Adding Your Preferences")
+            flash("Thanks for Adding Your Preference")
             return redirect(url_for("get_guest_info"))
 
-    return render_template("add_preferences.html")
+    return render_template("add_preference.html")
 
 
-@app.route("/edit_preferences/<guest_info_id>", methods=["GET", "POST"])
-def edit_preferences(guest_info_id):
+@app.route("/edit_preference/<guest_info_id>", methods=["GET", "POST"])
+def edit_preference(guest_info_id):
     if request.method == "POST":
         if session["user"]:
             require_accommodation = "Yes" if request.form.get(
@@ -210,11 +210,11 @@ def edit_preferences(guest_info_id):
             return redirect(url_for("get_guest_info"))
 
     guest_info = mongo.db.guest_info.find_one({"_id": ObjectId(guest_info_id)})
-    return render_template("edit_preferences.html", guest_info=guest_info)
+    return render_template("edit_preference.html", guest_info=guest_info)
 
 
-@app.route("/delete_preferences/<guest_info_id>")
-def delete_preferences(guest_info_id):
+@app.route("/delete_preference/<guest_info_id>")
+def delete_preference(guest_info_id):
     if session["user"]:
         mongo.db.guest_info.remove({"_id": ObjectId(guest_info_id)})
         flash("Preference Deleted")
