@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Bootstrap-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.2/sandstone/bootstrap.min.css"
+        type="text/css">
+    <!--Import custom css files-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="static/css/responsive.css" type="text/css">
+    <!--Import Favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}">
+    <title>Wedding App</title>
+</head>
+
+<body>
+<!--Navbar with home page anchor tag-->
+    <nav class="navbar navbar-expand-lg navbar-fixed-top shadow-1 border-bottom border-dark">
+        <a class="navbar-brand" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/siteLogo.png') }}"
+            class="site-logo" alt="site logo"></a>
+    </nav>
+
+<!--Main 404 content-->
+<div class="card error-card">
+  <div class="card-body text-center">
+    <h3 class="card-title">Error 500 - Internal Server Error</h3>
+    <p class="card-text ">
+      Oops! Looks like something went wrong.
+      To return to the home page please click <a href="{{ url_for('home') }}" >here</a>.
+    </p>
+    
+  </div>
+</div>
+
+<div class="row justify-content-center">
+        <div class="col-4 text-center">
+            <img src="../static/images/oliveBranch.png" class="olive-branch-img">
+        </div>
+</div>
+<!--Footer-->
+<footer class=" footer text-center text-white fixed-bottom footer-style w-100">
+    <!-- Grid container -->
+    <div class="container"></div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3">
+        © 2021 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">Helen Shiel</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+    
+</body>
+</html>
