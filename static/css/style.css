@@ -21,7 +21,7 @@
     text-shadow: 1px 1px;
 }
 .site-logo {
-    height: 80px;
+    height: inherit;
 }
 
 .navbar-collapse {
@@ -208,4 +208,11 @@ label {
     display: inline-block;
     position: static;
     
+}
+
+/* 404 page */
+.error-card {
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 20px;
 }
