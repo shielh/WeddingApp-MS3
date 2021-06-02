@@ -141,6 +141,13 @@
     width: fit-content;
     margin: 0 auto;
 }
+.preferences-form-card{
+    width: fit-content;
+    margin: 0 auto;
+}
+.preference-text{
+    text-align: left;
+}
 
 .list-group-item {
     border: none;
@@ -152,25 +159,12 @@
 
 .preference-edit-btn,
 .preference-delete-btn {
-    margin-top: 25px;
-    
-}
-/* Style delete button and on hover */ 
-.preference-delete-btn {
-    background-color: #dd9d49;
-}
-.preference-delete-btn:hover {
-    background-color: #e2b06e;
-}
-/* Style edit button and on hover */ 
-.preference-edit-btn{
-    background-color: #b28729;
+    margin-top: 25px; 
 }
 
 .olive-branch-img {
     margin: 0 auto;
     width: 10vw;
-
 }
 
 /* Accommodation page */
