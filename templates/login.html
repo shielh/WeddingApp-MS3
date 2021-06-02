@@ -2,15 +2,15 @@
 {% block content %}
 <div class="card login-card">
 <h2 class="register-h2 text-center">Log In</h2>
-    <div class="row">
-        <form class="form-container justify-content-center" method="POST" action="{{ url_for('login') }}">
+    <div class="row text-center">
+        <form class="form-container " method="POST" action="{{ url_for('login') }}">
         
             <!-- Email input -->
             <div class="row">
-                <div class="col-8 offset-2">
+                <div class="col-10 ">
                     <div class="form-outline mb-4">
                         <input type="email" id="email" name="email" class="form-control" 
-                            minlength="5" maxlength="20" required/>
+                            minlength="5" maxlength="50" required/>
                         <label class="form-label" for="email">Email address</label>
                     </div>
                 </div>
@@ -18,7 +18,7 @@
 
             <!-- Password input -->
             <div class="row">
-                <div class="col-8 offset-2">
+                <div class="col-10">
                     <div class="form-outline mb-4">
                         <input type="password" id="password" name="password" class="form-control" 
                             minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required/>
@@ -28,7 +28,7 @@
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn register-btn btn-block mb-4">Log in</button>
+            <button type="submit" class="btn btn-primary mb-4">Log in</button>
 
             <!-- Direct to Register.html-->
             <div class="row">

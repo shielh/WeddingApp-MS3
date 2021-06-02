@@ -47,6 +47,7 @@
 .update-card{
     border: none;
 }
+
 .updates-body{
     width: 50%;
     margin: 0 auto;
@@ -86,19 +87,16 @@
     margin: auto;
 }
 
+/* Register Page */
+.card{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;;
+}
 .register-h2 {
     color: #9b9871;
     margin-top: 20px;
-}
-
-.register-btn {
-    background-color: #9b9871;
-    border-color: #9b9871;
-}
-
-.login-card {
-    width: 50vw;
-    margin: 0 auto;
 }
 
 .message-flash {
@@ -184,7 +182,7 @@
     background-color: #78c2ad;
     display: inline-block;
     position: static;
-    margin-top: 40px;
+    margin-top:20px;
 }
 
 /* 404 page */
