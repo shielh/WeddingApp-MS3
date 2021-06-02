@@ -2,69 +2,62 @@
 {% block content %}
 
 
-<h2 class="m-4 text-center preferences-h1">Edit Update</h2>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
-                <div class="card-body preferences-form-card p-5">
-                    
 
-                    <form method="POST" action="{{ url_for('edit_update', update_id=update._id ) }}">
-                         <!-- Date arrival picker -->
-                        <div class="row mb-4">
-                            <div class="col-1">
-                                <i class="far fa-calendar-check fa-icon"></i>
-                            </div>
-                            <div class="col-10">
-                                <label for="date"> Date 
-                                    <input id="date" name="date" type="date" class="datepicker validate"
-                                    value="{{ update.date }}" required>Edit Date
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <!-- Text input -->
-                        <div class="form-outline additional-text-box mb-4">
-                            <textarea class="form-control active" id="title"
-                                name="title" rows="2" maxlength="100">                    
-                                {{- update.title -}}
-                            </textarea>
-                            <label class="form-label" for="title">Edit Title
-                            </label>
-                        </div>
-
-                        <!-- Text input -->
-                        <div class="form-outline additional-text-box mb-4">
-                            <textarea class="form-control active" id="title"
-                                name="title" rows="2" maxlength="100">                    
-                                {{- update.description -}}
-                            </textarea>
-                            <label class="form-label" for="title">Edit Title
-                            </label>
-                        </div>
-                        
-                        <!--Cancel button-->
-                        <div class="row">
-                            <div class="col-3 offset-3">
-                                <a href="{{ url_for('home') }}" class="btn btn-info">
-                                    Cancel
-                                </a>
-                            </div>
-
-
-                        <!-- Submit button -->
-                            <div class="col-3">
-                                <button type="submit" class="btn btn-primary btn-block ">
-                                Edit
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+<div class="card edit-update-card">   
+    <h2 class="register-h2 text-center">Edit Update</h2>
+        <div class="row p-5 text-center">
+            <form class="form-container justify-content-center" method="POST" action="{{ url_for('edit_update', update_id=update._id ) }}">                   
+                <!-- Date arrival picker -->
+                <div class="row ">
+                    <div class="col-12">
+                        <label for="date"> Edit Date 
+                            <input id="date" name="date" type="date" class="datepicker validate"
+                            value="{{ update.date }}" required>
+                        </label>
+                    </div>
                 </div>
                 
-            </div>
+                <!-- Text input -->
+                <div class="form-outline additional-text-box mb-4">
+                    <textarea class="form-control active" id="title"
+                        name="title" rows="2" maxlength="100">                    
+                        {{- update.title -}}
+                    </textarea>
+                    <label class="form-label" for="title">Edit Title
+                    </label>
+                </div>
+
+                <!-- Text input -->
+                <div class="form-outline additional-text-box mb-4">
+                    <textarea class="form-control active" id="title"
+                        name="title" rows="2" maxlength="100">                    
+                        {{- update.description -}}
+                    </textarea>
+                    <label class="form-label" for="title">Edit Title
+                    </label>
+                </div>
+                
+                <!--Cancel button-->
+                <div class="row">
+                    <div class="col-6 ">
+                        <a href="{{ url_for('home') }}" class="btn btn-info">
+                            Cancel
+                        </a>
+                    </div>
+
+
+                <!-- Submit button -->
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary  ">
+                        Edit
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </div>
+            
+
+</div>
 
 
 {% endblock %}
