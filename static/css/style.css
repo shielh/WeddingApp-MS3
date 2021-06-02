@@ -25,6 +25,7 @@
     width: 60vw;
     margin: 0 auto;
     margin-top: 20px;
+    margin-bottom: 20px;
     background-size: contain ;
     display: flex;
     align-items: center;
@@ -32,7 +33,7 @@
 }
 
 .hero-anchor-tags {
-    color: #FFFDE7;
+    color: #000;
 }
 .hero-anchor-tags:hover{
     text-decoration: none;
