@@ -44,10 +44,15 @@
 .olive-img {
     width: 20vw;
 }
-
+/* Set width of card and center contents */
 .update-card{
     border: none;
     width: 50%;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
 }
 
 .updates-body{
@@ -143,8 +148,10 @@
     margin: 0 auto;
 }
 .preferences-form-card{
-    width: fit-content;
-    margin: 0 auto;
+    width: 60%;
+    
+    text-align: left;
+    padding: 0;
 }
 .preference-text{
     text-align: left;
