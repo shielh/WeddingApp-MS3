@@ -177,7 +177,7 @@ def delete_preference(guest_info_id):
     if session["user"]:
         mongo.db.guest_info.remove({"_id": ObjectId(guest_info_id)})
         flash("Preference Deleted")
-        return render_template("add_preferences.html")
+        return render_template("add_preference.html")
 
 
 @app.route("/update")

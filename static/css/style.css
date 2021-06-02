@@ -68,7 +68,7 @@
     padding: 5px;
 }
 .schedule-h4 {
-    color: #646b0b;    
+    color: #78c2ad;    
 }
 
 .schedule-section{
@@ -92,7 +92,7 @@
 }
 
 .schedule-icon{
-    color: #646b0b;
+    color: #78c2ad;
 }
 
 .form-container {
@@ -118,14 +118,13 @@
 
 .message-flash {
     margin: 0;
-    background-color: #9b9871;
+    background-color: #78c2ad;
     color: #FFFDE7;
 }
 
 /* add preferences page */
 .preferences-form-card {
     border: 1px solid #262626;
-    margin-bottom: 50px;
 }
 
 .add-preferences-btn {
@@ -194,9 +193,8 @@ label {
 .olive-branch-img {
     margin: 0 auto;
     width: 10vw;
-    margin: 20px 0;
+    margin-bottom: 60px;
 }
-
 
 /* Accommodation page */
 .olive-img-accom {
@@ -204,10 +202,10 @@ label {
 }
 /* Footer */ 
 .footer-style {
-    background-color: #9b9871;
+    background-color: #78c2ad;
     display: inline-block;
     position: static;
-    
+    margin-top: 40px;
 }
 
 /* 404 page */
