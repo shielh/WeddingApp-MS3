@@ -46,6 +46,7 @@
 
 .update-card{
     border: none;
+    width: 50%;
 }
 
 .updates-body{
@@ -92,7 +93,9 @@
     width: 50%;
     margin: 0 auto;
     margin-top: 20px;
-    margin-bottom: 20px;;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0,0,0,0.125);
+;
 }
 .register-h2 {
     color: #9b9871;
@@ -106,9 +109,6 @@
 }
 
 /* add preferences page */
-.preferences-form-card {
-    border: 1px solid #262626;
-}
 
 .add-preferences-btn {
     background-color: #9b9871;
