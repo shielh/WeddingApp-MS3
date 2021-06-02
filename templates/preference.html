@@ -7,33 +7,33 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10">
                 <div class="card view-preference-card">
-                    <div class="card-body p-5">
-                        <ul class="list-group preferences-list text-left">
+                    <div class="card-body p-5 text-center">
+                        <h5>
+                        <strong>Number of guests: </strong>{{ guest_info.number_of_party }}<br>
+                        <strong>Require accommodation? </strong> {{ guest_info.require_accommodation }}<br>
+                        <strong>Dietary Restrictions?  </strong>{{ guest_info.dietary_restrictions }}<br>
+                        <strong>Dietary Restrictions? </strong>{{ guest_info.dietary_restrictions_description }}<br>
+                        <strong>Arrival Date: </strong>{{ guest_info.arrival_date }}<br>
+                        <strong>Additional Comments: </strong>{{ guest_info.add_note }}<br>
+                        <strong>Created by: </strong>{{ guest_info.created_by }}
+                        </h5>
 
-                            <li class="list-group-item"><strong>Number of guests: </strong>{{ guest_info.number_of_party }}</li>
-                            <li class="list-group-item"><strong>Require accommodation? </strong> {{ guest_info.require_accommodation }}</li>
-                            <li class="list-group-item"><strong>Dietary Restrictions?  </strong>{{ guest_info.dietary_restrictions }}</li>
-                            <li class="list-group-item"><strong>Dietary Restrictions? </strong>{{ guest_info.dietary_restrictions_description }}</li>
-                            <li class="list-group-item"><strong>Arrival Date: </strong>{{ guest_info.arrival_date }}</li>
-                            <li class="list-group-item"><strong>Additional Comments: </strong>{{ guest_info.add_note }}</li>
-                            <li class="list-group-item"><strong>Created by: </strong>{{ guest_info.created_by }}</li>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" class="btn 
-                                        preference-delete-btn btn-danger" data-target="#confirmDelete" data-toggle="modal">
-                                    Delete
-                                    </a>
-                                </div>
-                                <div class="col-6">
-                                    <a href="{{ url_for('edit_preference', guest_info_id=guest_info._id) }}" class="btn 
-                                        preference-edit-btn btn-warning">
-                                    Edit
-                                    </a>
-                                </div>
-
+                        <div class="row justify-content-center">
+                            <div class="col-2">
+                                <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" class="btn 
+                                    preference-delete-btn btn-danger" data-target="#confirmDelete" data-toggle="modal">
+                                Delete
+                                </a>
                             </div>
-                        </ul>
+                            <div class="col-2">
+                                <a href="{{ url_for('edit_preference', guest_info_id=guest_info._id) }}" class="btn 
+                                    preference-edit-btn btn-warning">
+                                Edit
+                                </a>
+                            </div>
+
+                        </div>
+                 
                     </div>
                 </div>
             </div>
@@ -51,8 +51,8 @@
                     <h4>Please click delete to confirm</h4>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" type="button" class="btn confirm-delete-btn">Delete</a>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                    <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" type="button" class="btn btn-danger confirm-delete-btn">Delete</a>
                 </div>
                 </div>
             </div>
