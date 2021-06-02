@@ -35,7 +35,7 @@
                                     <div class="form-check form-switch">
                                         <i class="fas fa-bed fa-icon"></i>
                                         <label for="require_accommodation">Require Accomodation?
-                                            {% if guest_info.require_accommodation == "yes" %}
+                                            {% if guest_info.require_accommodation == "Yes" %}
                                             <input class="form-check-input" type="checkbox" id="require_accommodation"
                                                 name="require_accommodation"checked />
                                             {% else %}
@@ -57,7 +57,7 @@
                                     <div class="form-check form-switch">
                                         <i class="fas fa-utensils fa-icon"></i>
                                         <label for="dietary_restrictions">Dietary Restrictions?
-                                            {% if guest_info.dietary_restrictions == "yes" %}
+                                            {% if guest_info.dietary_restrictions == "Yes" %}
                                             <input class="form-check-input" type="checkbox" id="dietary_restrictions"
                                             name="dietary_restrictions" value="{{ guest_info.dietary_restrictions }}" checked/>
                                             {% else %}
@@ -106,7 +106,7 @@
                         <!--Cancel button-->
                         <div class="row">
                             <div class="col-3 offset-3">
-                                <a href="{{ url_for('get_guest_info') }}" class="btn btn-block">
+                                <a href="{{ url_for('get_guest_info') }}" class="btn btn-secondary">
                                     Cancel
                                 </a>
                             </div>
