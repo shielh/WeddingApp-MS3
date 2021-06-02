@@ -25,24 +25,14 @@ app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
-#app.config['MAIL_DEBUG'] = True
 app.config['MAIL_USERNAME'] = 'shiel.helen@gmail.com'
 app.config['MAIL_PASSWORD'] = os.environ.get("MAIL_PASSWORD")
 app.config['MAIL_DEFAULT_SENDER'] = 'shiel.helen@gmail.com'
 app.config['MAIL_MAX_EMAILS'] = None
-#app.config['MAIL_SUPPRESS_SEND'] = False
 app.config['MAIL_ASCII_ATTACHMENTS'] = False
 
 mail = Mail(app)
 mongo = PyMongo(app)
-
-
-@app.route('/')
-def index():
-    msg = Message('Hey Guys', recipients=['shiel.helen@gmail.com'])
-    mail.send(msg)
-
-    return 'Message has been sent'
 
 
 @app.route("/home")
@@ -125,10 +115,12 @@ def logout():
     """
     remove user from session cookie
     """
+    if "is_admin" in  session:
+        session.pop("is_admin")
+
     if session["user"]:
         flash("You have been logged out")
         session.pop("user")
-        session.pop("is_admin")
         return redirect(url_for("login"))
 
 
@@ -214,6 +206,7 @@ def update():
     return render_template("update.html")
 
 
+
 @app.route("/add_update", methods=["GET", "POST"])
 def add_update():
     """
@@ -227,7 +220,17 @@ def add_update():
             "created_by": session["user"]
         }
         mongo.db.update.insert_one(updates)
+
+        users = mongo.db.user.find({"is_admin": False, "want_email": True}, {"email": 1})
+        # [{"email": "abc@gmail.com", "_id": 1}, {"email": "greg@gmail.com", "_id": 2}]
+        # ["abc@gamil.com", "greg@gmail.com"]
+        email_list = [user["email"] for user in users if "email" in user]
+        
+        msg = Message('Hey Guys', recipients=email_list)
+        mail.send(msg)
+      
         flash("You Have Added an Update")
+
         return redirect(url_for("home"))
 
     return render_template("index.html")
