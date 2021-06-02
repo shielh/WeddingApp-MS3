@@ -4,8 +4,8 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from flask_mail import Mail, Message
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import timedelta
 
 if os.path.exists("env.py"):
     import env
@@ -17,10 +17,34 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
+"""
+Config for Flask Mail
+"""
+app.config['TESTING'] = False
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+#app.config['MAIL_DEBUG'] = True
+app.config['MAIL_USERNAME'] = 'shiel.helen@gmail.com'
+app.config['MAIL_PASSWORD'] = os.environ.get("MAIL_PASSWORD")
+app.config['MAIL_DEFAULT_SENDER'] = 'shiel.helen@gmail.com'
+app.config['MAIL_MAX_EMAILS'] = None
+#app.config['MAIL_SUPPRESS_SEND'] = False
+app.config['MAIL_ASCII_ATTACHMENTS'] = False
+
+mail = Mail(app)
 mongo = PyMongo(app)
 
 
-@app.route("/")
+@app.route('/')
+def index():
+    msg = Message('Hey Guys', recipients=['shiel.helen@gmail.com'])
+    mail.send(msg)
+
+    return 'Message has been sent'
+
+
 @app.route("/home")
 def home():
     if session and session["user"]:
@@ -33,6 +57,11 @@ def home():
 @app.route("/accommodation")
 def accommodation():
     return render_template("accommodation.html")
+
+
+@app.route("/faq")
+def faq():
+    return render_template("faq.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
