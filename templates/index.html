@@ -57,17 +57,17 @@
             <h6> {{ update.description }} </h6>
 
             {% if session["is_admin"] %}
-            <div class="row">
-                <div class="col-2">
-                    <a href="{{ url_for('delete_update', update_id=update._id) }}" class="btn 
-                        preference-delete-btn btn-danger" data-target="#confirmDelete" data-toggle="modal">
+            <div class="row justify-content-center buttons-row">
+                <div class="col-6">
+                    <a href="{{ url_for('delete_update', update_id=update._id) }}" 
+                        type="button" class="btn btn-danger" 
+                        data-target="#confirmDelete" data-toggle="modal">
                         Delete
                     </a>
                 </div>
-                <div class="col-2">
-                    <a href="{{ url_for('edit_update', update_id=update._id) }}" class="btn 
-                        preference-edit-btn">
-                        Edit
+                <div class="col-6 col-lg-2 ">
+                    <a href="{{ url_for('edit_update', update_id=update._id) }}"
+                        type="button" class="btn btn-warning ">Edit
                     </a>
                 </div>
             </div>
@@ -90,8 +90,8 @@
                     <h4>Please click delete to confirm</h4>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <a href="{{ url_for('delete_update', update_id=update._id) }}" type="button" class="btn confirm-delete-btn">Delete</a>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                    <a href="{{ url_for('delete_update', update_id=update._id) }}" type="button" class="btn btn-danger confirm-delete-btn">Delete</a>
                 </div>
                 </div>
             </div>

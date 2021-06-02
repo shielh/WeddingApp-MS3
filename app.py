@@ -110,7 +110,7 @@ def get_guest_info():
     if guest_info is not None:
         return render_template("preference.html", guest_info=guest_info)
     else:
-        return render_template("add_preferences.html")
+        return render_template("add_preference.html")
 
 
 @app.route("/add_preference", methods=["GET", "POST"])

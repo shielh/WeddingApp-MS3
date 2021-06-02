@@ -1,21 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 /* Navbar styling */
-.navbar {
-  padding-top: auto;
-  padding-bottom: auto;
-  background-color: #FFFDE7;
-}
-
-.navbar-brand {
-  font-size: unset;
-  height: 3.5rem;
-}
-
-.nav-link {
-    color: #b28729;
-}
-
 .nav-link:hover {
     color: #b28729;
     text-shadow: 1px 1px;
@@ -131,9 +116,10 @@
     background-color: #9b9871;
 }
 
-label {
+.checkbox-label {
     display: inline-block;
     text-align: left;
+    width: fit-content;
 }
 
 .form-switch {
@@ -158,19 +144,12 @@ label {
     margin: 0 auto;
 }
 
+.list-group-item {
+    border: none;
+}
+
 .active {
     margin-bottom: 20px;
-}
-
-.confirm-delete-btn {
-    background-color: #9b9871;
-    color: #FFFDE7;
-}
-
-.list-group-item {
-    width: 100%;
-    border: none;
-    padding: 0;
 }
 
 .preference-edit-btn,
@@ -193,7 +172,7 @@ label {
 .olive-branch-img {
     margin: 0 auto;
     width: 10vw;
-    margin-bottom: 60px;
+
 }
 
 /* Accommodation page */
