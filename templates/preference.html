@@ -15,14 +15,14 @@
         <strong>Created by: </strong>{{ guest_info.created_by }}
         </p>
 
-        <div class="row justify-content-center">
-            <div class="col">
+        <div class="row justify-content-center mb-4">
+            <div class="col-6">
                 <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" class="btn 
                     preference-delete-btn btn-danger" data-target="#confirmDelete" data-toggle="modal">
                 Delete
                 </a>
             </div>
-            <div class="col">
+            <div class="col-6">
                 <a href="{{ url_for('edit_preference', guest_info_id=guest_info._id) }}" class="btn 
                     preference-edit-btn btn-warning">
                 Edit
@@ -36,23 +36,23 @@
 
 
 
-        <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel"></h4>
-                </div>
-                <div class="modal-body">
-                    <h4>Please click delete to confirm</h4>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-                    <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" type="button" class="btn btn-danger confirm-delete-btn">Delete</a>
-                </div>
-                </div>
-            </div>
+<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel"></h4>
         </div>
+        <div class="modal-body">
+            <h4>Please click delete to confirm</h4>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+            <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" type="button" class="btn btn-danger ">Delete</a>
+        </div>
+        </div>
+    </div>
+</div>
     
 
 

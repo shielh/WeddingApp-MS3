@@ -11,7 +11,7 @@
     }
     .olive-branch-img{
         margin-top: 2em;
-        width: 20vw;
+        width: 30vw;
     }
     .olive-img{
         width: 50vw;
@@ -20,15 +20,15 @@
         width: 30vw;
     }
     .card,
-    .preference-card {
+    .preference-card,
+    .edit-update-card {
         width: 80%;
     }
 }
 
-@media only screen and (min-width: 560px)
-and (max-width: 1024px){
+@media only screen and (max-width: 1024px){
     .divide-content{
         border-right: none;
     }
-}
+
 
