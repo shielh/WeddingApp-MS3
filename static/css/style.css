@@ -135,7 +135,7 @@
 }
 
 .fa-icon {
-    width: 5em;
+    width: fit-content;
 }
 
 /* Preferences page */ 
