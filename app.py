@@ -207,11 +207,11 @@ def update():
     return render_template("update.html")
 
 
-
 @app.route("/add_update", methods=["GET", "POST"])
 def add_update():
     """
-    Allows an admin user to add an update
+    Allows an admin user to add an update and email all non-admin users
+    when the update is added
     """
     if request.method == "POST" and session["is_admin"]:
         updates = {
@@ -223,8 +223,6 @@ def add_update():
         mongo.db.update.insert_one(updates)
 
         users = mongo.db.user.find({"is_admin": False, "want_email": True}, {"email": 1})
-        # [{"email": "abc@gmail.com", "_id": 1}, {"email": "greg@gmail.com", "_id": 2}]
-        # ["abc@gamil.com", "greg@gmail.com"]
         email_list = [user["email"] for user in users if "email" in user]
         
         msg = Message('Hey Guys', recipients=email_list)
