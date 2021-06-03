@@ -54,12 +54,23 @@
     justify-content: center;
     text-align: left;
 }
+.update-form-card{
+    text-align: left;
+}
 
 .updates-body{
     width: 50%;
     margin: 0 auto;
     padding: 5px;
 }
+.update-datepicker{
+    width: 8em;
+}
+
+.title-update-text{
+    border: 1px solid #000;
+}
+
 .schedule-h4 {
     color: #78c2ad;    
 }

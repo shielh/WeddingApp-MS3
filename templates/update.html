@@ -3,22 +3,22 @@
 
 <div class="card update-card justify-content-center">
     <h2 class="m-4 text-center preferences-h1">Add Update</h2>
-    <div class="card-body preferences-form-card">
+    <div class="card-body update-form-card ">
 
         <form class="form-container text-center" method="POST" action="{{ url_for('add_update') }}">
             <!-- Date arrival picker -->
             <div class="row text-center mb-2">
                 <div class="col-12 p-0">
                     
-                    <label for="date">Date Created
-                        <input id="date" name="date" type="date" class="datepicker validate"
-                            required>
+                    <label for="date">Date 
+                        <input id="date" name="date" type="date" class="datepicker update-datepicker
+                         validate" required>
                     </label>
                 </div>
             </div>
             <!-- Title input -->
-            <div class="form-outline title-text-box mb-4">
-                <textarea class="form-control" id="title"
+            <div class="form-outline title-update-text mb-4">
+                <textarea class="form-control " id="title"
                     name="title" rows="1" maxlength="50"></textarea>
                 <label class="form-label" for="title">Update Title</label>
             </div>                           
