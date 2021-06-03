@@ -10,7 +10,7 @@
         padding-top: 0;
     }
     .divide-content{
-        border: none;
+        border-right: none;
     }
     .olive-branch-img{
         margin-top: 2em;
@@ -22,7 +22,10 @@
     .olive-img-accom{
         width: 30vw;
     }
-    .card {
+    .card,
+    .preference-card {
         width: 80%;
     }
+    
 }
+

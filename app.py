@@ -266,7 +266,7 @@ def delete_update(update_id):
     if session["is_admin"]:
         mongo.db.update.remove({"_id": ObjectId(update_id)})
         flash("Update Deleted")
-        return render_template("update.html")
+        return render_template("index.html")
 
 
 @app.errorhandler(404)
