@@ -35,6 +35,7 @@ mail = Mail(app)
 mongo = PyMongo(app)
 
 
+@app.route("/")
 @app.route("/home")
 def home():
     if session and session["user"]:

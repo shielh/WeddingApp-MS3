@@ -6,6 +6,9 @@
     <!--Import Bootstrap-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.2/sandstone/bootstrap.min.css"
         type="text/css">
+    <!--Import Bootwatch Mint theme-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/minty/bootstrap.min.css" 
+        integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
     <!--Import custom css files-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <link rel="stylesheet" href="static/css/responsive.css" type="text/css">
@@ -18,9 +21,10 @@
 
 <body>
 <!--Navbar with home page anchor tag-->
-    <nav class="navbar navbar-expand-lg navbar-fixed-top shadow-1 border-bottom border-dark">
-        <a class="navbar-brand" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/siteLogo.png') }}"
-            class="site-logo" alt="site logo"></a>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('home') }}">E&D</a>
+        </div>
     </nav>
 
 <!--Main 404 content-->
