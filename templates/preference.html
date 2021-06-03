@@ -18,7 +18,7 @@
         <div class="row justify-content-center mb-4">
             <div class="col-6">
                 <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" class="btn 
-                    preference-delete-btn btn-danger" data-target="#confirmDelete" data-toggle="modal">
+                    preference-delete-btn btn-secondary" data-target="#confirmDelete" data-toggle="modal">
                 Delete
                 </a>
             </div>
@@ -40,20 +40,22 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel"></h4>
+            
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"></span>
+            </button>
         </div>
         <div class="modal-body">
-            <h4>Please click delete to confirm</h4>
+            <p>Please click delete to confirm</p>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-            <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" type="button" class="btn btn-danger ">Delete</a>
+            <button type="button" class="btn btn-primary">Cancel</button>
+            <a href="{{ url_for('delete_update', update_id=update._id) }}" type="button" class="btn btn-secondary ">Delete</a>
         </div>
         </div>
     </div>
 </div>
-    
+
 
 
 
