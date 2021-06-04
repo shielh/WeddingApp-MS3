@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+/* General styling */
+.form-outline {
+    border: 1px solid #262626;
+}
 /* Navbar styling */
 .nav-link:hover {
     color: #b28729;
@@ -108,7 +112,7 @@
 
 /* Register Page */
 .card{
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -155,12 +159,7 @@
     width: fit-content;
     margin: 0 auto;
 }
-.preferences-form-card{
-    width: 40%;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0;
-}
+
 .preference-text{
     text-align: left;
 }
@@ -181,6 +180,11 @@
 .olive-branch-img {
     margin: 0 auto;
     width: 10vw;
+}
+
+/* Edit preferences page */
+.guest-form-outline {
+    border: none;
 }
 
 /* Accommodation page */

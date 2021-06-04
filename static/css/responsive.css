@@ -19,9 +19,7 @@
     .olive-img-accom{
         width: 30vw;
     }
-    .card,
-    .preference-card,
-    .edit-update-card {
+    .card-body{
         width: 80%;
     }
 }
@@ -29,5 +27,13 @@
 @media only screen and (max-width: 1024px){
     .divide-content{
         border-right: none;
+    }
+}
+
+@media only screen and (min-width: 1024px){
+    .card,
+    .preference-form-card,
+    .edit-update-card {
+        width: 50%;
     }
 }
