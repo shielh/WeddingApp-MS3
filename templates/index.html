@@ -3,16 +3,18 @@
 
 <!-- Background image -->
 <div class="bg-image">
-    <div class="text-center">
-        {% if session["user"] %}
+    <div class="bg-overlay">
+        <div class="text-center">
+            {% if session["user"] %}
 
-        {% else %}
-        <h4 class="text-black mb-0"><strong> Please <a class="hero-anchor-tags" href="{{ url_for('login') }}">Log in</a> <br>
-            OR
-            <br>
-            <a class="hero-anchor-tags" href="{{ url_for('register') }}">Register Here</a></strong>
-        </h4>
-        {% endif %}
+            {% else %}
+            <h4 class="text-white mb-0"><strong> Please <a class="hero-anchor-tags" href="{{ url_for('login') }}">Log In</a> <br>
+                Or
+                <br>
+                <a class="hero-anchor-tags" href="{{ url_for('register') }}">Register Here</a></strong>
+            </h4>
+            {% endif %}
+        </div>
     </div>
 </div>
 <!-- Background image -->

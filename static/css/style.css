@@ -24,20 +24,29 @@
 
 /* Hero image with content in center*/
 .bg-image {
+    position: relative;
     background-image: url('../images/hero-image.jpg');
     height: 60vh;
-    width: 60vw;
+    width: 100%;
     margin: 0 auto;
-    margin-top: 20px;
     margin-bottom: 20px;
-    background-size: contain ;
+    background-size: cover ;
+
+}
+.bg-overlay{
+    position: absolute;
+    background-color: rgba(0,0,0,0.25);
+    top: 0;
+    left: 0;
+    height: 60vh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .hero-anchor-tags {
-    color: #000;
+    color: #FFFDE7;
 }
 .hero-anchor-tags:hover{
     text-decoration: none;
