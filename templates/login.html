@@ -3,11 +3,11 @@
 <div class="card login-card">
 <h2 class="register-h2 text-center">Log In</h2>
     <div class="row text-center">
-        <form class="form-container " method="POST" action="{{ url_for('login') }}">
+        <form class="form-container justify-content-center" method="POST" action="{{ url_for('login') }}">
         
             <!-- Email input -->
             <div class="row">
-                <div class="col-10 ">
+                <div class="col-12 ">
                     <div class="form-outline mb-4">
                         <input type="email" id="email" name="email" class="form-control" 
                             minlength="5" maxlength="50" required/>
@@ -18,7 +18,7 @@
 
             <!-- Password input -->
             <div class="row">
-                <div class="col-10">
+                <div class="col-12">
                     <div class="form-outline mb-4">
                         <input type="password" id="password" name="password" class="form-control" 
                             minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required/>
@@ -28,7 +28,7 @@
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary mb-4">Log in</button>
+            <button type="submit" class="btn btn-primary mb-4">Log in <i class="fas fa-sign-in-alt"></i></button>
 
             <!-- Direct to Register.html-->
             <div class="row">
