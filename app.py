@@ -222,12 +222,13 @@ def add_update():
         }
         mongo.db.update.insert_one(updates)
 
-        users = mongo.db.user.find({"is_admin": False, "want_email": True}, {"email": 1})
+        users = mongo.db.user.find({"is_admin": False}, {"email": 1})
         email_list = [user["email"] for user in users if "email" in user]
  
-        msg = Message('Hey Guys', recipients=email_list)
+        msg = Message('Update Added', recipients=email_list)
+        msg.html = '<b>Hey Everyone, just dropping you a quick message</b>'
         mail.send(msg)
-  
+
         flash("You Have Added an Update")
 
         return redirect(url_for("home"))
