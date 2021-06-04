@@ -95,7 +95,8 @@
     text-align: center;
 }
 
-.schedule-icon{
+.schedule-icon,
+.faq-icon{
     color: #78c2ad;
 }
 
@@ -194,6 +195,16 @@
     margin-top:20px;
 }
 
+/* FAQ page */
+.faq-section {
+    width:80%;
+    margin: 0 auto;
+}
+
+.faq-question{
+    display: grid;
+    vertical-align: middle;
+}
 /* 404 page */
 .error-card {
     margin: 0 auto;
