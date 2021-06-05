@@ -26,6 +26,12 @@
     .card-body{
         width: 80%;
     }
+    .accom-img-right{
+    margin-left: 0px;
+    }
+.accom-text-right{
+    margin-left: 0px;
+    }
 }
 
 @media only screen and (max-width: 1024px){

@@ -201,6 +201,18 @@
 .olive-img-accom {
     width: 10vw;
 }
+.accom-img-right{
+    margin-left: 20px;
+}
+.accom-text{
+    text-align: left;
+}
+
+.accom-text-right{
+    margin-left: 20px;
+    text-align: left;
+}
+
 /* Footer */ 
 .footer-style {
     background-color: #78c2ad;

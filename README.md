@@ -117,9 +117,40 @@ Implementation:
 
 
 ### The Skeleton Plane
-The wireframes for this project can be found [here](WeddingApp-MS3/Mockups/Desktop)
+#### Wireframes
+The desktop version wireframes for this project can be found [here](Mockups/Desktop) and the mobile version can be found [here](Mockups/Mobile)
 
-
+#### Database Schema
+The application uses three collections named user, guest_info and update. The following are made up examples<br>
+<pre>Collection: user 
+{
+    firstName: John
+    lastName: Doe
+    email: johndoe@gmail.com
+    password: abcd1234
+    is_admin: false
+}
+</pre>
+<pre>Collection: guest_info
+{
+    number_of_party: 1 
+    require_accommodation: yes
+    dietary_restrictions: yes
+    dietary_restrictions_description: Gluten free
+    arrival_date: 08/09/2022
+    add_note: Really looking forward to it
+    created_by: johndoe@gmail.com
+}</pre>
+<pre>Collection: update
+{
+    number_of_party: 1 
+    require_accommodation: yes
+    dietary_restrictions: yes
+    dietary_restrictions_description: Gluten free
+    arrival_date: 08/09/2022
+    add_note: Really looking forward to it
+    created_by: johndoe@gmail.com
+}</pre>
 
 
 ## Deployment 
