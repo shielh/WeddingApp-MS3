@@ -38,6 +38,10 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
+    """
+    Users that are logged in will see the
+    updates on the home page
+    """
     if session and session["user"]:
         updates = mongo.db.update.find()
         return render_template("index.html", updates=updates)
@@ -47,16 +51,27 @@ def home():
 
 @app.route("/accommodation")
 def accommodation():
+    """
+    Renders accomodation page
+    """
     return render_template("accommodation.html")
 
 
 @app.route("/faq")
 def faq():
+    """
+    Renders FAQ page
+    """
     return render_template("faq.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    Allows users to register for
+    the site. Only allows an email
+    to be registered once
+    """
     if request.method == "POST":
         # check if email already exists in mongodb
         existing_user = mongo.db.user.find_one(
@@ -85,9 +100,10 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """
-    check if email exists in db
-    ensure hashed password matches user input
-    invalid password match
+    Checks if email exists in database and
+    ensures hashed password matches user input.
+    If there is an invalid password match a
+    message will flash indicating that the
     username doesn't exist
     """
     if request.method == "POST":
@@ -114,7 +130,7 @@ def login():
 @app.route("/logout")
 def logout():
     """
-    remove user from session cookie
+    Removes user from session cookie
     """
     if "is_admin" in  session:
         session.pop("is_admin")
@@ -127,6 +143,10 @@ def logout():
 
 @app.route("/get_guest_info")
 def get_guest_info():
+    """
+    Allows users to view their preference or
+    add them if they have not done so
+    """
     guest_info = mongo.db.guest_info.find_one(
         {"created_by": session["user"]})
     if guest_info is not None:
@@ -265,6 +285,8 @@ def delete_update(update_id):
     if session["is_admin"]:
         mongo.db.update.remove({"_id": ObjectId(update_id)})
         flash("Update Deleted")
+        return render_template("index.html")
+    else:
         return render_template("index.html")
 
 
