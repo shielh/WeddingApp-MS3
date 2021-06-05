@@ -270,7 +270,7 @@ def edit_update(update_id):
         }
         mongo.db.update.update(
             {"_id": ObjectId(update_id)}, update)
-        flash("Thanks for Updating Your Preferences")
+        flash("Thanks for the Update")
         return redirect(url_for("home"))
 
     update = mongo.db.update.find_one({"_id": ObjectId(update_id)})
@@ -285,7 +285,7 @@ def delete_update(update_id):
     if session["is_admin"]:
         mongo.db.update.remove({"_id": ObjectId(update_id)})
         flash("Update Deleted")
-        return render_template("index.html")
+        return redirect(url_for("home"))
     else:
         return render_template("index.html")
 
