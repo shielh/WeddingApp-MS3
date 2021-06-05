@@ -161,6 +161,9 @@
 }
 
 /* Preferences page */ 
+.preferences-form-card{
+    margin: 0 auto;
+}
 .view-preference-card{
     border: 1px solid #262626;
     margin-bottom: 50px;

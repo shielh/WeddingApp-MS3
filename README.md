@@ -117,7 +117,9 @@ Implementation:
 
 
 ### The Skeleton Plane
-The wireframes for this project can be found [here](WeddingApp-MS3/Mockups)
+The wireframes for this project can be found [here](WeddingApp-MS3/Mockups/Desktop)
+
+
 
 
 ## Deployment 
