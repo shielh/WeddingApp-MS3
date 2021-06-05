@@ -46,12 +46,14 @@
     </div>
 </div>
 
+<!--Update Section-->
 <div class="row">
     <div class="col-12 text-center ">
         <h2 class="schedule-h4 m-4">Updates</h2>
 
     </div>
 </div>
+
 <div class="row justify-content-center">
     <div class="col-12 col-lg-10 col-sm-12">
 
@@ -60,7 +62,7 @@
             <p> Date: {{ update.date }} </p>
             <h4> {{ update.title }} </h4>
             <h6> {{ update.description }} </h6>
-
+            <!--Only allow admin to view buttons-->
             {% if session["is_admin"] %}
             <div class="row justify-content-center buttons-row">
                 <div class="col-4 col-lg-3 col-xl-2">
@@ -76,7 +78,7 @@
                     </a>
                 </div>
             </div>
-
+            <!--Delete Modal-->
             <div class="modal fade" id="confirmUpdateDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
