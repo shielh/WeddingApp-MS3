@@ -132,7 +132,7 @@ def logout():
     """
     Removes user from session cookie
     """
-    if "is_admin" in  session:
+    if "is_admin" in session:
         session.pop("is_admin")
 
     if session["user"]:
@@ -246,7 +246,14 @@ def add_update():
         email_list = [user["email"] for user in users if "email" in user]
 
         msg = Message('Update Added', recipients=email_list)
-        msg.html = '<b>Hey Everyone, just dropping you a quick message</b>'
+        msg.html = """Hey guys,<br><br>
+            We have just added an update to the site which you can
+             view by logging in <a href="https://wedding-app-ms3.herokuapp.com/login">
+            here</a><br>
+            <br>
+            Thanks,<br>
+            Emma and Dave
+                """
         mail.send(msg)
 
         flash("You Have Added an Update")
