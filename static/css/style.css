@@ -5,6 +5,7 @@
     border: 1px solid #262626;
 }
 
+/* Center content in forms displaying on 80% width of device */
 .form-card{
     width: 80%;
     margin: 0 auto;
@@ -15,8 +16,8 @@
     justify-content: center;
     align-items: center;
 }
-/* Navbar styling */
 
+/* Navbar styling */
 .site-logo {
     height: inherit;
 }
@@ -47,8 +48,8 @@ span.navbar-toggler-icon{
     margin: 0 auto;
     margin-bottom: 20px;
     background-size: cover ;
-
 }
+
 /* Add grey overlay to hero image */
 .bg-overlay{
     position: absolute;
@@ -74,7 +75,8 @@ span.navbar-toggler-icon{
 .olive-img {
     width: 30vw;
 }
-/* Set width of card and center contents */
+
+/* Set width of update card and center contents */
 .update-card{
     border: none;
     width: 50%;
@@ -104,7 +106,7 @@ span.navbar-toggler-icon{
 }
 
 .schedule-section{
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
 }
 
@@ -116,6 +118,7 @@ span.navbar-toggler-icon{
     bottom: 5px;
 }
 
+/* Centers text in wedding schedule section */
 .wedding-schedule-text{
     display: flex;
     align-items: center;
@@ -146,8 +149,7 @@ span.navbar-toggler-icon{
     color: #FFFDE7;
 }
 
-/* add preferences page */
-
+/* add preference page */
 .checkbox-label {
     display: inline-block;
     text-align: left;
@@ -157,6 +159,7 @@ span.navbar-toggler-icon{
 .form-switch {
     padding-left: 0;
 }
+
 .additional-text-box {
     border: 1px solid #262626;
     margin-top: 8px;
@@ -166,8 +169,7 @@ span.navbar-toggler-icon{
     width: fit-content;
 }
 
-/* Preferences page */ 
-
+/* Preference page */ 
 .preferences-list {
     width: fit-content;
     margin: 0 auto;
@@ -204,9 +206,11 @@ span.navbar-toggler-icon{
 .olive-img-accom {
     width: 10vw;
 }
+
 .accom-img-right{
     margin-left: 20px;
 }
+
 .accom-text{
     text-align: left;
 }
@@ -234,7 +238,8 @@ span.navbar-toggler-icon{
     display: grid;
     vertical-align: middle;
 }
-/* 404 page */
+/* Error 404 & 500 page */
+/* Center form and content */
 .error-card {
     margin: 0 auto;
     width: 80%;
