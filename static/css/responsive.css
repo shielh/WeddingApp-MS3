@@ -21,7 +21,7 @@
         width: 50vw;
     }
     .olive-img-accom{
-        width: 30vw;
+        width: 40vw;
     }
     .card-body{
         width: 80%;
@@ -29,7 +29,7 @@
     .accom-img-right{
     margin-left: 0px;
     }
-.accom-text-right{
+    .accom-text-right{
     margin-left: 0px;
     }
 }
@@ -37,6 +37,7 @@
 @media only screen and (max-width: 1024px){
     .divide-content{
         border-right: none;
+        border-bottom: 1px solid #78c2ad;
     }
 }
 
@@ -44,5 +45,12 @@
     .form-card,
     .error-card {
         width: 50%;
+    }
+    .nav-container{
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+    .faq-section{
+        width: 70%;
     }
 }

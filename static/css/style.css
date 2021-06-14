@@ -21,17 +21,12 @@
     height: inherit;
 }
 
-a.navbar-brand{
-    color: #FFFDE7;
-}
-
-a.nav-link{
-    color: #FFFDE7;    
-}
-
 .nav-link:hover {
     color: #FFFDE7;
     text-shadow: 1px 1px;
+}
+span.navbar-toggler-icon{
+    color: #FFFDE7;   
 }
 
 .navbar-collapse {
