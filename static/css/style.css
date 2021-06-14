@@ -16,12 +16,22 @@
     align-items: center;
 }
 /* Navbar styling */
-.nav-link:hover {
-    color: #b28729;
-    text-shadow: 1px 1px;
-}
+
 .site-logo {
     height: inherit;
+}
+
+a.navbar-brand{
+    color: #FFFDE7;
+}
+
+a.nav-link{
+    color: #FFFDE7;    
+}
+
+.nav-link:hover {
+    color: #FFFDE7;
+    text-shadow: 1px 1px;
 }
 
 .navbar-collapse {
