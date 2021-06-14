@@ -1,44 +1,44 @@
 {% extends "base.html" %}
 {% block content %}
-
-<div class="card update-card form-card justify-content-center">
-    <h2 class="m-4 text-center preferences-h1">Add Update</h2>
-    <div class="card-body update-form-card ">
-
-        <form class="form-container text-center" method="POST" action="{{ url_for('add_update') }}">
-            <!-- Date arrival picker -->
-            <div class="row text-center mb-2">
-                <div class="col-12 p-0">
-                    
-                    <label for="date">Date 
-                        <input id="date" name="date" type="date" class="datepicker update-datepicker
-                         validate" required>
+<div class="card update-card form-card">   
+    <h2 class="register-h2 text-center">Add Update</h2>
+        <div class="row p-5 text-center">
+            <form class="form-container justify-content-center" method="POST" action="{{ url_for('add_update') }}">                   
+                <!-- Date arrival picker -->
+                <div class="row ">
+                    <div class="col-12">
+                        <label for="date"> Date 
+                            <input id="date" name="date" type="date" class="datepicker validate"
+                             required>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Text input -->
+                <div class="form-outline additional-text-box mb-4">
+                    <textarea class="form-control active" id="title"
+                        name="title" rows="1" maxlength="100">                    
+                        
+                    </textarea>
+                    <label class="form-label" for="title">Title
                     </label>
                 </div>
-            </div>
-            <!-- Title input -->
-            <div class="form-outline title-update-text mb-4">
-                <textarea class="form-control " id="title"
-                    name="title" rows="1" maxlength="50"></textarea>
-                <label class="form-label" for="title">Update Title</label>
-            </div>                           
-            <!-- Text input -->
-            <div class="form-outline additional-text-box mb-4">
-                <textarea class="form-control" id="description" name="description" rows="4"
-                    maxlength="250"></textarea>
-                <label class="form-label" for="description">Update Description</label>
-            </div>
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary ">
-                Add Update
-            </button>
 
-    </div>
-
-
-
-    </form>
-
+                <!-- Text input -->
+                <div class="form-outline additional-text-box mb-4">
+                    <textarea class="form-control active" id="description"
+                        name="description" rows="4" maxlength="300">                    
+                    </textarea>
+                    <label class="form-label" for="description">Description
+                    </label>
+                </div>
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary ">
+                    Add Update
+                </button>
+               
+            </form>
+        </div>
 </div>
 
 
