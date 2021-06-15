@@ -148,6 +148,7 @@ def login():
                     return redirect(url_for(
                         "home"))
             else:
+                # if incorrect password is entered
                 flash("Incorrect Email and/or Password")
                 return redirect(url_for("login"))
         else:
