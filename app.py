@@ -145,7 +145,7 @@ def logout():
 def get_guest_info():
     """
     Allows users to view their preference or
-    add them if they have not done so
+    add them if they have not added them yet
     """
     guest_info = mongo.db.guest_info.find_one(
         {"created_by": session["user"]})
@@ -242,6 +242,7 @@ def add_update():
         }
         mongo.db.update.insert_one(updates)
 
+        # Sends email to all users with admin set to False
         users = mongo.db.user.find({"is_admin": False}, {"email": 1})
         email_list = [user["email"] for user in users if "email" in user]
 

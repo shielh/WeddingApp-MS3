@@ -137,7 +137,11 @@ span.navbar-toggler-icon{
     margin: auto;
 }
 
-/* Register Page */
+/* Log in and Register Page */
+.form-control.login-register-input{
+    margin-bottom: 0;
+}
+
 .register-h2 {
     color: #9b9871;
     margin-top: 20px;
