@@ -31,6 +31,9 @@ will be a great learning curve for what I can expect when I start working as a W
 * [Features](#Features)
     - [Future Features to Implement](#future-features-to-implement)
 * [Technologies Used](#Technologies-Used)
+    - [Languages](#languages)
+    - [Libraries and Frameworkds](#libraries-and-frameworks)
+    - [Tools](#tools)
 * [Testing](#testing)
     - [Responsivity across devices](#responsivity-across-devices)
     - [HTML and CSS validation](#html-and-css-validation)
@@ -67,20 +70,31 @@ application where wedding guests can add, edit and delete their specific require
 * As a user, I want to be able to register an account so I can add any required information the bride might need
 * As a user, I want to be able to update or delete the information I add
 * As a user, I want to be able to find out all the information about the wedding; the dates, the venue, the schedule
+* As a user, I want to be informed when an update has been added to the site
 * As a user, I want the website to be responsive across all devices
 
 ### The Scope Plane
-#### Features on site
+#### Features
+##### Site wide features
+
+##### Home Page
 * index.html page detailing the wedding venue, dates and itinerary to people who have registered an account
 * index.html page detailing a hero image with anchor tags to the register or log in pages
+##### Accommodation page
 * accommodation.html page giving information about the rooms and the local area
+##### FAQ page
+* faq.html page answering commonly asked questions
+##### Preference page
 * Collapsible burger icon menu on mobile devices
+##### Update page
 * Register, login and logout functionality
 * preferences.html where guests (when logged in) can add their preferences
 * CRUD functionality for these preferences
 * Modal dialog box for delete functionality to add defensive programming 
 * MongoDB to store wedding guest information and user login details
 * Update page where admin user can add updates which will render to index.html
+* CRUD functionality for updates for admin users
+* Flask mail set up to email all non-admin users when an update has been added to the site 
 
 ### The Structure Plane
 User Story:
@@ -106,6 +120,7 @@ This is a list of the navigation items that will be visible while logged in:
 * Accommodation - accommodation.html
 * Preferences - preferences.html
 * FAQ - faq.html
+* Update - update.html (visible to admin users)
 * Log Out -(Redirects to Log In page)
 
 User Story:
@@ -115,11 +130,71 @@ Acceptance Criteria:
 * Images to be displayed across the site
 
 Implementation:
+There is a large hero image of an olive tree stretching across the entire width of 
+the screen. There are three different images on the accommodation.html page displaying 
+different highlights of the region. On each page (just above the footer), there is an 
+icon of an olive branch. The wedding venue is set amongst 4,000 olive trees so the 
+client wanted this as a recurring theme across the site.
 
+User Story:
+ As a user, I want to be able to register an account so I can add any required information the bride might need
+
+Acceptance Criteria:
+* Register page
+* Registered users are able to add their preference 
+
+Implementation:
+A register page will be implemented that enables users to set up an account on the website. An account will be 
+needed to access any of the wedding details on index.html. Only account holders will be able to access the 
+accommodation and faq pages. On the registration page, the user will be asked to enter their first name, 
+last name, email address and a password. All of this information is stored in MongoDB in a collection called 
+user. The email address must be unique as it is used to verify the session user. If a user tries to enter an 
+email that has already been registered, a message will flash saying "Sorry this email has already been used".
+
+Once the registration is successful, the user will automatically be logged in and will be able to add their 
+preference under the "Preference" anchor tag in the navigation bar. Here, the user will be asked how many 
+people are in their party, whether they require accommodation, whether they have any dietary requirements, 
+the date of arrival and if they have anything to add.
+
+
+User Story:
+ As a user, I want to be able to update or delete the information I add
+
+Acceptance Criteria:
+* User must be able to create, edit and delete their preference on the site
+
+Implementation:
+A preference page will be implemented and will be visible to users that are logged in on the navigation 
+menu. The user can only have one entry which they can create, edit or delete. If the user creates an entry 
+and then decides to edit it, the options they previously selected will still be shown. If the user decides 
+to delete their preference they will be prompted to add their preference again. Their information is stored 
+in MongoDB in a collection called guest_info. 
+
+User Story:
+As a user, I want to be able to find out all the information about the wedding; the dates, the venue, the schedule
+
+Acceptance Criteria:
+
+Implementation:
+
+User Story:
+ As a user, I want to be informed when an update has been added to the site
+
+Acceptance Criteria:
+
+Implementation:
+
+User Story:
+ As a user, I want the website to be responsive across all devices
+
+Acceptance Criteria:
+
+Implementation:
 
 ### The Skeleton Plane
 #### Wireframes
-The desktop version wireframes for this project can be found [here](Mockups/Desktop) and the mobile version can be found [here](Mockups/Mobile)
+The desktop version wireframes for this project can be found [here](Mockups/Desktop) and the mobile version can be found [here](Mockups/Mobile).
+The client changed their mind throughout the process of building the site as can be seen if you view the original wireframes [here](OldMockups)
 
 #### Database Schema
 The application uses three collections named user, guest_info and update. The following are made up examples<br>
@@ -153,6 +228,50 @@ The application uses three collections named user, guest_info and update. The fo
     created_by: johndoe@gmail.com
 }</pre>
 
+
+### The Surface Plane
+#### Design
+##### Font
+Using the <a href="https://fontpair.co/">Font Pair</a> website, I chose two complimentary fonts; <a href="https://fonts.google.com/specimen/Asap">Asap</a> 
+for the headings, and <a href="https://fonts.google.com/specimen/Roboto">Roboto</a> for the rest of the text.
+
+
+## Technologies Used
+### Languages
+- [HTML5](https://en.wikipedia.org/wiki/HTML5) 
+    - The project uses **HTML** as the main language for structuring the content
+- [CSS3](https://en.wikipedia.org/wiki/CSS) 
+    - The project uses **CSS** for styling the sites content
+- [Python](https://www.python.org/)
+    - This project uses **Python** for the backend of the website
+
+### Libraries and Frameworks
+- [Flask](https://flask.palletsprojects.com/) was used in conjunction with Python as a micro web framework
+- [Material Design for Bootstrap](https://mdbootstrap.com/) 
+    - This was used Bootstrap to help in the design and layout of the website in conjunction with HTML, CSS and Python
+- [Font Awesome](https://fontawesome.com/) 
+    - This was used to collect the social media icons for this site
+- [Google Fonts](https://fonts.google.com/) 
+    - This was used to import the two fonts for this site, Asap and Roboto
+
+### Tools
+- [GitHub](https://github.com/) 
+    - This is the hosting site where I first created the repository for this webpage and also where the live site is deployed from 
+- [Git](https://git-scm.com/) 
+    - This is the version control software used where can I commit and push the updated information to the hosting website GitHub
+- [MongoDB](https://www.mongodb.com/)
+    - This was used for the database
+- [PyMongo](https://pymongo.readthedocs.io/)
+    - This was used as a tool to allow interaction between Python and MongoDB
+- [Heroku](https://id.heroku.com)
+    - This was used to deploy the live website
+- [Balsamiq](https://balsamiq.com/) 
+    - This was used to create my rough wireframes
+- [Favicon]()
+- [Font Pair](https://fontpair.co/) 
+    - This was used to choose complementary fonts
+- [Tiny JPG](https://tinyjpg.com/) 
+    - This was used this to compress my images
 
 ## Deployment 
 ### Initial Creation

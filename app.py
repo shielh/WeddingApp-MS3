@@ -44,7 +44,7 @@ def home():
     Users that are logged in will see the
     updates on the home page
     """
-    if session and session["user"]:
+    if session:
         updates = mongo.db.update.find()
         return render_template("index.html", updates=updates)
     else:
