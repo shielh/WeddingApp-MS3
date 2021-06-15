@@ -59,10 +59,16 @@
                     <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('faq') }}">FAQ</a>
                     </li>
+                    <!--Display different preferences page to logged in user and admin user -->
+                    {% if not session.is_admin %}
                     <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('get_guest_info') }}">Preferences</a>
                     </li>
+                    {% endif %}
                     {% if session.is_admin %}
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('view_preferences') }}">Preferences</a>
+                    </li>
                     <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('update') }}">Update</a>
                     </li>
