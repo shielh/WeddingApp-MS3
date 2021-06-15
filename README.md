@@ -74,12 +74,13 @@ application where wedding guests can add, edit and delete their specific require
 * index.html page detailing the wedding venue, dates and itinerary to people who have registered an account
 * index.html page detailing a hero image with anchor tags to the register or log in pages
 * accommodation.html page giving information about the rooms and the local area
-* Burger icon menu on mobile devices
+* Collapsible burger icon menu on mobile devices
 * Register, login and logout functionality
-* preferences.html where guests (when logged in) can add preferences
+* preferences.html where guests (when logged in) can add their preferences
 * CRUD functionality for these preferences
 * Modal dialog box for delete functionality to add defensive programming 
 * MongoDB to store wedding guest information and user login details
+* Update page where admin user can add updates which will render to index.html
 
 ### The Structure Plane
 User Story:
