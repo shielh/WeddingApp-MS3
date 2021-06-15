@@ -1,11 +1,12 @@
 import os
 from flask import (
-    Flask, flash, render_template, 
+    Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask_mail import Mail, Message
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import timedelta
 
 if os.path.exists("env.py"):
     import env
@@ -16,6 +17,7 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=15)
 
 """
 Config for Flask Mail
@@ -115,6 +117,8 @@ def login():
                     session["user"] = request.form.get("email").lower()
                     session["is_admin"] = existing_user["is_admin"]
                     flash("Welcome, {}".format(existing_user["firstName"]))
+                    # Automatically signs user out after 15 mins of inactivity
+                    session.permanent = True
                     return redirect(url_for(
                         "home"))
             else:
