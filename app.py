@@ -7,6 +7,7 @@ from bson.objectid import ObjectId
 from flask_mail import Mail, Message
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
+from functools import wraps
 
 if os.path.exists("env.py"):
     import env
@@ -17,7 +18,7 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=15)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=1)
 
 """
 Config for Flask Mail
@@ -37,6 +38,29 @@ mail = Mail(app)
 mongo = PyMongo(app)
 
 
+# https://flask.palletsprojects.com/en/2.0.x/patterns/viewdecorators/
+def must_be_logged_in(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if "user" in session:
+            return f(*args, **kwargs)
+        return redirect("login")
+    return decorated_function
+
+
+def must_be_admin(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if "is_admin" in session:
+            return f(*args, **kwargs)
+        # if user is logged in, direct to home page
+        elif "user" in session:
+            return redirect("home")
+        # if user is not logged in, prompt to log in
+        return redirect("login")
+    return decorated_function
+
+
 @app.route("/")
 @app.route("/home")
 def home():
@@ -52,6 +76,7 @@ def home():
 
 
 @app.route("/accommodation")
+@must_be_logged_in
 def accommodation():
     """
     Renders accomodation page
@@ -60,6 +85,7 @@ def accommodation():
 
 
 @app.route("/faq")
+@must_be_logged_in
 def faq():
     """
     Renders FAQ page
@@ -145,7 +171,19 @@ def logout():
         return redirect(url_for("login"))
 
 
+@app.route("/view_preferences")
+@must_be_admin
+def view_preferences():
+    guest_infos = mongo.db.guest_info.find()
+    if guest_infos is not None:
+        return render_template("view_preferences.html",
+            guest_infos=guest_infos)
+    else:
+        return redirect("get_guest_info")
+
+
 @app.route("/get_guest_info")
+@must_be_logged_in
 def get_guest_info():
     """
     Allows users to view their preference or
@@ -227,6 +265,7 @@ def delete_preference(guest_info_id):
 
 
 @app.route("/update")
+@must_be_admin
 def update():
     return render_template("update.html")
 
