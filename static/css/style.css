@@ -255,6 +255,12 @@ span.navbar-toggler-icon{
     display: grid;
     vertical-align: middle;
 }
+
+/* Admin preference page */
+.all-preferences-card{
+    width: 80%;
+}
+
 /* Error 404 & 500 page */
 /* Center form and content */
 .error-card {

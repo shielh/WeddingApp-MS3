@@ -33,6 +33,9 @@
     .accom-text-right{
     margin-left: 0px;
     }
+    .all-preferences-card{
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 1024px){
