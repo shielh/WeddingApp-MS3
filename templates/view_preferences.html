@@ -16,16 +16,10 @@
         <strong>Created by: </strong>{{ guest_info.created_by }}
 
         <div class="row justify-content-center mb-4">
-            <div class="col-6 col-lg-5">
+            <div class="col-5 col-md-3 col-xl-3">
                 <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" class="btn 
                     preference-delete-btn btn-secondary" data-target="#confirmDelete" data-toggle="modal">
                 Delete
-                </a>
-            </div>
-            <div class="col-6 col-lg-5">
-                <a href="{{ url_for('edit_preference', guest_info_id=guest_info._id) }}" class="btn 
-                    preference-edit-btn btn-warning">
-                Edit
                 </a>
             </div>
 
@@ -33,6 +27,27 @@
 
     </div>
 </div>
+
+<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Please click delete to confirm</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" type="button" class="btn btn-secondary ">Delete</a>
+            </div>
+        </div>
+    </div>
+</div> -->
+
 {% endfor %}
 
 
