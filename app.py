@@ -18,7 +18,7 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=1)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)
 
 """
 Config for Flask Mail
@@ -39,25 +39,27 @@ mongo = PyMongo(app)
 
 
 # https://flask.palletsprojects.com/en/2.0.x/patterns/viewdecorators/
+# Create function decorators for logged in users
 def must_be_logged_in(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if "user" in session:
             return f(*args, **kwargs)
-        return redirect("login")
+        return redirect(url_for("login"))
     return decorated_function
 
 
+# Create function decorators for admin users
 def must_be_admin(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if "is_admin" in session:
             return f(*args, **kwargs)
-        # if user is logged in, direct to home page
+        # if user is logged in, directs them to home page
         elif "user" in session:
             return redirect("home")
         # if user is not logged in, prompt to log in
-        return redirect("login")
+        return redirect(url_for("login"))
     return decorated_function
 
 
@@ -259,7 +261,11 @@ def delete_preference(guest_info_id):
     """
     Allows users to delete their own preference
     """
-    if session["user"]:
+    if "is_admin" in session:
+        mongo.db.guest_info.remove({"_id": ObjectId(guest_info_id)})
+        flash("You Have Deleted a Preference")
+        return redirect(url_for("view_preferences"))
+    elif session["user"]:
         mongo.db.guest_info.remove({"_id": ObjectId(guest_info_id)})
         flash("Preference Deleted")
         return render_template("add_preference.html")
