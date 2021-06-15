@@ -35,12 +35,11 @@
                             <div class="col-2">
                                     {% if guest_info.require_accommodation == "Yes" %}
                                     <input class="form-check-input" type="checkbox" id="require_accommodation"
-                                        name="require_accommodation"checked />
+                                        name="require_accommodation" checked />
                                     {% else %}
-                                    <input class="form-check-input" type="checkbox" id="require_accommodation"
+                                    <input class="form-check-input" type="checkbox" id="require_accommodation2"
                                         name="require_accommodation"/>
                                     {% endif %}
-                                </label>
                             </div>
                         </div>
                     </div>   
@@ -59,10 +58,9 @@
                                     <input class="form-check-input" type="checkbox" id="dietary_restrictions"
                                     name="dietary_restrictions" value="{{ guest_info.dietary_restrictions }}" checked/>
                                     {% else %}
-                                    <input class="form-check-input" type="checkbox" id="dietary_restrictions"
+                                    <input class="form-check-input" type="checkbox" id="dietary_restrictions2"
                                     name="dietary_restrictions" value="{{ guest_info.dietary_restrictions }}"/>
                                     {% endif %}
-                                </label>
                             </div>
                         </div>
                     </div>   
