@@ -24,7 +24,7 @@ will be a great learning curve for what I can expect when I start working as a W
     * [The Structure Plane](#The-Structure-Plane)
     * [The Skeleton Plane](#The-Skeleton-Plane)
         * [Wireframes](#Wireframes)
-        * [Database Design](#Database-Design)
+        * [Database Design](#Database-Schema)
     * [The Surface Plane](#The-Surface-Plane)
         * [Design](#Design)
             * [Colour Scheme](#Colour-Scheme)
@@ -155,7 +155,6 @@ preference under the "Preference" anchor tag in the navigation bar. Here, the us
 people are in their party, whether they require accommodation, whether they have any dietary requirements, 
 the date of arrival and if they have anything to add.
 
-
 User Story:
  As a user, I want to be able to update or delete the information I add
 
@@ -173,8 +172,12 @@ User Story:
 As a logged in user, I want to be able to find out all the information about the wedding; the dates, the venue, the schedule
 
 Acceptance Criteria:
+* When users are logged in, they must be able to access all the information about the wedding on the 'Home', 'Accomodation' and 'FAQ' pages
 
 Implementation:
+I will implement an if session user statement in the base.html to ensure that only users that are logged in can view the navigation links in the header.
+When a user is registered and logged in, they will be able to view all the information regarding the wedding such as venue, dates etc. As an extra precaution 
+for security, I will add a decorator function to any functions that are specific to a user that is logged in.
 
 User Story:
  As a user, I want to be informed when an update has been added to the site
