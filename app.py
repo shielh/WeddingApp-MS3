@@ -18,6 +18,7 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+# Sets the session timeout to 30 minutes
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)
 
 """
@@ -141,7 +142,7 @@ def login():
             {"email": request.form.get("email").lower()})
         if existing_user:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                    existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("email").lower()
                     session["is_admin"] = existing_user["is_admin"]
                     flash("Welcome, {}".format(existing_user["firstName"]))
@@ -177,10 +178,13 @@ def logout():
 @app.route("/view_preferences")
 @must_be_admin
 def view_preferences():
+    """
+    Alows admin users to view all users perferences
+    """
     guest_infos = mongo.db.guest_info.find()
     if guest_infos is not None:
         return render_template("view_preferences.html",
-            guest_infos=guest_infos)
+                               guest_infos=guest_infos)
     else:
         return redirect("get_guest_info")
 
@@ -260,6 +264,7 @@ def edit_preference(guest_info_id):
 def delete_preference(guest_info_id):
     """
     Allows users to delete their own preference
+    and Admin users to delete any users perferences
     """
     if "is_admin" in session:
         mongo.db.guest_info.remove({"_id": ObjectId(guest_info_id)})
@@ -299,7 +304,8 @@ def add_update():
         msg = Message('Update Added', recipients=email_list)
         msg.html = """Hey guys,<br><br>
             We have just added an update to the site which you can
-             view by logging in <a href="https://wedding-app-ms3.herokuapp.com/login">
+             view by logging in <a href=
+            "https://wedding-app-ms3.herokuapp.com/login">
             here</a><br>
             <br>
             Thanks,<br>
@@ -315,11 +321,12 @@ def add_update():
 
 
 @app.route("/edit_update/<update_id>", methods=["GET", "POST"])
+@must_be_admin
 def edit_update(update_id):
     """
     Allows an admin user to edit an update
     """
-    if request.method == "POST" and session["is_admin"]:
+    if request.method == "POST":
         update = {
             "date": request.form.get("date"),
             "title": request.form.get("title"),
