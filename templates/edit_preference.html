@@ -18,9 +18,7 @@
                                 <option value="">Select</option>
                                 {% for n in range(1, 6) %}
                                     <option value="{{n}}" {% if guest_info.number_of_party == (n|string) %} selected {% endif %}>{{n}}</option>
-                                {% endfor %}
-                                
-                                
+                                {% endfor %}                                
                             </select>
                         </div>
                     </div>
@@ -70,8 +68,7 @@
                 <div class="form-outline additional-text-box mb-4">
                     <textarea class="form-control active" id="dietary_restrictions_description"
                         name="dietary_restrictions_description" rows="2" maxlength="100">
-                        {{- guest_info.dietary_restrictions_description -}}
-                    </textarea>
+                        {{- guest_info.dietary_restrictions_description -}}</textarea>
                     <label class="form-label" for="dietary_restrictions_description">Details on dietary
                         restrictions
                     </label>
@@ -93,8 +90,7 @@
                 <!-- Text input -->
                 <div class="form-outline additional-text-box mb-4">
                     <textarea class="form-control active" id="add_note" name="add_note" rows="2" maxlength="300">
-                    {{- guest_info.add_note -}}
-                    </textarea>
+                    {{- guest_info.add_note -}}</textarea>
                     <label class="form-label" for="add_note">Additional Comments</label>
                 </div>
 
