@@ -384,8 +384,8 @@ and this [tutorial](https://pythonbasics.org/flask-mail/)
 ### Acknowledgements
 A huge thank you to:
 - My brother Gregory for his endless patience and guidance throughout this project
-- My sister Emma for trusting me to create her wedding website and for being a great first client to work with
 - My mentor Felipe Souza Alarcon for his help and motivation throughout this project. He was always so positive and had great suggestions!
+- My sister Emma for trusting me to create her wedding website and for being a great first client to work with
 - My peers in various Slack channels for always getting back to me quickly with questions or feedback.
 --- 
 [Back to top](#Table-of-Contents)

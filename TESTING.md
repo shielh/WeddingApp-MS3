@@ -43,6 +43,7 @@ I conducted tests on all user stories and features on the site:
 For all test cases, I opened the web application via this [link](https://wedding-app-ms3.herokuapp.com/)
 
 Test Case 1
+
 * As a user, I want to be able to easily navigate across the site so I can find the content quickly
 
 **Description:**<br>
@@ -79,11 +80,12 @@ All links in header have correct, functioning links
 **Actual Result:**<br>
 All links in header have correct, functioning links
 
-**Pass/Fail:**<br>
+**Pass/Fail:** <br>
 Pass
 ---
 
 Test Case 2
+
 * As a user, I want to view a pretty website with images of the wedding venue
 
 **Description:**<br>
@@ -107,6 +109,7 @@ Pass
 ---
 
 * As a user, I want to be able to register an account so I can add any required information the bride might need
+
 Test Case 3
 
 **Description:**<br>
@@ -132,6 +135,7 @@ Pass
 ---
 
 Test Case 4
+
 **Description:**<br>
 Verify registration functionality performs as expected when a user inputs incorrect (such as email address has already been used) or null data
 
@@ -153,8 +157,10 @@ Pass
 ---
 
 Test Case 5
+
 **Description:**<br>
 Verify register users can add their preferences
+
 **Steps:**<br>
 1. Click 'Register' button on register.html page with correct information inputted
 2. You should be brought to Guest Preferences page
