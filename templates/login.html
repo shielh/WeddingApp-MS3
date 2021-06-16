@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="card form-card">
-<h2 class="register-h2 text-center">Log In</h2>
+    <h2 class="register-h2 text-center">Log In</h2>
     <div class="row text-center">
         <form class="form-container justify-content-center" method="POST" action="{{ url_for('login') }}">
-        
+
             <!-- Email input -->
             <div class="row">
                 <div class="col-12 ">
                     <div class="form-outline mb-4">
                         <input type="email" id="email" name="email" class="form-control 
-                            login-register-input active" minlength="5" maxlength="50" required/>
+                            login-register-input active" minlength="5" maxlength="50" required />
                         <label class="form-label" for="email">Email address</label>
                     </div>
                 </div>
@@ -21,17 +21,17 @@
                 <div class="col-12">
                     <div class="form-outline mb-4">
                         <input type="password" id="password" name="password" class="form-control 
-                            login-register-input active" minlength="5" maxlength="15" 
-                            pattern="^[a-zA-Z0-9]{5,15}$" required/>
+                            login-register-input active" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$"
+                            required />
                         <label class="form-label" for="password">Password</label>
                     </div>
                 </div>
             </div>
 
-            <!-- Submit button -->
+            <!-- Log in button -->
             <button type="submit" class="btn btn-primary mb-4">Log in <i class="fas fa-sign-in-alt"></i></button>
 
-            <!-- Direct to Register.html-->
+            <!-- Redirect to Register.html-->
             <div class="row">
                 <div class="col-12">
                     <div class="text-center">
@@ -39,8 +39,6 @@
                     </div>
                 </div>
             </div>
-            
-
         </form>
     </div>
 </div>

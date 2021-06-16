@@ -1,24 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="card form-card">   
-<h2 class="register-h2 text-center">Register</h2>
+<div class="card form-card">
+    <h2 class="register-h2 text-center">Register</h2>
     <div class="row text-center">
         <form class="form-container justify-content-center" method="POST" action="{{ url_for('register') }}">
-        
+
             <!-- 2 column grid layout with text inputs for the first and last names -->
             <div class="row ">
                 <div class="col-8 offset-2 col-lg-4 mb-4">
                     <div class="form-outline">
                         <input type="text" id="firstName" name="firstName" class="form-control 
-                            login-register-input active" minlength="3" maxlength="20" required/>
+                            login-register-input active" minlength="3" maxlength="20" required />
                         <label class="form-label" for="firstName">First name</label>
                     </div>
                 </div>
                 <div class="col-8 offset-2 col-lg-4 offset-lg-0 mb-4">
                     <div class="form-outline">
                         <input type="text" id="lastName" name="lastName" class="form-control 
-                            login-register-input active" minlength="3" maxlength="20" required/>
+                            login-register-input active" minlength="3" maxlength="20" required />
                         <label class="form-label" for="lastName">Last name</label>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="col-8 offset-2">
                     <div class="form-outline mb-4">
                         <input type="email" id="email" name="email" class="form-control 
-                            login-register-input active" minlength="5" maxlength="50" required/>
+                            login-register-input active" minlength="5" maxlength="50" required />
                         <label class="form-label" for="email">Email address</label>
                     </div>
                 </div>
@@ -40,8 +40,8 @@
                 <div class="col-8 offset-2">
                     <div class="form-outline mb-4">
                         <input type="password" id="password" name="password" class="form-control 
-                            login-register-input active" minlength="5" maxlength="15" 
-                            pattern="^[a-zA-Z0-9]{5,15}$" required/>
+                            login-register-input active" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$"
+                            required />
                         <label class="form-label" for="password">Password</label>
                     </div>
                 </div>
@@ -56,13 +56,14 @@
         </form>
     </div>
 
-            <!-- Direct to Register.html-->
-            <div class="row">
-                <div class="col-12">
-                    <div class="text-center">
-                        <p>Already registered? <a href="{{ url_for('login') }}">Log In <i class="fas fa-sign-in-alt"></i></a></p>
-                    </div>
-                </div>
+    <!-- Direct to Register.html-->
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center">
+                <p>Already registered? <a href="{{ url_for('login') }}">Log In <i class="fas fa-sign-in-alt"></i></a>
+                </p>
             </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

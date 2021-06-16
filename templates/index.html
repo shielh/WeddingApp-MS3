@@ -5,13 +5,15 @@
 <div class="bg-image">
     <div class="bg-overlay">
         <div class="text-center">
+            <!--No text visible on hero-image if logged in-->
             {% if session["user"] %}
 
             {% else %}
-            <h4 class="text-white mb-0"><strong> Please <a class="hero-anchor-tags" href="{{ url_for('login') }}">Log In</a> <br>
-                Or
-                <br>
-                <a class="hero-anchor-tags" href="{{ url_for('register') }}">Register Here</a></strong>
+            <h4 class="text-white mb-0"><strong> Please <a class="hero-anchor-tags" href="{{ url_for('login') }}">Log
+                        In</a> <br>
+                    Or
+                    <br>
+                    <a class="hero-anchor-tags" href="{{ url_for('register') }}">Register Here</a></strong>
             </h4>
             {% endif %}
         </div>
@@ -47,11 +49,10 @@
 </div>
 
 {% if updates.count() > 0  %}
-<!--Update Section only displayed if update has been added-->
+<!--Update Section only displayed if an update has been added-->
 <div class="row">
     <div class="col-12 text-center ">
         <h2 class="schedule-h4 m-4">Updates</h2>
-
     </div>
 </div>
 {% endif %}
@@ -68,35 +69,35 @@
             {% if session["is_admin"] %}
             <div class="row justify-content-center buttons-row">
                 <div class="col-4 col-lg-3 col-xl-2">
-                    <a href="{{ url_for('delete_update', update_id=update._id) }}" 
-                        type="button" class="btn btn-secondary" 
-                        data-target="#confirmUpdateDelete" data-toggle="modal">
+                    <a href="{{ url_for('delete_update', update_id=update._id) }}" type="button"
+                        class="btn btn-secondary" data-target="#confirmUpdateDelete" data-toggle="modal">
                         Delete
                     </a>
                 </div>
                 <div class="col-4 col-lg-3 col-xl-2">
-                    <a href="{{ url_for('edit_update', update_id=update._id) }}"
-                        type="button" class="btn btn-warning ">Edit
+                    <a href="{{ url_for('edit_update', update_id=update._id) }}" type="button"
+                        class="btn btn-warning ">Edit
                     </a>
                 </div>
             </div>
             <!--Delete Modal-->
-            <div class="modal fade" id="confirmUpdateDelete" tabindex="-1" role="dialog" aria-labelledby="confirmUpdateDelete">
+            <div class="modal fade" id="confirmUpdateDelete" tabindex="-1" role="dialog"
+                aria-labelledby="confirmUpdateDelete">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                    <div class="modal-header">
-                        
-                        <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Please click delete to confirm</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                        <a href="{{ url_for('delete_update', update_id=update._id) }}" type="button" class="btn btn-secondary ">Delete</a>
-                    </div>
+                        <div class="modal-header">
+                            <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Please click delete to confirm</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                            <a href="{{ url_for('delete_update', update_id=update._id) }}" type="button"
+                                class="btn btn-secondary ">Delete</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -107,10 +108,7 @@
 
                 </div>
             </div>
-
-            
             {% endfor %}
-
         </div>
     </div>
 </div>
@@ -122,17 +120,16 @@
 </div>
 
 
-
+<!--Information about Wedding-->
 <div class="section schedule-section">
     <div class="row schedule-row ">
         <div class="col-lg-6 col-xs-12 m-0 d-flex justify-content-center divide-content">
             <h5 class="mt-10">
                 <i class="fas fa-glass-cheers fa-2x m-3 schedule-icon"></i>
-                
+
                 <br>
                 Day 1<br>
                 Arrival Day <br>
-
                 8th September<br>
                 6:00 PM<br>
             </h5>
@@ -140,12 +137,10 @@
         <div class="col-lg-6 col-xs-12 wedding-schedule-text">
 
             <h5>
-                
                 Antipasti and Wine for <br>
                 Guests on Arrival from <br>
                 6PM onwards<br>
                 Casual Dresscode
-
             </h5>
         </div>
     </div>
@@ -163,12 +158,10 @@
         <div class="col-lg-6 col-xs-12 wedding-schedule-text">
 
             <h5>
-                
                 Brunch at 11 AM <br>
                 Ceremony at 4 PM <br>
                 Dinner from 6 PM<br>
                 Formal Dresscode
-
             </h5>
         </div>
     </div>
@@ -191,12 +184,10 @@
                 BBQ at 5 PM <br>
                 Drinks until late<br>
                 Casual Dresscode
-
             </h5>
         </div>
     </div>
 </div>
-
 
 {% endif %}
 

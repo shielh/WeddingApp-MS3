@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,55 +8,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.2/sandstone/bootstrap.min.css"
         type="text/css">
     <!--Import Bootwatch Mint theme-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/minty/bootstrap.min.css" 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/minty/bootstrap.min.css"
         integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
     <!--Import custom css files-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <link rel="stylesheet" href="static/css/responsive.css" type="text/css">
     <!--Import Favicon-->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ url_for('static', filename='images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ url_for('static', filename='images/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}">
     <title>Wedding App</title>
 </head>
 
 <body>
-<!--Navbar with home page anchor tag-->
+    <!--Navbar with home page anchor tag-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url_for('home') }}">E&D</a>
         </div>
     </nav>
 
-<!--Main 404 content-->
-<div class="card error-card">
-  <div class="card-body text-center">
-    <h3 class="card-title">Error 500 - Internal Server Error</h3>
-    <p class="card-text ">
-      Oops! Looks like something went wrong.
-      To return to the home page please click <a href="{{ url_for('home') }}" >here</a>.
-    </p>
-    
-  </div>
-</div>
+    <!--Main 500 content-->
+    <div class="card error-card">
+        <div class="card-body text-center">
+            <h3 class="card-title">Error 500 - Internal Server Error</h3>
+            <p class="card-text ">
+                Oops! Looks like something went wrong.
+                To return to the home page please click <a href="{{ url_for('home') }}">here</a>.
+            </p>
 
-<div class="row justify-content-center">
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
         <div class="col-4 text-center">
             <img src="../static/images/oliveBranch.png" class="olive-branch-img" alt="olive branch">
         </div>
-</div>
-<!--Footer-->
-<footer class=" footer text-center text-white fixed-bottom footer-style w-100">
-    <!-- Grid container -->
-    <div class="container"></div>
-    <!-- Grid container -->
-
-    <!-- Copyright -->
-    <div class="text-center p-3">
-        © 2021 Copyright: Helen Shiel
     </div>
-    <!-- Copyright -->
-</footer>
-    
+    <!--Footer-->
+    <footer class=" footer text-center text-white fixed-bottom footer-style w-100">
+        <!-- Grid container -->
+        <div class="container"></div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3">
+            © 2021 Copyright: Helen Shiel
+        </div>
+        <!-- Copyright -->
+    </footer>
+
 </body>
+
 </html>

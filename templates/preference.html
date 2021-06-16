@@ -1,37 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
 
-
 <div class="card form-card text-center">
     <h2 class="preferences-h1 m-4">Preference</h2>
     <div class="card-body preferences-form-card justify-content-center">
         <p class="preference-text">
-        {% if session.user %}
-        <strong>Number of guests: </strong>{{ guest_info.number_of_party }}<br>
-        <strong>Require accommodation? </strong> {{ guest_info.require_accommodation }}<br>
-        <strong>Dietary Restrictions?  </strong>{{ guest_info.dietary_restrictions }}<br>
-        <strong>Dietary Restrictions? </strong>{{ guest_info.dietary_restrictions_description }}<br>
-        <strong>Arrival Date: </strong>{{ guest_info.arrival_date }}<br>
-        <strong>Additional Comments: </strong>{{ guest_info.add_note }}<br>
-        <strong>Created by: </strong>{{ guest_info.created_by }}
+            <!--Displays users perferece-->
+            {% if session.user %}
+            <strong>Number of guests: </strong>{{ guest_info.number_of_party }}<br>
+            <strong>Require accommodation? </strong> {{ guest_info.require_accommodation }}<br>
+            <strong>Dietary Restrictions? </strong>{{ guest_info.dietary_restrictions }}<br>
+            <strong>Dietary Restrictions? </strong>{{ guest_info.dietary_restrictions_description }}<br>
+            <strong>Arrival Date: </strong>{{ guest_info.arrival_date }}<br>
+            <strong>Additional Comments: </strong>{{ guest_info.add_note }}<br>
+            <strong>Created by: </strong>{{ guest_info.created_by }}
         </p>
-
+        <!--Delete button-->
         <div class="row justify-content-center mb-4">
             <div class="col-6 col-lg-5">
                 <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" class="btn 
                     preference-delete-btn btn-secondary" data-target="#confirmDelete" data-toggle="modal">
-                Delete
+                    Delete
                 </a>
             </div>
+            <!--Edit button-->
             <div class="col-6 col-lg-5">
                 <a href="{{ url_for('edit_preference', guest_info_id=guest_info._id) }}" class="btn 
                     preference-edit-btn btn-warning">
-                Edit
+                    Edit
                 </a>
             </div>
-
         </div>
-    
     </div>
 </div>
 
@@ -44,19 +43,20 @@
 <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confirmDelete">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-        <div class="modal-header">
-            
-            <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"></span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <p>Please click delete to confirm</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-            <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" type="button" class="btn btn-secondary ">Delete</a>
-        </div>
+            <div class="modal-header">
+
+                <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Please click delete to confirm</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" type="button"
+                    class="btn btn-secondary ">Delete</a>
+            </div>
         </div>
     </div>
 </div>
