@@ -1,5 +1,7 @@
 # Wedding App
 
+The live version of the site is available [here](https://wedding-app-ms3.herokuapp.com/)
+
 This project was created for my third Milestone Project with Code Institute in order to display my knowledge and understanding 
 of HTML, CSS, Python, Flask and MongoDB.
 
@@ -35,11 +37,7 @@ will be a great learning curve for what I can expect when I start working as a W
     - [Libraries and Frameworkds](#libraries-and-frameworks)
     - [Tools](#tools)
 * [Testing](#testing)
-    - [Responsivity across devices](#responsivity-across-devices)
-    - [HTML and CSS validation](#html-and-css-validation)
-    - [User Stories](#user-stories)
-    - [Manual Testing](#manual-testing)
- * [Issues and Solutions](#issues-and-solutions)   
+
 * [Deployment](#deployment)
     * [Initial Creation](#initial-creation)
     * [Deployment to Heroku](#deployment-to-heroku)
@@ -69,7 +67,7 @@ application where wedding guests can add, edit and delete their specific require
 * As a user, I want to view a pretty website with images of the wedding venue
 * As a user, I want to be able to register an account so I can add any required information the bride might need
 * As a user, I want to be able to update or delete the information I add
-* As a user, I want to be able to find out all the information about the wedding; the dates, the venue, the schedule
+* As a logged in user, I want to be able to find out all the information about the wedding; the dates, the venue, the schedule
 * As a user, I want to be informed when an update has been added to the site
 * As a user, I want the website to be responsive across all devices
 
@@ -96,6 +94,7 @@ application where wedding guests can add, edit and delete their specific require
 * CRUD functionality for updates for admin users
 * Flask mail set up to email all non-admin users when an update has been added to the site 
 
+[Back to top](#Table-of-Contents)
 ### The Structure Plane
 User Story:
  As a user, I want to be able to easily navigate across the site so I can find the content quickly
@@ -171,7 +170,7 @@ to delete their preference they will be prompted to add their preference again. 
 in MongoDB in a collection called guest_info. 
 
 User Story:
-As a user, I want to be able to find out all the information about the wedding; the dates, the venue, the schedule
+As a logged in user, I want to be able to find out all the information about the wedding; the dates, the venue, the schedule
 
 Acceptance Criteria:
 
@@ -190,6 +189,7 @@ User Story:
 Acceptance Criteria:
 
 Implementation:
+[Back to top](#Table-of-Contents)
 
 ### The Skeleton Plane
 #### Wireframes
@@ -227,7 +227,7 @@ The application uses three collections named user, guest_info and update. The fo
     add_note: Really looking forward to it
     created_by: johndoe@gmail.com
 }</pre>
-
+[Back to top](#Table-of-Contents)
 
 ### The Surface Plane
 #### Design
@@ -235,7 +235,8 @@ The application uses three collections named user, guest_info and update. The fo
 Using the <a href="https://fontpair.co/">Font Pair</a> website, I chose two complimentary fonts; <a href="https://fonts.google.com/specimen/Asap">Asap</a> 
 for the headings, and <a href="https://fonts.google.com/specimen/Roboto">Roboto</a> for the rest of the text.
 
-
+[Back to top](#Table-of-Contents)
+---
 ## Technologies Used
 ### Languages
 - [HTML5](https://en.wikipedia.org/wiki/HTML5) 
@@ -267,12 +268,27 @@ for the headings, and <a href="https://fonts.google.com/specimen/Roboto">Roboto<
     - This was used to deploy the live website
 - [Balsamiq](https://balsamiq.com/) 
     - This was used to create my rough wireframes
-- [Favicon]()
+- [Favicon](https://favicon.io/)
+    - This was used to create the sites Favicon of an olive branch
 - [Font Pair](https://fontpair.co/) 
     - This was used to choose complementary fonts
 - [Tiny JPG](https://tinyjpg.com/) 
     - This was used this to compress my images
+- [ClipArtKey](https://www.clipartkey.com/)
+    - This was used to download the olive branch image used above the footer of the site
+- [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools)
+    - This was used to inspect elements on the page and help debug issues involving the 
+    site layout
+- [PEP8 Online](http://pep8online.com/)
+    - This was used to check for PEP8 compliance
 
+[Back to top](#Table-of-Contents)
+---
+## Testing
+The testing documentation can be found [here](TESTING.md)
+
+
+---
 ## Deployment 
 ### Initial Creation
 Wedding App was first created by completing the following steps on GitHub:
@@ -292,6 +308,28 @@ Throughout development, three primary commands were used with the CLI [Git](http
 - "git push" makes all changes visible on the GitHub Repo
 
 ### Deployment to Heroku
+#### Setup files
+- First, I had to tell Heroku which applications I required to run my app, as well as the dependencies. I did this 
+by setting up a requirements.txt file and a Procfile.
+- To set up the requirements.txt file, I typed the following command into the command line:<br>
+pip3 freeze --local > requirements.txt
+- My requirements.txt file contains the following:<br>
+blinker==1.4<br>
+click==8.0.0<br>
+dnspython==2.1.0<br>
+Flask==2.0.0<br>
+Flask-Mail==0.9.1<br>
+Flask-PyMongo==2.3.0<br>
+itsdangerous==2.0.0<br>
+Jinja2==3.0.0<br>
+MarkupSafe==2.0.0<br>
+pymongo==3.11.4<br>
+Werkzeug==2.0.0<br>
+<br>
+
+- To create my Procfile, I typed the following command:<br>
+echo web: python app.py > Procfile
+
 #### Create the app on Heroku
 1. Navigate to [Heroku](https://www.heroku.com) and login using your credentials
 2. Click on the "New" button in the top right hand corner and select create new app
@@ -315,3 +353,36 @@ add in your own database name and password also)
 
 #### Automatic deployment
 Click on the "deploy" tab and choose the branch you wish to deploy. Then, click "Enable Automatic Deploys"
+
+### Local Deployment
+To run my project locally, the steps are as follows:
+1. Navigate to the GitHub [Repo](https://github.com/shielh/WeddingApp-MS3)
+2. Click on the 'Code' dropdown button
+3. Copy the Git UTL from the HTTPS box by clicking the clipboard icon, or else select to download the ZIP file
+4. When using the Git URL, you can just open a new terminal in your preferred IDE and type the 'git clone' command 
+in the CLI and paste your copied URL
+5. A clone of your project will then be created locally on your PC
+6. If you decided to download the ZIP file instead, unpackage it locally and open in your preferred IDE
+
+[Back to top](#Table-of-Contents)
+
+## Credits
+--- 
+### Content
+- The decorator function for ensuring there's an active user or an admin was taken from [here](https://flask.palletsprojects.com/en/2.0.x/patterns/viewdecorators/)
+- The flask session timeout was created using the help from this [StackOverflow Link](https://stackoverflow.com/questions/11783025/is-there-an-easy-way-to-make-sessions-timeout-in-flask)
+- The flask mail functionality was created with the help of this [YouTube Tutorial](https://www.youtube.com/watch?v=48Eb8JuFuUI), this [documentation](https://flask-mail.readthedocs.io/en/latest/) 
+and this [tutorial](https://pythonbasics.org/flask-mail/) 
+- I used [this](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/) resource to help make my custom error pages
+---
+### Media
+- The photos used on this site were obtained from [Unsplash](https://unsplash.com/).
+---
+### Acknowledgements
+A huge thank you to:
+- My brother Gregory for his endless patience and guidance throughout this project
+- My sister Emma for trusting me to create her wedding website and for being a great first client to work with
+- My mentor Felipe Souza Alarcon for his help and motivation throughout this project. He was always so positive and had great suggestions!
+- My peers in various Slack channels for always getting back to me quickly with questions or feedback.
+--- 
+[Back to top](#Table-of-Contents)
