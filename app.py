@@ -54,7 +54,7 @@ def must_be_logged_in(f):
 def must_be_admin(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if "is_admin" in session:
+        if session.get("is_admin"):
             return f(*args, **kwargs)
         # if user is logged in, directs them to home page
         elif "user" in session:
@@ -71,7 +71,7 @@ def home():
     Users that are logged in will see the
     updates on the home page
     """
-    if session:
+    if "user" in session:
         updates = mongo.db.update.find()
         return render_template("index.html", updates=updates)
     else:
@@ -146,7 +146,7 @@ def login():
                     session["user"] = request.form.get("email").lower()
                     session["is_admin"] = existing_user["is_admin"]
                     flash("Welcome, {}".format(existing_user["firstName"]))
-                    # Automatically signs user out after 15 mins of inactivity
+                    # Automatically signs user out after 30 mins of inactivity
                     session.permanent = True
                     return redirect(url_for(
                         "home"))
@@ -169,24 +169,22 @@ def logout():
     if "is_admin" in session:
         session.pop("is_admin")
 
-    if session["user"]:
+    if "user" in session:
         flash("You have been logged out")
         session.pop("user")
-        return redirect(url_for("login"))
+
+    return redirect(url_for("login"))
 
 
 @app.route("/view_preferences")
 @must_be_admin
 def view_preferences():
     """
-    Alows admin users to view all users perferences
+    Allows admin users to view all users perferences
     """
     guest_infos = mongo.db.guest_info.find()
-    if guest_infos is not None:
-        return render_template("view_preferences.html",
-                               guest_infos=guest_infos)
-    else:
-        return redirect("get_guest_info")
+    return render_template("view_preferences.html",
+                            guest_infos=guest_infos)
 
 
 @app.route("/get_guest_info")
@@ -204,39 +202,43 @@ def get_guest_info():
         return render_template("add_preference.html")
 
 
-@app.route("/add_preference", methods=["GET", "POST"])
+@app.route("/add_preference", methods=["POST"])
+@must_be_logged_in
 def add_preference():
     """
     Allows users to add their preferences
     """
-    if request.method == "POST" and session["user"]:
-        require_accommodation = "Yes" if request.form.get(
-            "require_accommodation") else "No"
-        dietary_restrictions = "Yes" if request.form.get(
-            "dietary_restrictions") else "No"
-        guest_information = {
-            "number_of_party": request.form.get("number_of_party"),
-            "require_accommodation": require_accommodation,
-            "dietary_restrictions": dietary_restrictions,
-            "dietary_restrictions_description": request.form.get(
-                "dietary_restrictions_description"),
-            "arrival_date": request.form.get("arrival_date"),
-            "add_note": request.form.get("add_note"),
-            "created_by": session["user"]
-        }
-        mongo.db.guest_info.insert_one(guest_information)
-        flash("Thanks for Adding Your Preference")
-        return redirect(url_for("get_guest_info"))
-
-    return render_template("add_preference.html")
+    require_accommodation = "Yes" if request.form.get(
+        "require_accommodation") else "No"
+    dietary_restrictions = "Yes" if request.form.get(
+        "dietary_restrictions") else "No"
+    guest_information = {
+        "number_of_party": request.form.get("number_of_party"),
+        "require_accommodation": require_accommodation,
+        "dietary_restrictions": dietary_restrictions,
+        "dietary_restrictions_description": request.form.get(
+            "dietary_restrictions_description"),
+        "arrival_date": request.form.get("arrival_date"),
+        "add_note": request.form.get("add_note"),
+        "created_by": session["user"]
+    }
+    mongo.db.guest_info.insert_one(guest_information)
+    flash("Thanks for Adding Your Preference")
+    return redirect(url_for("get_guest_info"))
 
 
 @app.route("/edit_preference/<guest_info_id>", methods=["GET", "POST"])
+@must_be_logged_in
 def edit_preference(guest_info_id):
     """
     Allows users to edit their own preference
     """
-    if request.method == "POST" and session["user"]:
+    # Only allow users to view/edit their own preference
+    guest_info = mongo.db.guest_info.find_one({"_id": ObjectId(guest_info_id)})
+    if session["user"] != guest_info["created_by"]:
+        return redirect(url_for('home'))
+
+    if request.method == "POST":
         require_accommodation = "Yes" if request.form.get(
             "require_accommodation") else "No"
         dietary_restrictions = "Yes" if request.form.get(
@@ -256,24 +258,28 @@ def edit_preference(guest_info_id):
         flash("Thanks for Updating Your Preferences")
         return redirect(url_for("get_guest_info"))
 
-    guest_info = mongo.db.guest_info.find_one({"_id": ObjectId(guest_info_id)})
     return render_template("edit_preference.html", guest_info=guest_info)
 
 
 @app.route("/delete_preference/<guest_info_id>")
+@must_be_logged_in
 def delete_preference(guest_info_id):
     """
     Allows users to delete their own preference
     and Admin users to delete any users perferences
     """
-    if "is_admin" in session:
+    if session.get("is_admin"):
         mongo.db.guest_info.remove({"_id": ObjectId(guest_info_id)})
         flash("You Have Deleted a Preference")
         return redirect(url_for("view_preferences"))
-    elif session["user"]:
+    #Check with G
+    guest_info = mongo.db.guest_info.find_one({"_id": ObjectId(guest_info_id)})
+    if session["user"] == guest_info["created_by"]:
         mongo.db.guest_info.remove({"_id": ObjectId(guest_info_id)})
         flash("Preference Deleted")
         return render_template("add_preference.html")
+    else: 
+        return redirect(url_for('home'))
 
 
 @app.route("/update")
@@ -283,12 +289,13 @@ def update():
 
 
 @app.route("/add_update", methods=["GET", "POST"])
+@must_be_admin
 def add_update():
     """
     Allows an admin user to add an update and email all non-admin users
     when the update is added
     """
-    if request.method == "POST" and session["is_admin"]:
+    if request.method == "POST":
         updates = {
             "date": request.form.get("date"),
             "title": request.form.get("title"),
@@ -343,16 +350,14 @@ def edit_update(update_id):
 
 
 @app.route("/delete_update/<update_id>")
+@must_be_admin
 def delete_update(update_id):
     """
     Allows admin users to delete an update
     """
-    if session["is_admin"]:
-        mongo.db.update.remove({"_id": ObjectId(update_id)})
-        flash("Update Deleted")
-        return redirect(url_for("home"))
-    else:
-        return render_template("index.html")
+    mongo.db.update.remove({"_id": ObjectId(update_id)})
+    flash("Update Deleted")
+    return redirect(url_for("home"))
 
 
 @app.errorhandler(404)
