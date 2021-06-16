@@ -30,6 +30,10 @@ p {
     align-items: center;
 }
 
+.card-body{
+    width: 90%;
+}
+
 /* Navbar styling */
 .site-logo {
     height: inherit;
@@ -125,7 +129,7 @@ span.navbar-toggler-icon{
 
 /* Creates border down center of schedule content */
 .divide-content {
-    border-right: 1px solid #9b9871;
+    border-right: 1px solid #78c2ad;
     margin-bottom: 3em;
     text-align: center;
     bottom: 5px;
@@ -217,6 +221,10 @@ span.navbar-toggler-icon{
 /* Edit preferences page */
 .guest-form-outline {
     border: none;
+}
+
+input.arrival_date{
+    width: 90%;
 }
 
 /* Accommodation page */
