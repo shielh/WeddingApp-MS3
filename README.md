@@ -9,9 +9,10 @@ This project is definitely the one I am most excited about creating because it i
 of months ago to make her a site where her wedding guests could RSVP, register, log in and see all of the information they need to know 
 about her big day as well as allowing them to submit any dietary requirements or accessibility issues. This site will allow her to relax 
 in the leadup to her big day knowing that all the guests data will be stored in the one place for her to view rather than sending multiple 
-emails to find out the information.
+emails to find out the information. She also wants a place where her and her fiancé can add updates about their big day and alert users 
+by email that an update has been added.
 
-This is my first project where I will be getting instructions from my sister on the features and content needed on this site and I think it 
+This is my first project where I will be getting instructions from a client on the features and content needed on this site and I think it 
 will be a great learning curve for what I can expect when I start working as a Web Developer.
 
 ---
@@ -73,25 +74,51 @@ application where wedding guests can add, edit and delete their specific require
 ### The Scope Plane
 #### Features
 ##### Site wide features
+* Navbar entailing an anchor tag with "E&D" directing users back to the home page
+* Navbar containing links to various different pages depending on the type of user
+* Footer containing copyright information and a clipart of an olive branch above it
+* Collapsible burger icon menu on mobile devices
 
 ##### Home Page
-* index.html page detailing the wedding venue, dates and itinerary to people who have registered an account
-* index.html page detailing a hero image with anchor tags to the register or log in pages
+* Details of the wedding venue, dates and itinerary to people who have registered an account
+* Contains a hero image with anchor tags to the register or log in pages to unregistered users
+* Contains updates sections which have been added by an admin user
+* Modal dialog box for delete functionality to add defensive programming(for admin users only) 
+
 ##### Accommodation page
-* accommodation.html page giving information about the rooms and the local area
+* Contains text and photos providing logged in users information about the property and surrounding area
+* Link to google maps 
+* Link to property website
+
 ##### FAQ page
-* faq.html page answering commonly asked questions
-##### Preference page
-* Collapsible burger icon menu on mobile devices
+* Contains text detailing common questions and answers about the wedding
+
+##### Preference and Edit Preference page
+* CRUD functionality for guests preferences
+* Contains information of their chosen preferences
+* Buttons to edit or delete their own preference
+* Admin users can view all guests preferences here
+* Admin users can delete anyones preferences
+* Modal dialog box for delete functionality to add defensive programming(for admin users only) 
+
 ##### Update page
-* Register, login and logout functionality
-* preferences.html where guests (when logged in) can add their preferences
-* CRUD functionality for these preferences
-* Modal dialog box for delete functionality to add defensive programming 
-* MongoDB to store wedding guest information and user login details
-* Update page where admin user can add updates which will render to index.html
-* CRUD functionality for updates for admin users
+* CRUD functionality for updates
+* Form where admin user can add updates into fields which will render to index.html for logged in users to view
 * Flask mail set up to email all non-admin users when an update has been added to the site 
+
+##### Other Features
+* Register, login and logout functionality
+* MongoDB to store wedding guest information and user login details
+* 404 and 500 Error pages 
+
+##### Future Features to Implement
+* A page where guests can add all their photos from the trip
+* A sitewide password so only guests that have been emailed this password can enter and register 
+* Add extra fields into the guest preferences database 
+* A forgot password functionality
+* A remember me functionality so guests only have to log in once
+* Implement Google Maps API for the property
+
 
 [Back to top](#Table-of-Contents)
 ### The Structure Plane
@@ -182,8 +209,11 @@ User Story:
  As a user, I want to be informed when an update has been added to the site
 
 Acceptance Criteria:
+* User must be notified when a new update is added
 
 Implementation:
+I will implement the flask-mail extension and use it in the add update function to send an email to each non-admin user whenever a new update is added to 
+the site 
 
 User Story:
  As a user, I want the website to be responsive across all devices
@@ -221,14 +251,12 @@ The application uses three collections named user, guest_info and update. The fo
 }</pre>
 <pre>Collection: update
 {
-    number_of_party: 1 
-    require_accommodation: yes
-    dietary_restrictions: yes
-    dietary_restrictions_description: Gluten free
-    arrival_date: 08/09/2022
-    add_note: Really looking forward to it
-    created_by: johndoe@gmail.com
+    date: 2021/06/10
+    title: Big News
+    description: Accomodation is now fully confirmed! Pack your bags!
+    created_by: admin@123.com
 }</pre>
+
 [Back to top](#Table-of-Contents)
 
 ### The Surface Plane
@@ -236,6 +264,15 @@ The application uses three collections named user, guest_info and update. The fo
 ##### Font
 Using the <a href="https://fontpair.co/">Font Pair</a> website, I chose two complimentary fonts; <a href="https://fonts.google.com/specimen/Asap">Asap</a> 
 for the headings, and <a href="https://fonts.google.com/specimen/Roboto">Roboto</a> for the rest of the text.
+
+##### Images
+All the images on the site are of either an olive branch or on the 'Accomodation' page of the local area. This is to keep in theme with the Italian wedding and the 
+fact that the property is on an olive farm.
+
+##### Colour Scheme
+I used [BootsWatch](https://bootswatch.com/) Minty theme for my Bootstrap website. Please see the image below for the colour scheme:
+
+<img src="static/images/testing/minty.PNG" alt="WeddingApp Bootswatch Minty Colour Scheme">
 
 [Back to top](#Table-of-Contents)
 ---
@@ -264,6 +301,8 @@ for the headings, and <a href="https://fonts.google.com/specimen/Roboto">Roboto<
     - This is the version control software used where can I commit and push the updated information to the hosting website GitHub
 - [MongoDB](https://www.mongodb.com/)
     - This was used for the database
+- [BootsWatch](https://bootswatch.com/)
+    - This was used as a theme for Bootstrap
 - [PyMongo](https://pymongo.readthedocs.io/)
     - This was used as a tool to allow interaction between Python and MongoDB
 - [Heroku](https://id.heroku.com)
@@ -283,12 +322,19 @@ for the headings, and <a href="https://fonts.google.com/specimen/Roboto">Roboto<
     site layout
 - [PEP8 Online](http://pep8online.com/)
     - This was used to check for PEP8 compliance
+- [W3C CSS validator](https://jigsaw.w3.org/css-validator/)
+    - This was used to test the CSS code for any errors
+- [W3C Markup validator](https://validator.w3.org/)
+    - This was used to test the HTML code for any errors
+- [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+    - This was used as a web template engine for the Python language 
+- [Web Accessibility](https://www.webaccessibility.com/)
+    - This was used to test the accessibility of this site for users with disabilities
 
 [Back to top](#Table-of-Contents)
 ---
 ## Testing
 The testing documentation can be found [here](TESTING.md)
-
 
 ---
 ## Deployment 

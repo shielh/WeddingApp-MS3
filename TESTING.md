@@ -292,6 +292,8 @@ You receive an email telling you an update has been added
 **Pass/Fail:**<br>
 Pass
 
+<img src="static/images/testing/flaskEmail.PNG" alt="WeddingApp Flask Email Test">
+
 ---
 
 ### Test Case 9
@@ -371,13 +373,15 @@ Verify all routes are functioning correctly while signed out, signed in and as a
 3. Repeat testing all routes, while logged in as admin
 
 **Expected Result:**<br>
-
+All routes function as expected
 
 **Actual Result:**<br>
-
+For all users (logged out, logged in and admin), searching the add_preference route resulted in a 405 error. This is because this function only contains a "POST" method.
+For logged in users (incl admin), when I searched Log in and Register routes it brought me to the pages even though I was already logged in. To fix this, I created a new 
+decorator for must not be logged in which redirected logged in users to the home page if they attempted to log in again or re-register.
 
 **Pass/Fail:**<br>
-
+Initial Fail, but then Pass
 
 ---
 ### Test Case 12
