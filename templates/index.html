@@ -70,7 +70,7 @@
             <div class="row justify-content-center buttons-row">
                 <div class="col-4 col-lg-3 col-xl-2">
                     <a href="{{ url_for('delete_update', update_id=update._id) }}" type="button"
-                        class="btn btn-secondary btn-block btn-sm" data-target="#confirmUpdateDelete" data-toggle="modal">
+                        class="btn btn-secondary btn-block btn-sm" data-target="#confirmUpdateDelete-{{ update._id }}" data-toggle="modal">
                         Delete
                     </a>
                 </div>
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <!--Delete Modal-->
-            <div class="modal fade" id="confirmUpdateDelete" tabindex="-1" role="dialog"
+            <div class="modal fade" id="confirmUpdateDelete-{{ update._id }}" tabindex="-1" role="dialog"
                 aria-labelledby="confirmUpdateDelete">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">

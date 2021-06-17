@@ -19,7 +19,7 @@
         <div class="row justify-content-center mb-4">
             <div class="col-5 col-md-3 col-xl-3">
                 <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" class="btn 
-                    preference-delete-btn btn-secondary btn-block btn-sm" data-target="#confirmDelete" data-toggle="modal">
+                    preference-delete-btn btn-secondary btn-block btn-sm" data-target="#confirmDelete-{{ guest_info._id }}" data-toggle="modal">
                     Delete
                 </a>
             </div>
@@ -28,7 +28,7 @@
 </div>
 
 <!--Modal to confrim delete-->
-<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confirmDelete">
+<div class="modal fade" id="confirmDelete-{{ guest_info._id }}" tabindex="-1" role="dialog" aria-labelledby="confirmDelete">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
