@@ -1,3 +1,25 @@
+## Table of Contents
+* [Automated Testing](#Automated-Testing)
+    * [Responsivity across devices](#Responsivity-across-devices)
+    * [HTML CSS and Python Testing](#HTML-CSS-and-Python-Testing)
+    * [Web Accessibility](#Web-Accessibility)
+    * [The Structure Plane](#The-Structure-Plane)
+    * [The Skeleton Plane](#The-Skeleton-Plane)
+* [Manual Testing](#Manual-Testing)
+    * [Test Case 1](#Test-Case-1)
+    * [Test Case 2](#Test-Case-2)
+    * [Test Case 3](#Test-Case-3)
+    * [Test Case 4](#Test-Case-4)
+    * [Test Case 5](#Test-Case-5)
+    * [Test Case 6](#Test-Case-6)
+    * [Test Case 7](#Test-Case-7)
+    * [Test Case 8](#Test-Case-8)
+    * [Test Case 9](#Test-Case-9)
+    * [Test Case 10](#Test-Case-10)
+    * [Test Case 11](#Test-Case-11)
+    * [Test Case 12](#Test-Case-12)
+* [Issues and Solutions](#Issues-and-Solutions)
+
 ## Automated Testing
 ### Responsivity across devices
 * As a user, I want the website to be responsive across all devices
@@ -44,7 +66,7 @@ and received the following result:
 I conducted tests on all user stories and features on the site:
 For all test cases, I opened the web application via this [link](https://wedding-app-ms3.herokuapp.com/)
 
-Test Case 1
+### Test Case 1
 
 * As a user, I want to be able to easily navigate across the site so I can find the content quickly
 
@@ -87,7 +109,7 @@ Pass
 
 ---
 
-Test Case 2
+### Test Case 2
 
 * As a user, I want to view a pretty website with images of the wedding venue
 
@@ -114,7 +136,7 @@ Pass
 
 * As a user, I want to be able to register an account so I can add any required information the bride might need
 
-Test Case 3
+### Test Case 3
 
 **Description:**<br>
 Verify registration functionality performs as expected 
@@ -139,7 +161,7 @@ Pass
 
 ---
 
-Test Case 4
+### Test Case 4
 
 **Description:**<br>
 Verify registration functionality performs as expected when a user inputs incorrect (such as email address has already been used) or null data
@@ -164,7 +186,7 @@ Pass
 
 [Back to top](#Automated-Testing)
 
-Test Case 5
+### Test Case 5
 
 **Description:**<br>
 Verify register users can add their preferences
@@ -189,7 +211,7 @@ Pass
 
 ---
 
-Test Case 6
+### Test Case 6
 * As a user, I want to be able to update or delete the information I add
 
 **Description:**<br>
@@ -221,7 +243,7 @@ Pass
 --- 
 [Back to top](#Automated-Testing)
 
-Test Case 7
+### Test Case 7
 
 * As a logged in user, I want to be able to find out all the information about the wedding; the dates, the venue, the schedule
 
@@ -246,7 +268,7 @@ Pass
 
 ---
 
-Test Case 8
+### Test Case 8
 
 * As a user, I want to be informed when an update has been added to the site
 
@@ -272,7 +294,7 @@ Pass
 
 ---
 
-Test Case 9
+### Test Case 9
 
 Error 404 page
 
@@ -296,7 +318,7 @@ Pass
 <img src="static/images/testing/404-Phone.PNG" alt="WeddingApp Error 404 Mobile check">
 ---
 
-Test Case 10
+### Test Case 10
 
 Error 500 page
 
@@ -322,7 +344,7 @@ Pass
 
 ---
 
-Test Case 12
+### Test Case 11
 
 **Description:**<br>
 Verify all routes are functioning correctly while signed out, signed in and as admin
@@ -358,7 +380,7 @@ Verify all routes are functioning correctly while signed out, signed in and as a
 
 
 ---
-Test Case 11
+### Test Case 12
 
 **Description:**<br>
 Verify site times out after 30 minutes of inactivity
@@ -393,3 +415,8 @@ To resolve this issue, I had to have the closing 'textarea' tag directly after t
 - I encountered another issue where a person that was logged in could view the admin preference page with all the guests information. I had an error in my decorator function 
 where I had written: if session["is_admin"] which was checking if the attribute is present in the dictionary which it is for all users. I then changed the code to session.get("is_admin) 
 which secured the page to admin users only
+
+- When creating my edit pages for both updates and preferences, I found they weren't picking up the responsive.css styling I had implemented for form cards. In smaller devices, 
+the form should have increased in its width. I hadn't used jinja templating in my href for the style link and hadn't included "../" at the beginning of the path. I changed the 
+href to "{{ url_for('static', filename='css/responsive.css') }}" and everything fell back in place.
+
