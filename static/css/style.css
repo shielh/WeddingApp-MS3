@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 /* General styling */
+html{
+    height: 100%;
+}
+
+body{
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 14rem;
+}
+
 h1, 
 h2, 
 h3, 
@@ -13,6 +23,8 @@ h6{
 p {
     font-family: "Roboto", sans-serif;
 }
+
+
 
 .form-outline {
     border: 1px solid #262626;
@@ -90,7 +102,7 @@ span.navbar-toggler-icon{
 }
 
 .olive-img {
-    width: 30vw;
+    width: 20vw;
 }
 
 /* Set width of update card and center contents */
@@ -215,7 +227,8 @@ span.navbar-toggler-icon{
 
 .olive-branch-img {
     margin: 0 auto;
-    width: 10vw;
+    width: 15vw;
+    margin-top: 20px;
 }
 
 /* Edit preferences page */
@@ -248,9 +261,16 @@ input.arrival_date{
 /* Footer */ 
 .footer-style {
     background-color: #78c2ad;
-    display: inline-block;
-    position: static;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
     margin-top:20px;
+}
+
+.olive-branch-footer{
+    background: white;
+    padding-bottom: 20px;
 }
 
 /* FAQ page */
