@@ -8,7 +8,7 @@
             action="{{ url_for('edit_update', update_id=update._id ) }}">
             <!-- Date arrival picker -->
             <div class="row ">
-                <div class="col-12">
+                <div class="col-12 text-start">
                     <label for="date"> Edit Date
                         <input id="date" name="date" type="date" class="datepicker validate" value="{{ update.date }}"
                             required>

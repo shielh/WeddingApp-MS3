@@ -6,23 +6,23 @@
         <form class="form-container justify-content-center" method="POST" action="{{ url_for('add_update') }}">
             <!-- Date arrival picker -->
             <div class="row ">
-                <div class="col-12">
+                <div class="col-12 text-start">
                     <label for="date"> Date
-                        <input id="date" name="date" type="date" class="datepicker validate" required>
+                        <input id="date" name="date" type="date" class="datepicker update-datepicker validate" required>
                     </label>
                 </div>
             </div>
 
             <!-- Text input -->
             <div class="form-outline additional-text-box mb-4">
-                <textarea class="form-control active" id="title" name="title" rows="1" maxlength="100"></textarea>
+                <textarea class="form-control" id="title" name="title" rows="1" maxlength="100"></textarea>
                 <label class="form-label" for="title">Title
                 </label>
             </div>
 
             <!-- Text input -->
             <div class="form-outline additional-text-box mb-4">
-                <textarea class="form-control active" id="description" name="description" rows="4" maxlength="300"></textarea>
+                <textarea class="form-control" id="description" name="description" rows="4" maxlength="300"></textarea>
                 <label class="form-label" for="description">Description
                 </label>
             </div>

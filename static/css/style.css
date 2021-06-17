@@ -24,8 +24,6 @@ p {
     font-family: "Roboto", sans-serif;
 }
 
-
-
 .form-outline {
     border: 1px solid #262626;
 }
@@ -108,7 +106,7 @@ span.navbar-toggler-icon{
 /* Set width of update card and center contents */
 .update-card{
     border: none;
-    width: 50%;
+    width: 80%;
     padding-bottom: 20px;
     border: 1px solid rgba(0,0,0,0.125);
     display: flex;
@@ -227,7 +225,7 @@ span.navbar-toggler-icon{
 
 .olive-branch-img {
     margin: 0 auto;
-    width: 15vw;
+    width: 12vw;
     margin-top: 20px;
 }
 
@@ -294,6 +292,7 @@ input.arrival_date{
 .error-card {
     margin: 0 auto;
     width: 80%;
+    height: 250px;
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;

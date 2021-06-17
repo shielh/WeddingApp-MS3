@@ -36,6 +36,9 @@
     .all-preferences-card{
         width: 100%;
     }
+    .update-datepicker{
+        width: 9em;
+    }
 }
 
 @media only screen and (max-width: 1023px){
@@ -50,7 +53,8 @@
 
 @media only screen and (min-width: 1024px){
     .form-card,
-    .error-card {
+    .error-card
+    .update-card {
         width: 50%;
     }
     .nav-container{

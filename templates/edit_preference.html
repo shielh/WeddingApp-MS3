@@ -16,6 +16,7 @@
                         <div class="col-1">
                             <select id="number_of_party" name="number_of_party" class="validate" required>
                                 <option value="">Select</option>
+                                <!--Create for loop to create values of 1-5 to choose from-->
                                 {% for n in range(1, 6) %}
                                     <option value="{{n}}" {% if guest_info.number_of_party == (n|string) %} selected {% endif %}>{{n}}</option>
                                 {% endfor %}                                

@@ -8,11 +8,11 @@
             <!-- select number of party -->
             <div class="form-outline guest-form-outline">
                 <div class="row mb-4">
-                    <div class="col-7">
+                    <div class="col-7 text-start">
 
                         <i class="fas fa-users fa-icon"> Number of Guests</i>
                     </div>
-                    <div class="col-1">
+                    <div class="col-2 text-end">
                         <select id="number_of_party" name="number_of_party" class="validate" required>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -28,10 +28,10 @@
             <div class="form-outline guest-form-outline">
                 <div class="form-check form-switch">
                     <div class="row mb-4">
-                        <div class="col-8">
+                        <div class="col-8 text-start">
                             <i class="fas fa-bed fa-icon"> Accomodation</i>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 text-end">
                             <input class="form-check-input" type="checkbox" id="require_accommodation"
                                 name="require_accommodation" />
                         </div>
@@ -43,10 +43,10 @@
             <div class="form-outline guest-form-outline">
                 <div class="form-check form-switch">
                     <div class="row mb-4">
-                        <div class="col-8">
+                        <div class="col-8 text-start">
                             <i class="fas fa-utensils fa-icon"> Dietary Needs?</i>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 text-end">
                             <input class="form-check-input" type="checkbox" id="dietary_restrictions"
                                 name="dietary_restrictions" />
                         </div>
@@ -56,7 +56,7 @@
 
             <!-- Text input -->
             <div class="form-outline additional-text-box mb-4">
-                <textarea class="form-control active" id="dietary_restrictions_description"
+                <textarea class="form-control" id="dietary_restrictions_description"
                     name="dietary_restrictions_description" rows="2" maxlength="100"></textarea>
                 <label class="form-label" for="dietary_restrictions_description">Details on dietary
                     restrictions
@@ -65,10 +65,10 @@
 
             <!-- Date arrival picker -->
             <div class="row mb-4">
-                <div class="col-5">
+                <div class="col-5 text-start">
                     <i class="far fa-calendar-check fa-icon">Arrival Date </i>
                 </div>
-                <div class="col-5">
+                <div class="col-5 text-end">
                     <label for="arrival_date">
                         <input id="arrival_date" name="arrival_date" type="date" class="datepicker validate"
                             value="2022-09-08" min="2022-09-05" max="2022-09-11" required>
@@ -78,7 +78,7 @@
 
             <!-- Text input -->
             <div class="form-outline additional-text-box mb-4">
-                <textarea class="form-control active" id="add_note" name="add_note" rows="2" maxlength="300"></textarea>
+                <textarea class="form-control" id="add_note" name="add_note" rows="2" maxlength="300"></textarea>
                 <label class="form-label" for="add_note">Additional Comments</label>
             </div>
 
