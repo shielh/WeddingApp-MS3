@@ -35,7 +35,7 @@ will be a great learning curve for what I can expect when I start working as a W
     - [Future Features to Implement](#future-features-to-implement)
 * [Technologies Used](#Technologies-Used)
     - [Languages](#languages)
-    - [Libraries and Frameworkds](#libraries-and-frameworks)
+    - [Libraries and Frameworks](#libraries-and-frameworks)
     - [Tools](#tools)
 * [Testing](#testing)
 * [Deployment](#deployment)
@@ -279,6 +279,7 @@ I used [BootsWatch](https://bootswatch.com/) Minty theme for my Bootstrap websit
 
 
 [Back to top](#Table-of-Contents)
+
 ---
 ## Technologies Used
 ### Languages
@@ -334,6 +335,7 @@ I used [BootsWatch](https://bootswatch.com/) Minty theme for my Bootstrap websit
     - This was used as a web template engine for the Python language 
 - [Web Accessibility](https://www.webaccessibility.com/)
     - This was used to test the accessibility of this site for users with disabilities
+
 
 [Back to top](#Table-of-Contents)
 
@@ -425,7 +427,6 @@ in the CLI and paste your copied URL
 
 ## Credits
 
---- 
 ### Content
 - The decorator function for ensuring there's an active user or an admin was taken from [here](https://flask.palletsprojects.com/en/2.0.x/patterns/viewdecorators/)
 - The flask session timeout was created using the help from this [StackOverflow Link](https://stackoverflow.com/questions/11783025/is-there-an-easy-way-to-make-sessions-timeout-in-flask)
