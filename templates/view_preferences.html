@@ -19,7 +19,7 @@
         <div class="row justify-content-center mb-4">
             <div class="col-5 col-md-3 col-xl-3">
                 <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}" class="btn 
-                    preference-delete-btn btn-secondary" data-target="#confirmDelete" data-toggle="modal">
+                    preference-delete-btn btn-secondary btn-block" data-target="#confirmDelete" data-toggle="modal">
                     Delete
                 </a>
             </div>
@@ -40,9 +40,9 @@
                 <p>Please click delete to confirm</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                <button type="button" class=" btn-block btn btn-primary" data-dismiss="modal">Cancel</button>
                 <a href="{{ url_for('delete_preference', guest_info_id=guest_info._id) }}"
-                    class="btn btn-secondary ">Delete</a>
+                    class="btn btn-secondary btn-block ">Delete</a>
             </div>
         </div>
     </div>

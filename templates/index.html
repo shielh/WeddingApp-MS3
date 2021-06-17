@@ -70,13 +70,13 @@
             <div class="row justify-content-center buttons-row">
                 <div class="col-4 col-lg-3 col-xl-2">
                     <a href="{{ url_for('delete_update', update_id=update._id) }}" type="button"
-                        class="btn btn-secondary" data-target="#confirmUpdateDelete" data-toggle="modal">
+                        class="btn btn-secondary btn-block" data-target="#confirmUpdateDelete" data-toggle="modal">
                         Delete
                     </a>
                 </div>
                 <div class="col-4 col-lg-3">
                     <a href="{{ url_for('edit_update', update_id=update._id) }}" type="button"
-                        class="btn btn-warning ">Edit
+                        class="btn btn-warning btn-block">Edit
                     </a>
                 </div>
             </div>
@@ -94,9 +94,9 @@
                             <p>Please click delete to confirm</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Cancel</button>
                             <a href="{{ url_for('delete_update', update_id=update._id) }}" type="button"
-                                class="btn btn-secondary ">Delete</a>
+                                class="btn btn-secondary btn-block">Delete</a>
                         </div>
                     </div>
                 </div>
