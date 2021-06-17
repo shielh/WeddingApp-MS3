@@ -24,7 +24,8 @@ p {
     font-family: "Roboto", sans-serif;
 }
 
-.form-outline {
+.form-outline,
+.form-group {
     border: 1px solid #262626;
 }
 
@@ -41,7 +42,7 @@ p {
 }
 
 .card-body{
-    width: 90%;
+    width: 60%;
 }
 
 /* Navbar styling */
@@ -160,7 +161,7 @@ span.navbar-toggler-icon{
 
 .form-container {
     padding-top: 10px;
-    width: fit-content;
+    width: 60%;
     margin: auto;
 }
 
@@ -207,7 +208,7 @@ span.navbar-toggler-icon{
 }
 
 .preference-text{
-    text-align: left;
+    text-align: center;
 }
 
 .list-group-item {

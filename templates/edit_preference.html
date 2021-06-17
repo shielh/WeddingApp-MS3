@@ -10,10 +10,10 @@
                 <!-- select number of party -->
                 <div class="form-outline guest-form-outline">
                     <div class="row mb-4">
-                        <div class="col-7">
+                        <div class="col-7 text-start">
                             <i class="fas fa-users fa-icon"> Number of Guests</i>
                         </div>
-                        <div class="col-1">
+                        <div class="col-1 text-end">
                             <select id="number_of_party" name="number_of_party" class="validate" required>
                                 <option value="">Select</option>
                                 <!--Create for loop to create values of 1-5 to choose from-->
@@ -28,10 +28,10 @@
                 <div class="form-outline guest-form-outline">
                     <div class="form-check form-switch">
                         <div class="row mb-4">
-                            <div class="col-8 ">
-                                <i class="fas fa-bed fa-icon">Accomodation</i>
+                            <div class="col-8 text-start">
+                                <i class="fas fa-bed fa-icon"> Accomodation</i>
                             </div>
-                            <div class="col-4 ">
+                            <div class="col-4 text-end">
                                 {% if guest_info.require_accommodation == "Yes" %}
                                 <input class="form-check-input" type="checkbox" id="require_accommodation"
                                     name="require_accommodation" checked />
@@ -48,11 +48,11 @@
                 <div class="form-outline guest-form-outline">
 
                     <div class="form-check form-switch">
-                        <div class="row mb-4">
-                            <div class="col-8">
-                                <i class="fas fa-utensils fa-icon">Dietary Needs?</i>
+                        <div class="row mb-4 mt-4">
+                            <div class="col-8 text-start">
+                                <i class="fas fa-utensils fa-icon"> Dietary Needs?</i>
                             </div>
-                            <div class="col-4 ">
+                            <div class="col-4 text-end">
                                 {% if guest_info.dietary_restrictions == "Yes" %}
                                 <input class="form-check-input" type="checkbox" id="dietary_restrictions"
                                     name="dietary_restrictions" value="{{ guest_info.dietary_restrictions }}" checked />
@@ -66,7 +66,7 @@
                 </div>
 
                 <!-- Text input -->
-                <div class="form-outline additional-text-box mb-4">
+                <div class="form-outline additional-text-box mb-4 mt-4">
                     <textarea class="form-control active" id="dietary_restrictions_description"
                         name="dietary_restrictions_description" rows="2" maxlength="100">
                         {{- guest_info.dietary_restrictions_description -}}</textarea>
@@ -77,7 +77,7 @@
 
                 <!-- Date arrival picker -->
                 <div class="row mb-4">
-                    <div class="col-4">
+                    <div class="col-4 text-start">
                         <i class="far fa-calendar-check fa-icon">Arrival </i>
                     </div>
                     <div class="col-4 p-0">
