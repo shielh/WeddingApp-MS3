@@ -61,7 +61,7 @@ and received the following result:
 <img src="static/images/testing/webAccessibility.PNG" alt="WeddingApp Web Accessibility check">
 ---
 
-[Back to top](#Automated-Testing)
+[Back to top](#Table-of-Contents)
 
 ## Manual Testing
 I conducted tests on all user stories and features on the site:
@@ -109,6 +109,8 @@ All links in header have correct, functioning links
 Pass
 
 ---
+
+[Back to top](#Table-of-Contents)
 
 ### Test Case 2
 
@@ -162,6 +164,7 @@ Pass
 
 ---
 
+
 ### Test Case 4
 
 **Description:**<br>
@@ -185,7 +188,7 @@ Pass
 
 ---
 
-[Back to top](#Automated-Testing)
+[Back to top](#Table-of-Contents)
 
 ### Test Case 5
 
@@ -242,7 +245,7 @@ Users can view, update and delete the preference they added
 Pass
 
 --- 
-[Back to top](#Automated-Testing)
+[Back to top](#Table-of-Contents)
 
 ### Test Case 7
 
@@ -294,6 +297,8 @@ You receive an email telling you an update has been added
 Pass
 
 <img src="static/images/testing/flaskEmail.PNG" alt="WeddingApp Flask Email Test">
+
+[Back to top](#Table-of-Contents)
 
 ---
 
@@ -436,7 +441,7 @@ Pass
 
 ---
 
-[Back to top](#Automated-Testing)
+[Back to top](#Table-of-Contents)
 
 ## Issues and Solutions
 - A bug I faced later in development was my text area inputs would begin wherever I clicked in the box as opposed to the beginning of the box. This led 
@@ -459,4 +464,4 @@ delete the oldest entry no matter what delete button I pressed. After inspecting
 specific to the ObjectID of the entry. So I had to change the targetdata id and id in the modal box to include the ObjectID of the specific entry using jinja templating.
 
 
-[Back to top](#Automated-Testing)
+[Back to top](#Table-of-Contents)
