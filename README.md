@@ -28,9 +28,9 @@ will be a great learning curve for what I can expect when I start working as a W
         * [Database Design](#Database-Schema)
     * [The Surface Plane](#The-Surface-Plane)
         * [Design](#Design)
-            * [Colour Scheme](#Colour-Scheme)
-            * [Typography](#Typography)
-            * [Imagery](#Imagery)
+            * [Font](#Font)
+            * [Images](#Images)
+            * [Colour Scheme](#colour-scheme)
 * [Features](#Features)
     - [Future Features to Implement](#future-features-to-implement)
 * [Technologies Used](#Technologies-Used)
@@ -225,8 +225,8 @@ Implementation:
 
 ### The Skeleton Plane
 #### Wireframes
-The desktop version wireframes for this project can be found [here](Mockups/Desktop) and the mobile version can be found [here](Mockups/Mobile).
-The client changed their mind throughout the process of building the site as can be seen if you view the original wireframes [here](OldMockups)
+The desktop version wireframes for this project can be found [here](Wireframes/Desktop) and the mobile version can be found [here](Wireframes/Mobile).
+The client changed their mind throughout the process of building the site as can be seen if you view the original wireframes [here](Wireframes/OldWireframes)
 
 #### Database Schema
 The application uses three collections named user, guest_info and update. The following are made up examples<br>
@@ -273,6 +273,7 @@ fact that the property is on an olive farm.
 I used [BootsWatch](https://bootswatch.com/) Minty theme for my Bootstrap website. Please see the image below for the colour scheme:
 
 <img src="static/images/testing/minty.PNG" alt="WeddingApp Bootswatch Minty Colour Scheme">
+
 
 [Back to top](#Table-of-Contents)
 ---
@@ -332,11 +333,16 @@ I used [BootsWatch](https://bootswatch.com/) Minty theme for my Bootstrap websit
     - This was used to test the accessibility of this site for users with disabilities
 
 [Back to top](#Table-of-Contents)
+
 ---
+
 ## Testing
 The testing documentation can be found [here](TESTING.md)
 
 ---
+
+## Security 
+
 ## Deployment 
 ### Initial Creation
 Wedding App was first created by completing the following steps on GitHub:
@@ -415,6 +421,7 @@ in the CLI and paste your copied URL
 [Back to top](#Table-of-Contents)
 
 ## Credits
+
 --- 
 ### Content
 - The decorator function for ensuring there's an active user or an admin was taken from [here](https://flask.palletsprojects.com/en/2.0.x/patterns/viewdecorators/)
@@ -426,8 +433,10 @@ and this [tutorial](https://pythonbasics.org/flask-mail/)
 - I used the [La Dogana Site](https://agriturismodogana.it/) to retrieve information about the property to put on the site
 - I used this [link](https://codeconvey.com/footer-at-bottom-of-page-but-not-fixed/) to help resolve my problem with my footer sticking to the bottom
 ---
+
 ### Media
 - The photos used on this site were obtained from [Unsplash](https://unsplash.com/).
+
 ---
 ### Acknowledgements
 A huge thank you to:
@@ -436,4 +445,5 @@ A huge thank you to:
 - My sister Emma for trusting me to create her wedding website and for being a great first client to work with
 - My peers in various Slack channels for always getting back to me quickly with questions or feedback.
 --- 
+
 [Back to top](#Table-of-Contents)
