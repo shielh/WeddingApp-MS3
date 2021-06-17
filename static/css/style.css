@@ -161,7 +161,6 @@ span.navbar-toggler-icon{
 
 .form-container {
     padding-top: 10px;
-    width: 60%;
     margin: auto;
 }
 
@@ -170,7 +169,14 @@ span.navbar-toggler-icon{
     margin-bottom: 0;
 }
 
-.register-h2 {
+.login-form{
+    padding-top: 10px;
+    width: 100%;
+    margin: auto;
+}
+
+.register-h2,
+.login-h2 {
     color: #9b9871;
     margin-top: 20px;
 }
