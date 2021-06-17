@@ -38,6 +38,7 @@ will be a great learning curve for what I can expect when I start working as a W
     - [Libraries and Frameworks](#libraries-and-frameworks)
     - [Tools](#tools)
 * [Testing](#testing)
+* [Security](#security)
 * [Deployment](#deployment)
     * [Initial Creation](#initial-creation)
     * [Deployment to Heroku](#deployment-to-heroku)
@@ -347,6 +348,9 @@ The testing documentation can be found [here](TESTING.md)
 ---
 
 ## Security 
+I have stored all sensitive information in my env.py file which is ignored. Any user that registers an account will have their password undergo password hashing as an extra security measure. 
+To make the webpages more secure for logged in users and admin users, I have added function decorators to the other python functions ensuring that a user must in fact be logged in to access 
+information or they must be verified as admin to view the areas of the site only admin users can view.
 
 ## Deployment 
 ### Initial Creation
