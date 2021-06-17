@@ -82,6 +82,7 @@ All links in header have correct, functioning links
 
 **Pass/Fail:** <br>
 Pass
+
 ---
 
 Test Case 2
@@ -106,6 +107,7 @@ All images and clipart are visible
 
 **Pass/Fail:**<br>
 Pass
+
 ---
 
 * As a user, I want to be able to register an account so I can add any required information the bride might need
@@ -132,6 +134,7 @@ Verify registration functionality performs as expected
 
 **Pass/Fail:**<br>
 Pass
+
 ---
 
 Test Case 4
@@ -154,6 +157,7 @@ Registration will not be successful
 
 **Pass/Fail:**<br>
 Pass
+
 ---
 
 Test Case 5
@@ -178,6 +182,7 @@ Verify register users can add their preferences
 
 **Pass/Fail:**<br>
 Pass
+
 ---
 
 Test Case 6
@@ -233,6 +238,7 @@ You are able to view content about the wedding
 
 **Pass/Fail:**<br>
 Pass
+
 ---
 
 Test Case 8
@@ -258,6 +264,7 @@ You receive an email telling you an update has been added
 
 **Pass/Fail:**<br>
 Pass
+
 ---
 
 Test Case 9
@@ -279,6 +286,9 @@ Verify Error 404 page is displayed when navigating to a page that does not exist
 
 **Pass/Fail:**<br>
 Pass
+
+<img src="static/images/testing/404.PNG" alt="WeddingApp Error 404 check">
+<img src="static/images/testing/404-Phone.PNG" alt="WeddingApp Error 404 Mobile check">
 ---
 
 Test Case 10
@@ -301,6 +311,10 @@ Verify Error 500 page is displayed when an internal server error occurs
 
 **Pass/Fail:**<br>
 Pass
+
+<img src="static/images/testing/500.PNG" alt="WeddingApp Error 500 check">
+<img src="static/images/testing/500-Phone.PNG" alt="WeddingApp Error 500 Mobile check">
+
 ---
 
 Test Case 11
