@@ -38,6 +38,8 @@ and received the following result:
 <img src="static/images/testing/webAccessibility.PNG" alt="WeddingApp Web Accessibility check">
 ---
 
+[Back to top](#Automated-Testing)
+
 ## Manual Testing
 I conducted tests on all user stories and features on the site:
 For all test cases, I opened the web application via this [link](https://wedding-app-ms3.herokuapp.com/)
@@ -160,6 +162,8 @@ Pass
 
 ---
 
+[Back to top](#Automated-Testing)
+
 Test Case 5
 
 **Description:**<br>
@@ -215,6 +219,7 @@ Users can view, update and delete the preference they added
 Pass
 
 --- 
+[Back to top](#Automated-Testing)
 
 Test Case 7
 
@@ -317,6 +322,42 @@ Pass
 
 ---
 
+Test Case 12
+
+**Description:**<br>
+Verify all routes are functioning correctly while signed out, signed in and as admin
+
+**Steps:**<br>
+1. While logged out, click the URL and attempt to access all routes including:
+    - /home
+    - /accommodation
+    - /faq
+    - /register
+    - /login
+    - /logout
+    - /view_preferences
+    - /get_guest_info
+    - /add_preference
+    - /edit_preference
+    - delete_preference
+    - /update
+    - /add_update
+    - /edit_update
+    - /delete_update
+
+2. Repeat testing all routes, while logged in
+3. Repeat testing all routes, while logged in as admin
+
+**Expected Result:**<br>
+
+
+**Actual Result:**<br>
+
+
+**Pass/Fail:**<br>
+
+
+---
 Test Case 11
 
 **Description:**<br>
@@ -336,4 +377,19 @@ You are redirected to login page
 
 **Pass/Fail:**<br>
 Pass
+
 ---
+
+[Back to top](#Automated-Testing)
+
+## Issues and Solutions
+- A bug I faced later in development was my text area inputs would begin wherever I clicked in the box as opposed to the beginning of the box. This led 
+to data being saved in MongoDB with trailing whitespace at the beginning on the string. Please see the image below:
+
+<img src="static/images/testing/bug1.PNG" alt="WeddingApp Text Area Bug">
+
+To resolve this issue, I had to have the closing 'textarea' tag directly after the opening tag
+
+- I encountered another issue where a person that was logged in could view the admin preference page with all the guests information. I had an error in my decorator function 
+where I had written: if session["is_admin"] which was checking if the attribute is present in the dictionary which it is for all users. I then changed the code to session.get("is_admin) 
+which secured the page to admin users only

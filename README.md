@@ -37,7 +37,6 @@ will be a great learning curve for what I can expect when I start working as a W
     - [Libraries and Frameworkds](#libraries-and-frameworks)
     - [Tools](#tools)
 * [Testing](#testing)
-
 * [Deployment](#deployment)
     * [Initial Creation](#initial-creation)
     * [Deployment to Heroku](#deployment-to-heroku)
@@ -377,6 +376,9 @@ in the CLI and paste your copied URL
 - The flask mail functionality was created with the help of this [YouTube Tutorial](https://www.youtube.com/watch?v=48Eb8JuFuUI), this [documentation](https://flask-mail.readthedocs.io/en/latest/) 
 and this [tutorial](https://pythonbasics.org/flask-mail/) 
 - I used [this](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/) resource to help make my custom error pages
+- I used this [WikiPedia Link](https://en.wikipedia.org/wiki/Lake_Trasimeno) to get information on the area for the Accommodation page
+- I used the [La Dogana Site](https://agriturismodogana.it/) to retrieve information about the property to put on the site
+- I used this [link](https://codeconvey.com/footer-at-bottom-of-page-but-not-fixed/) to help resolve my problem with my footer sticking to the bottom
 ---
 ### Media
 - The photos used on this site were obtained from [Unsplash](https://unsplash.com/).
