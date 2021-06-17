@@ -31,7 +31,7 @@ app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = 'shiel.helen@gmail.com'
 app.config['MAIL_PASSWORD'] = os.environ.get("MAIL_PASSWORD")
-app.config['MAIL_DEFAULT_SENDER'] = 'shiel.helen@gmail.com'
+app.config['MAIL_DEFAULT_SENDER'] = os.environ.get("MAIL_DEFAULT_SENDER")
 app.config['MAIL_MAX_EMAILS'] = None
 app.config['MAIL_ASCII_ATTACHMENTS'] = False
 
@@ -61,6 +61,16 @@ def must_be_admin(f):
             return redirect("home")
         # if user is not logged in, prompt to log in
         return redirect(url_for("login"))
+    return decorated_function
+
+
+# Create function decorator for users not logged in
+def must_not_be_logged_in(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if "user" not in session:
+            return f(*args, **kwargs)
+        return redirect(url_for("home"))
     return decorated_function
 
 
@@ -97,6 +107,7 @@ def faq():
 
 
 @app.route("/register", methods=["GET", "POST"])
+@must_not_be_logged_in
 def register():
     """
     Allows users to register for
@@ -129,6 +140,7 @@ def register():
 
 
 @app.route("/login", methods=["GET", "POST"])
+@must_not_be_logged_in
 def login():
     """
     Checks if email exists in database and
@@ -184,7 +196,7 @@ def view_preferences():
     """
     guest_infos = mongo.db.guest_info.find()
     return render_template("view_preferences.html",
-                            guest_infos=guest_infos)
+                           guest_infos=guest_infos)
 
 
 @app.route("/get_guest_info")
@@ -272,59 +284,56 @@ def delete_preference(guest_info_id):
         mongo.db.guest_info.remove({"_id": ObjectId(guest_info_id)})
         flash("You Have Deleted a Preference")
         return redirect(url_for("view_preferences"))
-    #Check with G
+    # Ensures user is same user that added preference
     guest_info = mongo.db.guest_info.find_one({"_id": ObjectId(guest_info_id)})
     if session["user"] == guest_info["created_by"]:
         mongo.db.guest_info.remove({"_id": ObjectId(guest_info_id)})
         flash("Preference Deleted")
-        return render_template("add_preference.html")
-    else: 
+        return redirect(url_for("get_guest_info"))
+    else:
         return redirect(url_for('home'))
 
 
 @app.route("/update")
 @must_be_admin
 def update():
-    return render_template("update.html")
+    return render_template("add_update.html")
 
 
-@app.route("/add_update", methods=["GET", "POST"])
+@app.route("/add_update", methods=["POST"])
 @must_be_admin
 def add_update():
     """
     Allows an admin user to add an update and email all non-admin users
     when the update is added
     """
-    if request.method == "POST":
-        updates = {
-            "date": request.form.get("date"),
-            "title": request.form.get("title"),
-            "description": request.form.get("description"),
-            "created_by": session["user"]
-        }
-        mongo.db.update.insert_one(updates)
+    updates = {
+        "date": request.form.get("date"),
+        "title": request.form.get("title"),
+        "description": request.form.get("description"),
+        "created_by": session["user"]
+    }
+    mongo.db.update.insert_one(updates)
 
-        # Sends email to all users with admin set to False
-        users = mongo.db.user.find({"is_admin": False}, {"email": 1})
-        email_list = [user["email"] for user in users if "email" in user]
+    # Sends email to all users with admin set to False
+    users = mongo.db.user.find({"is_admin": False}, {"email": 1})
+    email_list = [user["email"] for user in users if "email" in user]
 
-        msg = Message('Update Added', recipients=email_list)
-        msg.html = """Hey guys,<br><br>
-            We have just added an update to the site which you can
-             view by logging in <a href=
-            "https://wedding-app-ms3.herokuapp.com/login">
-            here</a><br>
-            <br>
-            Thanks,<br>
-            Emma and Dave
-                """
-        mail.send(msg)
+    msg = Message('Update Added', recipients=email_list)
+    msg.html = """Hey guys,<br><br>
+        We have just added an update to the site which you can
+            view by logging in <a href=
+        "https://wedding-app-ms3.herokuapp.com/login">
+        here</a><br>
+        <br>
+        Thanks,<br>
+        Emma and Dave
+            """
+    mail.send(msg)
 
-        flash("You Have Added an Update")
+    flash("You Have Added an Update")
 
-        return redirect(url_for("home"))
-
-    return render_template("index.html")
+    return redirect(url_for("home"))
 
 
 @app.route("/edit_update/<update_id>", methods=["GET", "POST"])
