@@ -219,8 +219,11 @@ User Story:
  As a user, I want the website to be responsive across all devices
 
 Acceptance Criteria:
+* The page content should be responsive and be displayed clearly on all devices
 
 Implementation:
+Material Design for Bootstrap will be used for this site with suitable column sizes in place for different devices as well as media queries being use in my resposive.css file.
+
 [Back to top](#Table-of-Contents)
 
 ### The Skeleton Plane
