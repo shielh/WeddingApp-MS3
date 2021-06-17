@@ -18,6 +18,7 @@
     * [Test Case 10](#Test-Case-10)
     * [Test Case 11](#Test-Case-11)
     * [Test Case 12](#Test-Case-12)
+    * [Test Case 13](#Test-Case-13)
 * [Issues and Solutions](#Issues-and-Solutions)
 
 ## Automated Testing
@@ -405,6 +406,35 @@ You are redirected to login page
 Pass
 
 ---
+### Test Case 13
+
+**Description:**<br>
+Verify all flash messages are appearing correctly on pages
+
+**Steps:**<br>
+1. Navigate to the site
+2. Register and ensure flash message appears
+3. Logout and ensure flash message appears
+4. Login and ensure flash message appears
+5. Enter incorrect password and ensure flash message appears
+6. Enter incorrect email and ensure flash message appears
+7. Add preferences and ensure flash message appears
+8. Update your preferences and ensure flash message appears
+9. Delete your preference and ensure flash message appears
+10. Add an update (as an admin) and ensure flash message appears
+11. Edit an update and ensure flash message appears
+12. Delete an update and ensure flash message appears
+
+**Expected Result:**<br>
+You should see all relevant flash messages
+
+**Actual Result:**<br>
+You see all relevant flash messages
+
+**Pass/Fail:**<br>
+Pass
+
+---
 
 [Back to top](#Automated-Testing)
 
@@ -424,3 +454,9 @@ which secured the page to admin users only
 the form should have increased in its width. I hadn't used jinja templating in my href for the style link and hadn't included "../" at the beginning of the path. I changed the 
 href to "{{ url_for('static', filename='css/responsive.css') }}" and everything fell back in place.
 
+- While doing last minute checks of my site, I discovered that when I was attempting to delete either an update or a preference (as an admin user), where there were multiple entries, it would 
+delete the oldest entry no matter what delete button I pressed. After inspecting the code and the elements in great detail, I discovered that the id that was being called in the modal box wasn't 
+specific to the ObjectID of the entry. So I had to change the targetdata id and id in the modal box to include the ObjectID of the specific entry using jinja templating.
+
+
+[Back to top](#Automated-Testing)
